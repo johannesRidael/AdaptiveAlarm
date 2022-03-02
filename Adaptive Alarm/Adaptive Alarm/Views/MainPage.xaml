@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+ 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Adaptive_Alarm.Views.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+    <Grid Margin="10, 10, 10, 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Text="Monday:
+               10:00 A.M." 
+               Grid.Row="0" Grid.Column="0" FontSize="Large"/>
+        <Button Text="Change Time" Grid.Row="0" Grid.Column="1" Margin="10, 10, 10, 10"/>
+
+        <Label Text="Tuesday:
+               None" 
+               Grid.Row="1" Grid.Column="0" FontSize="Large"
+               />
+        <Button Text="Change Time" Grid.Row="1" Grid.Column="1" Margin="10, 10, 10, 10"/>
+            
+        <Label Text="Wednesday" Grid.Row="2" Grid.Column="0" FontSize="Large"/>
+        <Button Text="Change Time" Grid.Row="2" Grid.Column="1" Margin="10, 10, 10, 10"/>
+
+        <Label Text="Thursday" Grid.Row="3" Grid.Column="0" FontSize="Large"/>
+        <Button Text="Change Time" Grid.Row="3" Grid.Column="1" Margin="10, 10, 10, 10"/>
+
+        <Label Text="Friday" Grid.Row="4" Grid.Column="0" FontSize="Large"/>
+        <Button Text="Change Time" Grid.Row="4" Grid.Column="1" Margin="10, 10, 10, 10"/>
+
+        <Label Text="Saturday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
+        <Button Text="Change Time" Grid.Row="5" Grid.Column="1" Margin="10, 10, 10, 10"/>
+
+        <Label Text="Sunday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
+        <Button Text="Change Time" Grid.Row="6" Grid.Column="1" Margin="10, 10, 10, 10"/>
+
+        
+    </Grid>
+
+            <Button Text="Change alarms for the week" VerticalOptions="Center" Margin="100, 0, 100, 0"/>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+
+
+</ContentPage>
