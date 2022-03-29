@@ -15,3 +15,20 @@ C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm\obj\
 C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\ref\Adaptive Alarm.dll
 C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
 C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\Information.xaml.g.cs
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.deps.json
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.dll
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\ref\Adaptive Alarm.dll
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.pdb
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\Information.xaml.g.cs
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.AssemblyInfoInputs.cache
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.AssemblyInfo.cs
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.csproj.CoreCompileInputs.cache
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.dll
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\ref\Adaptive Alarm.dll
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.pdb
+C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Adaptive_Alarm.Views.SettingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Settings"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand"
+                Scale="3"
+                Margin="10,10,10,30"/>
+            <Button Text="Change Connected Device Type" Margin="10,0,10,0"/>
+            <Picker Title="Device Type" Margin="10,0,10,20" SelectedIndex="0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>None</x:String>
+                        <x:String>Fitbit</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Button Text="Reset Sleep Data" Margin="10,0,10,0"/>
+            <Label Text="Current working dataset began: 03/29/2022" Margin="10,0,10,20"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
