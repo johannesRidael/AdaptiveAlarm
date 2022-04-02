@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using System;
+using System.Collections.Generic
 
 namespace Adaptive_Alarm
 {
@@ -64,16 +66,43 @@ namespace Adaptive_Alarm
                     attempts[ind] = 105;
                     CurrCycle = 105;
                 }
+                else if (ind == 2)
+                {
+
+                }
+                else if (ind == 3 && scores[0] == scores[1] && scores[1] == scores[2])
+                {
+                    attempts[ind] = 60;
+                    CurrCycle = 60;
+                }
+                else if (ind == 4 && scores[0] == scores[1] && scores[1] == scores[2] && scores[2] == scores[3])
+                {
+                    attempts[ind] = 120;
+                    CurrCycle = 120;
+                }
                 else
                 {
-                    if (scores[ind-1] <= scores[ind-2])
+                    int maxScore = 0;
+                    int maxInd = -1;
+                    HashSet<int> attempts = new HashSet<int>();
+                    for(int i = 1; i < 4; i++)
                     {
-                        
+                        attempts.Add(attempts[ind-i]);
+                        if(scores[ind-i] > maxScore)
+                        {
+                            maxScore = scores[ind-i];
+                            maxInd = i;
+                        }
                     }
-                    else
+                    int diff = Math.Max(Math.Abs(attempts[ind-1] - attempts[ind-2]), Math.Abs(attempts[ind-2] - attempts[ind-3]) / 2;
+                    attempts[ind] = attempts[ind-maxInd];
+                    
+                    CurrCycle = attempts[ind-maxInd] + diff;
+                    if (attempts.Contains(CurrCycle))
                     {
-
+                        CurrCycle -= 2*diff;
                     }
+                    attempts[ind+1] = CurrCycle
                 }
             }
             else
