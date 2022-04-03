@@ -44,65 +44,55 @@ namespace Adaptive_Alarm
 
         }
 
-        int[] attempts = new int[60];
-        int[] scores = new int[60];
-        int ind = 0;
+        int[] attempts = new int[64];
+        int[] scores = new int[64];
+        int ind = 0; // 0 for initial implementation
+        int trialC = 0;
         int optCycleTime = 0;
         int awakeTime = 10; // in minutes
-        int step = 15;
+        int high = 120;
+        int low = 60;
+        int[] searchTree = {0, 90, 75, 105, 67, 83, 97, 113, 63, 71, 79, 87, 93, 101, 109, 117, 61, 65, 69, 73, 77, 81, 85, 89, 91, 95, 99, 103, 107, 
+            111, 115, 119, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120};
         protected async void findAlarmTime()
         {
+            //searchTree is a BinarySearchTree represented as an array
+            // if parent is at ind:
+            //     left child is at ind*2
+            //     right child is at ind*2 + 1
+            //childs parent is at floor(ind/2)
             int CurrCycle = -1;
             if(optCycleTime == 0)
             {
-                // use step and prev to find next attempt
-                if (ind == 0)
+                if(ind == 0)
                 {
-                    attempts[ind] = 90;
-                    CurrCycle = 90;
+                    ind = 1;
+                    CurrCycle = 90; 
                 }
-                else if (ind == 1)
+                else if (low != 60 || high != 120)
                 {
-                    attempts[ind] = 105;
-                    CurrCycle = 105;
-                }
-                else if (ind == 2)
-                {
-
-                }
-                else if (ind == 3 && scores[0] == scores[1] && scores[1] == scores[2])
-                {
-                    attempts[ind] = 60;
-                    CurrCycle = 60;
-                }
-                else if (ind == 4 && scores[0] == scores[1] && scores[1] == scores[2] && scores[2] == scores[3])
-                {
-                    attempts[ind] = 120;
-                    CurrCycle = 120;
+                    //TODO: implement
                 }
                 else
                 {
-                    int maxScore = 0;
-                    int maxInd = -1;
-                    HashSet<int> attempts = new HashSet<int>();
-                    for(int i = 1; i < 4; i++)
+                    if (scores[ind] > scores[(int)ind/2]) // if we scored better than our parent
                     {
-                        attempts.Add(attempts[ind-i]);
-                        if(scores[ind-i] > maxScore)
-                        {
-                            maxScore = scores[ind-i];
-                            maxInd = i;
-                        }
+                        ind = ind*2 + 1; //try right side first
+                        CurrCycle = searchTree[ind];
                     }
-                    int diff = Math.Max(Math.Abs(attempts[ind-1] - attempts[ind-2]), Math.Abs(attempts[ind-2] - attempts[ind-3]) / 2;
-                    attempts[ind] = attempts[ind-maxInd];
-                    
-                    CurrCycle = attempts[ind-maxInd] + diff;
-                    if (attempts.Contains(CurrCycle))
+                    else if (scores[((int)ind/2) * 2] == 0)//we scored worse or equal to parent, and haven't tried left side yet
                     {
-                        CurrCycle -= 2*diff;
+                        ind = ((int)ind/2) * 2;
+                        CurrCycle = searchTree[ind]
                     }
-                    attempts[ind+1] = CurrCycle
+                    else if (scores[ind] < scores[(int)ind/2]) // we scored worse than parent, and tried left side
+                    {
+                        low = scores[2 * (int)ind/2];
+                        high = searchTree[1 + 2 * (int)ind/2];
+                        attempts[0] = low + (int)(high-low)/2;
+                        CurrCycle = attempts[0];
+                        ind = 1;
+                    }
                 }
             }
             else
