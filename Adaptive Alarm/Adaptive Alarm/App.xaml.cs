@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using System;
-using System.Collections.Generic
+using System.Collections.Generic;
+
 
 namespace Adaptive_Alarm
 {
@@ -26,12 +27,12 @@ namespace Adaptive_Alarm
         {
         }
 
-        private void nearestMidnight(DateTime dt)
+        private DateTime nearestMidnight(DateTime dt)
         {
             DateTime p1 = new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0);
             DateTime p2 = new DateTime(dt.Year, dt.Month, dt.Day + 1, 0, 0, 0);
-            TimeSpan dif1 = Math.Abs(p1 - dt);
-            TimeSpan dif2 = Math.Abs(p2 - dt);
+            double dif1 = Math.Abs((p1 - dt).TotalMinutes);
+            double dif2 = Math.Abs((p2 - dt).TotalMinutes);
             if (dif1 < dif2)
             {
                 return p1;
@@ -42,6 +43,20 @@ namespace Adaptive_Alarm
             }
             //TODO: Add handling for nonconventional sleep times, i.e. graveyard workers
 
+        }
+        private int maxInd(int[] arr)
+        {
+            int ret = -1;
+            int max = arr[0];
+            for(int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] > max)
+                {
+                    ret = i;
+                    max = arr[i];
+                }
+            }
+            return ret;
         }
 
         int[] attempts = new int[64];
@@ -71,27 +86,66 @@ namespace Adaptive_Alarm
                 }
                 else if (low != 60 || high != 120)
                 {
-                    //TODO: implement
+                    int diff = Math.Abs(attempts[ind-1] - attempts[ind]);
+                    if(diff == 0)
+                    {
+                        int bestInd = maxInd(scores);
+                        CurrCycle = attempts[bestInd];
+                        optCycleTime = CurrCycle;
+                    }
+                    else if (scores[ind] > scores[ind-1])
+                    {
+                        attempts[ind+1] = attempts[ind] + (int) diff/2;
+                    }
+                    else if (scores[ind] <= scores[ind-1])
+                    {
+                        attempts[ind+1] = attempts[ind-1] - diff;
+                        while (Array.IndexOf(attempts, attempts[ind+1]) != ind + 1)
+                        {
+                            diff = (int)diff/2;
+                            attempts[ind+1] = attempts[ind-1] - diff;
+                        }
+                    }
+                    CurrCycle = attempts[ind+1];
+                    ind++;
+
                 }
                 else
                 {
                     if (scores[ind] > scores[(int)ind/2]) // if we scored better than our parent
                     {
-                        ind = ind*2 + 1; //try right side first
-                        CurrCycle = searchTree[ind];
+                        if (ind * 2 + 1 >= searchTree.Length)
+                        {//we've reached the end of the tree which means the best score we found should hopefully be the best possible
+                            
+                            int bestInd = maxInd(scores);
+                            CurrCycle = searchTree[bestInd];
+                            optCycleTime = CurrCycle;
+                        }
+                        else
+                        {
+                            ind = ind*2 + 1; //try right side first
+                            CurrCycle = searchTree[ind];
+                        }
                     }
                     else if (scores[((int)ind/2) * 2] == 0)//we scored worse or equal to parent, and haven't tried left side yet
                     {
                         ind = ((int)ind/2) * 2;
-                        CurrCycle = searchTree[ind]
+                        CurrCycle = searchTree[ind];
                     }
                     else if (scores[ind] < scores[(int)ind/2]) // we scored worse than parent, and tried left side
                     {
                         low = scores[2 * (int)ind/2];
                         high = searchTree[1 + 2 * (int)ind/2];
-                        attempts[0] = low + (int)(high-low)/2;
-                        CurrCycle = attempts[0];
+                        attempts[0] = searchTree[(int)ind/2];
+                        scores = new int[high - low + 1];
+                        scores[0] = scores[(int)ind/2];
+                        attempts[1] = low + (int)3*(high-low)/4;
+                        CurrCycle = attempts[1];
                         ind = 1;
+                    }
+                    else //all three are equal
+                    {
+
                     }
                 }
             }
@@ -102,9 +156,9 @@ namespace Adaptive_Alarm
             DateTime now = DateTime.Now;
             TimeSpan wakeBy = getWakeBy();
             DateTime nm = nearestMidnight(now);
-            DateTime wakeBy = nm + wakeBy;
-            TimeSpan ttSleep = wakeBy - now;
-            int minToSleep = ttSleep.TotalMinutes;
+            DateTime wakeBy2 = nm + wakeBy;
+            TimeSpan ttSleep = wakeBy2 - now;
+            double minToSleep = ttSleep.TotalMinutes;
 
             int timeTillAlarm = awakeTime;
             while(timeTillAlarm < minToSleep - CurrCycle)
