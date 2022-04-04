@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "iDQQFA7HWp5S/dt8n6m0jOaEVj9Xp0BuF0haSdKAAAtMlbbxVQRYvADnksmBokp+pbrS1/LuFWBVFFN8m11Qzg==",
+  "dgSpecHash": "u2Izd/G4ZFbRCdKp6rOqCErk2aDmtwSgQMenM0TaZQ6sEqLBaHYvqr2pbXKBkLZBW8iKIVSaOdMcXF07MMRnJA==",
   "success": true,
   "projectFilePath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\eeeeee\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.androidx.activity\\1.2.4.1\\xamarin.androidx.activity.1.2.4.1.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.androidx.annotation\\1.2.0.1\\xamarin.androidx.annotation.1.2.0.1.nupkg.sha512",

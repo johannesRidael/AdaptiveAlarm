@@ -1,9 +1,9 @@
 using Xamarin.Forms.Xaml;
+using System.Collections.Generic;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)] 
-namespace AppData
+namespace GaCData
 {
-    public abstract class AppDataContainer
+    public class GaCDataContainer
     {
         public int[] AttemptsArr { get; set; }
         public int[] ScoresArr { get; set; }
@@ -11,6 +11,19 @@ namespace AppData
         public int optCycleTime { get; set; }
         public int upperBound { get; set; }
         public int lowerBound { get; set; }
+        public Queue<int> BFSqueue { get; set; }
+        public int firstQscore { get; set; }
 
+        public GaCDataContainer()
+        {
+            AttemptsArr = new int[64];
+            ScoresArr = new int[64];
+            BFSqueue = new Queue<int>();
+            ScoreAttemptTreeInd = 0; // 0 for initial implementation
+            optCycleTime = 0;
+            upperBound = 120;
+            lowerBound = 60;
+            firstQscore = -1;
+        }
     }
 }
