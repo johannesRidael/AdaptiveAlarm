@@ -1,50 +1,50 @@
-@string/appbar_scrolling_view_behavior;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
+@string/appbar_scrolling_view_behavior;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
 adaptive-icon;obj\Debug\120\res\mipmap-anydpi-v26\icon.xml
 adaptive-icon;obj\Debug\120\res\mipmap-anydpi-v26\icon_round.xml
-alpha;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromleft.xml
-alpha;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoleft.xml
-androidx.appcompat.widget.Toolbar;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\fallbacktoolbardonotuse.xml
-androidx.appcompat.widget.Toolbar;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
-androidx.appcompat.widget.Toolbar;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\shellcontent.xml
-androidx.appcompat.widget.Toolbar;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\toolbar.xml
-androidx.coordinatorlayout.widget.CoordinatorLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
-androidx.coordinatorlayout.widget.CoordinatorLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\shellcontent.xml
-attr;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\attrs.xml
+alpha;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromleft.xml
+alpha;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoleft.xml
+androidx.appcompat.widget.Toolbar;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\fallbacktoolbardonotuse.xml
+androidx.appcompat.widget.Toolbar;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
+androidx.appcompat.widget.Toolbar;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\shellcontent.xml
+androidx.appcompat.widget.Toolbar;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\toolbar.xml
+androidx.coordinatorlayout.widget.CoordinatorLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
+androidx.coordinatorlayout.widget.CoordinatorLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\shellcontent.xml
+attr;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\attrs.xml
 background;obj\Debug\120\res\mipmap-anydpi-v26\icon.xml
 background;obj\Debug\120\res\mipmap-anydpi-v26\icon_round.xml
-cache-path;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\120\res\values\colors.xml
-com.google.android.material.appbar.AppBarLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\flyoutcontent.xml
-com.google.android.material.appbar.AppBarLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
-com.google.android.material.appbar.AppBarLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\shellcontent.xml
-com.google.android.material.bottomnavigation.BottomNavigationView;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\bottomtablayout.xml
-com.google.android.material.tabs.TabLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\fallbacktabbardonotuse.xml
-com.google.android.material.tabs.TabLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
-com.google.android.material.tabs.TabLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\tabbar.xml
-declare-styleable;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\attrs.xml
-external-cache-path;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+com.google.android.material.appbar.AppBarLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\flyoutcontent.xml
+com.google.android.material.appbar.AppBarLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
+com.google.android.material.appbar.AppBarLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\shellcontent.xml
+com.google.android.material.bottomnavigation.BottomNavigationView;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\bottomtablayout.xml
+com.google.android.material.tabs.TabLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\fallbacktabbardonotuse.xml
+com.google.android.material.tabs.TabLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
+com.google.android.material.tabs.TabLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\tabbar.xml
+declare-styleable;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\attrs.xml
+external-cache-path;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\120\res\mipmap-anydpi-v26\icon.xml
 foreground;obj\Debug\120\res\mipmap-anydpi-v26\icon_round.xml
-FrameLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\bottomtablayout.xml
-item;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\styles.xml
-LinearLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\bottomtablayout.xml
-paths;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-resources;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\attrs.xml
-resources;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\strings.xml
-resources;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\styles.xml
+FrameLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\bottomtablayout.xml
+item;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\styles.xml
+LinearLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\bottomtablayout.xml
+paths;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\53\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+resources;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\attrs.xml
+resources;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\strings.xml
+resources;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\styles.xml
 resources;obj\Debug\120\res\values\colors.xml
 resources;obj\Debug\120\res\values\styles.xml
-set;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromleft.xml
-set;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromright.xml
-set;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoleft.xml
-set;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoright.xml
-string;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\strings.xml
-style;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\styles.xml
+set;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromleft.xml
+set;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromright.xml
+set;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoleft.xml
+set;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoright.xml
+string;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\strings.xml
+style;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\values\styles.xml
 style;obj\Debug\120\res\values\styles.xml
-translate;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromleft.xml
-translate;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromright.xml
-translate;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoleft.xml
-translate;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoright.xml
-xamarin.forms.platform.android.appcompat.FormsViewPager;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
-xamarin.forms.platform.android.ShellFlyoutLayout;C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\flyoutcontent.xml
+translate;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromleft.xml
+translate;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\enterfromright.xml
+translate;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoleft.xml
+translate;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\anim\exittoright.xml
+xamarin.forms.platform.android.appcompat.FormsViewPager;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\rootlayout.xml
+xamarin.forms.platform.android.ShellFlyoutLayout;C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\lp\54\jl\res\layout\flyoutcontent.xml

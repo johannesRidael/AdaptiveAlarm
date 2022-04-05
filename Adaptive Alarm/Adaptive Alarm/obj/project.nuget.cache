@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "7fysbo8nR6QsWSsUL6ucbCtIuYBwRxeg5wci/trjcVqewJWmSp1pv2Y89rRsRlcjFTAi8ecS6XXgv8gTjE+WbA==",
+  "dgSpecHash": "eAVDUKTDKQuo+ZBLvgQMYgFk5kZAUFpDwyGt+jGU6J2J7w+fiEKlYeG6JG3lopDoFCSDn19NpIYtuXVYrbb/mA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bdl37\\Desktop\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+  "projectFilePath": "C:\\Users\\u1216245\\source\\repos\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\bdl37\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\bdl37\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\bdl37\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\bdl37\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\bdl37\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+    "C:\\Users\\u1216245\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\u1216245\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\u1216245\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\u1216245\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\u1216245\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],
   "logs": []
 }

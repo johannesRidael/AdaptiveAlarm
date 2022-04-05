@@ -32,3 +32,4 @@ C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\net
 C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\ref\Adaptive Alarm.dll
 C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.pdb
 C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs
+C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs
