@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "XViYIrhDMCTwr98kRIT6ZW41Sz43qFOLPz1Vlzktb6LhzkCiT5CfJlYTaUhEZuI2XSHHH9oy/b9z/KdM9byO4g==",
+  "dgSpecHash": "yobXMDPdo6PNeMaMf40baph7f4Je0IlmsnB3BJeEuszVq2FU3g5J6504vAJXiMeRVw5nDbVpwid7TwiVr9LISA==",
   "success": true,
   "projectFilePath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Bryce\\.nuget\\packages\\fitbit.net\\2.3.0\\fitbit.net.2.3.0.nupkg.sha512",
     "C:\\Users\\Bryce\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Bryce\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.androidx.activity\\1.2.4.1\\xamarin.androidx.activity.1.2.4.1.nupkg.sha512",

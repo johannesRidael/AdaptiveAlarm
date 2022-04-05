@@ -11,11 +11,13 @@ using Newtonsoft.Json;
 
 namespace DataMonitorLib
 {
-    class FitbitDataMonitor : DataMonitor
+    public class FitbitDataMonitor : DataMonitor
     {
         private Fitbit.Api.Portable.OAuth2.OAuth2AccessToken token;
         private static string CLIENTID = "Application Client ID";
         private static string CLIENTSECRET = "Application Client Secret";
+
+        public FitbitDataMonitor(){}
 
         public override void CollectDataPoint()
         {
@@ -78,7 +80,7 @@ namespace DataMonitorLib
             writer.WriteLineAsync("HTTP/1.1 200 OK\r\nHello World!\r\n\r\n").Wait(); //TODO: Find a way to get this to give the user a friendly thank you page.
             tcpClient.Close();
 
-            string code = inputLine.Split(" ")[1].Split("=")[1];
+            string code = inputLine.Split(' ')[1].Split('=')[1];
             Console.WriteLine(code);
 
             this.token = ah.ExchangeAuthCodeForAccessTokenAsync(code).Result;

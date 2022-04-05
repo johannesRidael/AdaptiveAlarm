@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -164,6 +177,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
@@ -173,10 +187,36 @@
         },
         "runtime": {
           "bin/placeholder/Adaptive Alarm.dll": {}
+        }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
         }
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -339,6 +379,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
@@ -348,10 +389,36 @@
         },
         "runtime": {
           "bin/placeholder/Adaptive Alarm.dll": {}
+        }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
         }
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -514,6 +581,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
@@ -523,10 +591,36 @@
         },
         "runtime": {
           "bin/placeholder/Adaptive Alarm.dll": {}
+        }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
         }
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -689,6 +783,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
@@ -698,11 +793,37 @@
         },
         "runtime": {
           "bin/placeholder/Adaptive Alarm.dll": {}
+        }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "Fitbit.NET/2.3.0": {
+      "sha512": "3YWI4R/4HZSlFDVCXF8x1AB7B4DnNfwfDXOeZJzYF6scPtGpR5KvZip0JoshTVCCH/GyyVqOI6egrdZN0ZXZaQ==",
+      "type": "package",
+      "path": "fitbit.net/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fitbit.net.2.3.0.nupkg.sha512",
+        "fitbit.net.nuspec",
+        "lib/netstandard2.0/Fitbit.Portable.dll",
+        "lib/netstandard2.0/Fitbit.Portable.pdb"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -1039,6 +1160,11 @@
       "type": "project",
       "path": "../Adaptive Alarm/Adaptive Alarm.csproj",
       "msbuildProject": "../Adaptive Alarm/Adaptive Alarm.csproj"
+    },
+    "DataMonitorLib/1.0.0": {
+      "type": "project",
+      "path": "../../DataMonitorLib/DataMonitorLib.csproj",
+      "msbuildProject": "../../DataMonitorLib/DataMonitorLib.csproj"
     }
   },
   "projectFileDependencyGroups": {

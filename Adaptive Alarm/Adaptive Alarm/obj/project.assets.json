@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -72,10 +85,36 @@
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
         }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "Fitbit.NET/2.3.0": {
+      "sha512": "3YWI4R/4HZSlFDVCXF8x1AB7B4DnNfwfDXOeZJzYF6scPtGpR5KvZip0JoshTVCCH/GyyVqOI6egrdZN0ZXZaQ==",
+      "type": "package",
+      "path": "fitbit.net/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fitbit.net.2.3.0.nupkg.sha512",
+        "fitbit.net.nuspec",
+        "lib/netstandard2.0/Fitbit.Portable.dll",
+        "lib/netstandard2.0/Fitbit.Portable.pdb"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -551,10 +590,16 @@
         "xamarin.forms.5.0.0.2196.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
+    },
+    "DataMonitorLib/1.0.0": {
+      "type": "project",
+      "path": "../../DataMonitorLib/DataMonitorLib.csproj",
+      "msbuildProject": "../../DataMonitorLib/DataMonitorLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "DataMonitorLib >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 13.0.1",
       "Xamarin.Essentials >= 1.7.0",
@@ -592,7 +637,11 @@
       "frameworks": {
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "A:\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj": {
+              "projectPath": "A:\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

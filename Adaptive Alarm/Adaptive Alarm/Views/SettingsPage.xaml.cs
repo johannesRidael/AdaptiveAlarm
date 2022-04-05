@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DataMonitorLib;
 
 namespace Adaptive_Alarm.Views
 {
@@ -16,6 +17,14 @@ namespace Adaptive_Alarm.Views
         public SettingsPage()
         {
             InitializeComponent();
+        }
+
+        private void ChangeDeviceButtonClicked(object sender, EventArgs e)
+        {
+            DataMonitor dataMonitor = (DataMonitor)Application.Current.Properties["dataMonitor"];
+            //DisplayAlert("Got DataMonitor", "Body", "OK");
+
+            ((FitbitDataMonitor)dataMonitor).Authenticate();
         }
     }
 }

@@ -8,8 +8,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adaptive Alarm.iOS", "Adaptive Alarm\Adaptive Alarm.iOS\Adaptive Alarm.iOS.csproj", "{C993EF00-7E04-4442-A7D4-D62614C2DE66}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adaptive Alarm", "Adaptive Alarm\Adaptive Alarm\Adaptive Alarm.csproj", "{D3621A84-DD7C-4C1D-A731-BF5F878850E0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6E42AFBE-FF9C-437E-87C0-9D2F29CB8338} = {6E42AFBE-FF9C-437E-87C0-9D2F29CB8338}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMonitorLib", "DataMonitorLib\DataMonitorLib.csproj", "{6E42AFBE-FF9C-437E-87C0-9D2F29CB8338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataMonitorLib", "DataMonitorLib\DataMonitorLib.csproj", "{6E42AFBE-FF9C-437E-87C0-9D2F29CB8338}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
