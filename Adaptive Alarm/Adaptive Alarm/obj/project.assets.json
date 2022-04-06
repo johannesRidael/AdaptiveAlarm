@@ -608,25 +608,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bryce\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\eeeeee\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+      "projectUniqueName": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
       "projectName": "Adaptive Alarm",
-      "projectPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
-      "packagesPath": "C:\\Users\\Bryce\\.nuget\\packages\\",
-      "outputPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\obj\\",
+      "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+      "packagesPath": "C:\\Users\\eeeeee\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\eeeeee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -639,8 +634,8 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "A:\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj": {
-              "projectPath": "A:\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj"
+            "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj": {
+              "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj"
             }
           }
         }
@@ -680,7 +675,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

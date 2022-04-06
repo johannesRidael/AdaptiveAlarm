@@ -3255,26 +3255,21 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bryce\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\eeeeee\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
+      "projectUniqueName": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
       "projectName": "Adaptive Alarm.Android",
-      "projectPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
-      "packagesPath": "C:\\Users\\Bryce\\.nuget\\packages\\",
-      "outputPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\obj\\",
+      "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
+      "packagesPath": "C:\\Users\\eeeeee\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\eeeeee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid12.0"
@@ -3286,8 +3281,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
-              "projectPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
+            "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
+              "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
             }
           }
         }
