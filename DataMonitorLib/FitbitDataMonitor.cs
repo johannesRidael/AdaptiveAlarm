@@ -8,14 +8,18 @@ using System.Threading;
 using Fitbit.Api.Portable;
 using Fitbit.Models;
 using Newtonsoft.Json;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace DataMonitorLib
 {
     public class FitbitDataMonitor : DataMonitor
     {
         private Fitbit.Api.Portable.OAuth2.OAuth2AccessToken token;
-        private static string CLIENTID = "Application Client ID";
-        private static string CLIENTSECRET = "Application Client Secret";
+        // Temporary ClientId and Secret for use in testing.
+        private static string CLIENTID = "2388MW";
+        private static string CLIENTSECRET = "778c9cc1bd4c44842e876cef351ec899";
 
         public FitbitDataMonitor(){}
 
@@ -62,8 +66,19 @@ namespace DataMonitorLib
             String authUrl = ah.GenerateAuthUrl(new string[] { "sleep", "heartrate" }, null);
             //Console.WriteLine(authUrl);
             Uri uri = new Uri(authUrl);
-            Thread browserThread = new Thread(() => { Thread.Sleep(500); System.Diagnostics.Process.Start("explorer.exe", $"\"{uri}\""); });
-            browserThread.Start();
+
+            // open a browser to authenticate w/ Fitbit.
+            //TODO: maybe change this to open a WebView instead (allows greater control and eliminates the need for a TCP listener).
+            try
+            {
+                Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred); // well that was easy!
+            }
+            catch (Exception ex)
+            {
+                // An unexpected error occured. No browser may be installed on the device.
+            }
+
+            //TODO: ensure that token retrieval is actually happening
 
             // start a tcp listener to get the user code from the fitbit response
             int port = 4306;
@@ -81,12 +96,15 @@ namespace DataMonitorLib
             tcpClient.Close();
 
             string code = inputLine.Split(' ')[1].Split('=')[1];
-            Console.WriteLine(code);
+            Console.WriteLine("Auth Code: " + code);
 
             this.token = ah.ExchangeAuthCodeForAccessTokenAsync(code).Result;
+            Console.WriteLine("Token: " + this.token.Token);
 
-            // TODO: write the DataMonitor's token to a protected store incase of crash.
-            //string tok_s = JsonConvert.SerializeObject(this.token);
+            //// TODO: write the DataMonitor's token to a protected store incase of crash.
+            ////string tok_s = JsonConvert.SerializeObject(this.token);
+
+            ////Application.Current.Properties
 
             return false;
         }

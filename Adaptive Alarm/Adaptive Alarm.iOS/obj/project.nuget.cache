@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oWGyk/HVEu2NFyEML9/syejXmdinJXYuHoJZhEt0cEFIuLjcZpUX0kxaWUo0VIlPahwNValEYHyaRrKt0zuGwg==",
+  "dgSpecHash": "xdRX1uD7yCfXWGjC/3bDmLdIz1ikykC9TueKrDsmCMedhusS41J+EynRunSU/clALDeC+uycRG99oxcN7mi8yA==",
   "success": true,
   "projectFilePath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\Users\\Bryce\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Bryce\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+    "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512"
   ],
   "logs": []
 }

@@ -48,7 +48,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2196, )"
+              "version": "[5.0.0.2401, )"
             }
           }
         }
@@ -122,10 +122,6 @@
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.7.0, )"
-            },
-            "Xamarin.Forms": {
-              "target": "Package",
-              "version": "[5.0.0.2196, )"
             }
           },
           "imports": [
@@ -191,6 +187,14 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2401, )"
             }
           },
           "imports": [

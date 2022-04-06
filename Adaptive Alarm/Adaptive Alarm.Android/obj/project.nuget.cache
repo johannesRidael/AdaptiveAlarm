@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yobXMDPdo6PNeMaMf40baph7f4Je0IlmsnB3BJeEuszVq2FU3g5J6504vAJXiMeRVw5nDbVpwid7TwiVr9LISA==",
+  "dgSpecHash": "tEmRbeScUyd2yKsqaVzh5Afvl1KdYnNj5DBgkiWl665lTL6h7+M70VnO/gm+ma34JFJrstBCGmdAvKuKar0Jmg==",
   "success": true,
   "projectFilePath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
   "expectedPackageFiles": [
@@ -61,7 +61,7 @@
     "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.androidx.viewpager\\1.0.0.8\\xamarin.androidx.viewpager.1.0.0.8.nupkg.sha512",
     "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.androidx.viewpager2\\1.0.0.10\\xamarin.androidx.viewpager2.1.0.0.10.nupkg.sha512",
     "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512",
     "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.google.android.material\\1.4.0.2\\xamarin.google.android.material.1.4.0.2.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
   ],
