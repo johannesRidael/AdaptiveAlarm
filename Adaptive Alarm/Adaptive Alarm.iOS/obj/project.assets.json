@@ -1240,6 +1240,7 @@
   },
   "logs": [
     {
+<<<<<<< HEAD
       "code": "NU1605",
       "level": "Warning",
       "warningLevel": 1,
@@ -1251,6 +1252,12 @@
         "Xamarin.iOS,Version=v1.0/win-x64",
         "Xamarin.iOS,Version=v1.0/win-x86"
       ]
+=======
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> TimePicker
     }
   ]
 }

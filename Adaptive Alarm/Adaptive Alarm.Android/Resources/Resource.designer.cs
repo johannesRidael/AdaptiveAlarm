@@ -14,7 +14,11 @@ namespace Adaptive_Alarm.Droid
 {
 	
 	
+<<<<<<< HEAD
 	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.1.0.11")]
+=======
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.2.0.155")]
+>>>>>>> TimePicker
 	public partial class Resource
 	{
 		
