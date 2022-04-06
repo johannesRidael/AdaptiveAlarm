@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -155,6 +177,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
+          "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -163,10 +187,45 @@
         },
         "runtime": {
           "bin/placeholder/Adaptive Alarm.dll": {}
+        }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
         }
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -320,6 +379,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
+          "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -328,10 +389,45 @@
         },
         "runtime": {
           "bin/placeholder/Adaptive Alarm.dll": {}
+        }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
         }
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -485,6 +581,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
+          "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -493,10 +591,45 @@
         },
         "runtime": {
           "bin/placeholder/Adaptive Alarm.dll": {}
+        }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
         }
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Fitbit.NET/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -650,6 +783,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
+          "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -658,11 +793,64 @@
         },
         "runtime": {
           "bin/placeholder/Adaptive Alarm.dll": {}
+        }
+      },
+      "DataMonitorLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "compile": {
+          "bin/placeholder/DataMonitorLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataMonitorLib.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "Fitbit.NET/2.3.0": {
+      "sha512": "3YWI4R/4HZSlFDVCXF8x1AB7B4DnNfwfDXOeZJzYF6scPtGpR5KvZip0JoshTVCCH/GyyVqOI6egrdZN0ZXZaQ==",
+      "type": "package",
+      "path": "fitbit.net/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fitbit.net.2.3.0.nupkg.sha512",
+        "fitbit.net.nuspec",
+        "lib/netstandard2.0/Fitbit.Portable.dll",
+        "lib/netstandard2.0/Fitbit.Portable.pdb"
+      ]
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "System.Numerics.Vectors/4.5.0": {
       "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
       "type": "package",
@@ -972,6 +1160,11 @@
       "type": "project",
       "path": "../Adaptive Alarm/Adaptive Alarm.csproj",
       "msbuildProject": "../Adaptive Alarm/Adaptive Alarm.csproj"
+    },
+    "DataMonitorLib/1.0.0": {
+      "type": "project",
+      "path": "../../DataMonitorLib/DataMonitorLib.csproj",
+      "msbuildProject": "../../DataMonitorLib/DataMonitorLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1040,5 +1233,13 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

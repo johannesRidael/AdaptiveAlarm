@@ -32,4 +32,28 @@ C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\net
 C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\ref\Adaptive Alarm.dll
 C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.pdb
 C:\Users\bdl37\Desktop\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs
+<<<<<<< HEAD
 C:\Users\u1216245\source\repos\Adaptive Alarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs
+=======
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.deps.json
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\ref\Adaptive Alarm.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.pdb
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.csproj.AssemblyReference.cache
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.GeneratedMSBuildEditorConfig.editorconfig
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\App.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\Information.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.AssemblyInfoInputs.cache
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.AssemblyInfo.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.csproj.CoreCompileInputs.cache
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\XamlC.stamp
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\ref\Adaptive Alarm.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.pdb
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\DataMonitorLib.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\DataMonitorLib.pdb
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.csproj.CopyComplete
+>>>>>>> main

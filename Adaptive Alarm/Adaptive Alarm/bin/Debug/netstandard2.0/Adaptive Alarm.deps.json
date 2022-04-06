@@ -9,7 +9,9 @@
     ".NETStandard,Version=v2.0/": {
       "Adaptive Alarm/1.0.0": {
         "dependencies": {
+          "DataMonitorLib": "1.0.0",
           "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -17,10 +19,30 @@
           "Adaptive Alarm.dll": {}
         }
       },
+      "Fitbit.NET/2.3.0": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fitbit.Portable.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
         }
       },
       "System.Numerics.Vectors/4.5.0": {
@@ -57,6 +79,14 @@
             "fileVersion": "5.0.0.786"
           }
         }
+      },
+      "DataMonitorLib/1.0.0": {
+        "dependencies": {
+          "Fitbit.NET": "2.3.0"
+        },
+        "runtime": {
+          "DataMonitorLib.dll": {}
+        }
       }
     }
   },
@@ -65,6 +95,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Fitbit.NET/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3YWI4R/4HZSlFDVCXF8x1AB7B4DnNfwfDXOeZJzYF6scPtGpR5KvZip0JoshTVCCH/GyyVqOI6egrdZN0ZXZaQ==",
+      "path": "fitbit.net/2.3.0",
+      "hashPath": "fitbit.net.2.3.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -79,6 +116,13 @@
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
     "System.Numerics.Vectors/4.5.0": {
       "type": "package",
@@ -100,6 +144,11 @@
       "sha512": "sha512-zSXDiZukojtEBmZKUUG1yYBwlB9tI8JLPkc6n+Sm1PAX01QyzErWE9AaFJgP7usyoGHn92l4HnQF7A+/MPI6VA==",
       "path": "xamarin.forms/5.0.0.2196",
       "hashPath": "xamarin.forms.5.0.0.2196.nupkg.sha512"
+    },
+    "DataMonitorLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
