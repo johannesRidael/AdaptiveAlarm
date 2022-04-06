@@ -103,6 +103,7 @@ namespace Adaptive_Alarm
                     else if (scores[ind] > scores[ind-1])
                     {
                         attempts[ind+1] = attempts[ind] + (int)diff/2;
+                        CurrCycle = attempts[ind+1];
                     }
                     else if (scores[ind] <= scores[ind-1])
                     {
@@ -111,9 +112,10 @@ namespace Adaptive_Alarm
                         {
                             diff = (int)diff/2;
                             attempts[ind+1] = attempts[ind-1] - diff;
+                            CurrCycle = attempts[ind+1];
                         }
                     }
-                    CurrCycle = attempts[ind+1];
+                    
                     ind++;
 
                 }
@@ -173,8 +175,9 @@ namespace Adaptive_Alarm
                         low = scores[2 * (int)ind/2];
                         high = searchTree[1 + 2 * (int)ind/2];
                         attempts[0] = searchTree[(int)ind/2];
+                        int hold = scores[(int)ind/2];
                         scores = new int[high - low + 1];
-                        scores[0] = scores[(int)ind/2];
+                        scores[0] = hold;
                         attempts[1] = low + (int)3*(high-low)/4;
                         CurrCycle = attempts[1];
                         ind = 1;

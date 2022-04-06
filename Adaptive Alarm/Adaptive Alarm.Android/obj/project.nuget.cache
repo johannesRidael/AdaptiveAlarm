@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WPqMki9GEmV2ppvNFLlL3sPCzOAzUEy276loh+pPowERDLPTTZllnhphqN72Ppg3sv2DQifA8my3O51HQsKBvQ==",
+  "dgSpecHash": "I2BlwDC78q/moJs5G7ftd1yl2q81MvW/C93t9GCeMTpbLNhz3cOVQX1f8X1Lu8YhY5CLjgeVfmtktA5JaPWE1Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
   "expectedPackageFiles": [
@@ -61,20 +61,9 @@
     "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.androidx.viewpager\\1.0.0.8\\xamarin.androidx.viewpager.1.0.0.8.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.androidx.viewpager2\\1.0.0.10\\xamarin.androidx.viewpager2.1.0.0.10.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512",
+    "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.google.android.material\\1.4.0.2\\xamarin.google.android.material.1.4.0.2.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2401 to 5.0.0.2196. Reference the package directly from the project to select a different version. \r\n Adaptive Alarm.Android -> Adaptive Alarm -> DataMonitorLib -> Xamarin.Forms (>= 5.0.0.2401) \r\n Adaptive Alarm.Android -> Xamarin.Forms (>= 5.0.0.2196)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "MonoAndroid,Version=v12.0"
-      ]
-    }
-  ]
+  "logs": []
 }

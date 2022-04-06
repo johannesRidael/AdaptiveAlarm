@@ -25,28 +25,22 @@ application_config:
 	.byte	0
 	/* have_runtime_config_blob */
 	.byte	0
-	/* have_assembly_store */
-	.byte	0
 	/* bound_exception_type */
 	.byte	1
 	/* package_naming_policy */
-	.zero	2
+	.zero	3
 	.long	3
 	/* environment_variable_count */
 	.long	12
 	/* system_property_count */
 	.long	0
 	/* number_of_assemblies_in_apk */
-	.long	85
+	.long	88
 	/* bundled_assembly_name_width */
 	.long	63
-	/* number_of_assembly_store_files */
-	.long	2
-	/* mono_components_mask */
-	.long	0
 	/* android_package_name */
 	.quad	.L.env.str.1
-	.size	application_config, 48
+	.size	application_config, 40
 	.section	.rodata.env.str.2,"aMS",@progbits,1
 	.type	.L.env.str.2, @object
 .L.env.str.2:
@@ -84,15 +78,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-<<<<<<< HEAD
-	.asciz	"d065d8ef-f61f-45b0-a1be-90ae84a2c594"
-=======
-<<<<<<< HEAD
-	.asciz	"a3d3058f-23e0-4384-99c9-660dc7adcb3f"
-=======
-	.asciz	"21c246d3-eedb-4468-8eeb-dc591f0b45ca"
->>>>>>> main
->>>>>>> TimePicker
+	.asciz	"6b5c0592-ec3d-4906-85ee-55a1df7cafcc"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
@@ -148,7 +134,6 @@ app_environment_variables:
 	.global	app_system_properties
 app_system_properties:
 	.size	app_system_properties, 0
-
 	/* Bundled assembly name buffers, all 63 bytes long */
 	.section	.bss.bundled_assembly_names,"aw",@nobits
 .L.env.buf.1:
@@ -321,7 +306,12 @@ app_system_properties:
 	.zero	63
 .L.env.buf.85:
 	.zero	63
-
+.L.env.buf.86:
+	.zero	63
+.L.env.buf.87:
+	.zero	63
+.L.env.buf.88:
+	.zero	63
 	/* Bundled assemblies data */
 	.section	.data.bundled_assemblies,"aw",@progbits
 	.type	bundled_assemblies, @object
@@ -1603,19 +1593,49 @@ bundled_assemblies:
 	.zero	4
 	.quad	.L.env.buf.85
 
-	.size	bundled_assemblies, 3400
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.zero	4
+	.quad	0
+	/* name_length */
+	.long	0
+	/* name */
+	.zero	4
+	.quad	.L.env.buf.86
 
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.zero	4
+	.quad	0
+	/* name_length */
+	.long	0
+	/* name */
+	.zero	4
+	.quad	.L.env.buf.87
 
-	/* Assembly store individual assembly data */
-	.section	.data.assembly_store_bundled_assemblies,"aw",@progbits
-	.type	assembly_store_bundled_assemblies, @object
-	.p2align	4
-	.global	assembly_store_bundled_assemblies
-assembly_store_bundled_assemblies:
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.zero	4
+	.quad	0
+	/* name_length */
+	.long	0
+	/* name */
+	.zero	4
+	.quad	.L.env.buf.88
 
-	/* Assembly store data */
-	.section	.data.assembly_stores,"aw",@progbits
-	.type	assembly_stores, @object
-	.p2align	4
-	.global	assembly_stores
-assembly_stores:
+	.size	bundled_assemblies, 3520

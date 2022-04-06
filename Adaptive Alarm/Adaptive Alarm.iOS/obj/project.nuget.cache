@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ektKWvBcpoRk67RrFUQfMDgN0nEX+kzL7zuS3ZPtsl88hnzG8YrZsKpy0BQcaKoUFXSzeM+cjuWezMb2R5m02g==",
+  "dgSpecHash": "zGAyjvZ4aBzqXyQy8ras8KKCb0TqQJHYQL3yRgpwoEOsPkk+WEpDG0X0fRKviCLyKKvwTQGgJTZjyY8pSBebHw==",
   "success": true,
   "projectFilePath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
   "expectedPackageFiles": [
@@ -8,21 +8,7 @@
     "C:\\Users\\eeeeee\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+    "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2401 to 5.0.0.2196. Reference the package directly from the project to select a different version. \r\n Adaptive Alarm.iOS -> Adaptive Alarm -> DataMonitorLib -> Xamarin.Forms (>= 5.0.0.2401) \r\n Adaptive Alarm.iOS -> Xamarin.Forms (>= 5.0.0.2196)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    }
-  ]
+  "logs": []
 }
