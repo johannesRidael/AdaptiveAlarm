@@ -179,8 +179,7 @@
         "dependencies": {
           "DataMonitorLib": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Xamarin.Essentials": "1.7.0"
         },
         "compile": {
           "bin/placeholder/Adaptive Alarm.dll": {}
@@ -193,7 +192,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Fitbit.NET": "2.3.0"
+          "Fitbit.NET": "2.3.0",
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2401"
         },
         "compile": {
           "bin/placeholder/DataMonitorLib.dll": {}
@@ -381,8 +382,7 @@
         "dependencies": {
           "DataMonitorLib": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Xamarin.Essentials": "1.7.0"
         },
         "compile": {
           "bin/placeholder/Adaptive Alarm.dll": {}
@@ -395,7 +395,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Fitbit.NET": "2.3.0"
+          "Fitbit.NET": "2.3.0",
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2401"
         },
         "compile": {
           "bin/placeholder/DataMonitorLib.dll": {}
@@ -583,8 +585,7 @@
         "dependencies": {
           "DataMonitorLib": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Xamarin.Essentials": "1.7.0"
         },
         "compile": {
           "bin/placeholder/Adaptive Alarm.dll": {}
@@ -597,7 +598,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Fitbit.NET": "2.3.0"
+          "Fitbit.NET": "2.3.0",
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2401"
         },
         "compile": {
           "bin/placeholder/DataMonitorLib.dll": {}
@@ -785,8 +788,7 @@
         "dependencies": {
           "DataMonitorLib": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Xamarin.Essentials": "1.7.0"
         },
         "compile": {
           "bin/placeholder/Adaptive Alarm.dll": {}
@@ -799,7 +801,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Fitbit.NET": "2.3.0"
+          "Fitbit.NET": "2.3.0",
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2401"
         },
         "compile": {
           "bin/placeholder/DataMonitorLib.dll": {}
@@ -1233,5 +1237,20 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2401 to 5.0.0.2196. Reference the package directly from the project to select a different version. \r\n Adaptive Alarm.iOS -> Adaptive Alarm -> DataMonitorLib -> Xamarin.Forms (>= 5.0.0.2401) \r\n Adaptive Alarm.iOS -> Xamarin.Forms (>= 5.0.0.2196)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }
