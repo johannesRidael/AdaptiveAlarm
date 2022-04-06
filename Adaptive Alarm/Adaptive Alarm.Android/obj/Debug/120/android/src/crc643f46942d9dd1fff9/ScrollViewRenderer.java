@@ -16,6 +16,7 @@ public class ScrollViewRenderer
 			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
 			"n_onDetachedFromWindow:()V:GetOnDetachedFromWindowHandler\n" +
 			"n_onLayout:(ZIIII)V:GetOnLayout_ZIIIIHandler\n" +
+			"n_onMeasure:(II)V:GetOnMeasure_IIHandler\n" +
 			"n_onScrollChanged:(IIII)V:GetOnScrollChanged_IIIIHandler\n" +
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.ScrollViewRenderer, Xamarin.Forms.Platform.Android", ScrollViewRenderer.class, __md_methods);
@@ -92,6 +93,14 @@ public class ScrollViewRenderer
 	}
 
 	private native void n_onLayout (boolean p0, int p1, int p2, int p3, int p4);
+
+
+	public void onMeasure (int p0, int p1)
+	{
+		n_onMeasure (p0, p1);
+	}
+
+	private native void n_onMeasure (int p0, int p1);
 
 
 	public void onScrollChanged (int p0, int p1, int p2, int p3)

@@ -33,10 +33,14 @@ os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
 <<<<<<< HEAD
+_nugetassetstimestamp=637848030995098609
+=======
+<<<<<<< HEAD
 _nugetassetstimestamp=637842510167453387
 =======
 _nugetassetstimestamp=637847518668420021
 >>>>>>> main
+>>>>>>> TimePicker
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
