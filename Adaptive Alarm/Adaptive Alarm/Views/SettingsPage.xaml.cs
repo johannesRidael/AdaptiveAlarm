@@ -13,6 +13,8 @@ namespace Adaptive_Alarm.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
+        int sleepTime;
+
         public List<string> deviceTypes = new List<string>(){ "None", "Fitbit" };
         public SettingsPage()
         {
@@ -25,6 +27,12 @@ namespace Adaptive_Alarm.Views
             //DisplayAlert("Got DataMonitor", "Body", "OK");
 
             ((FitbitDataMonitor)dataMonitor).Authenticate();
+        }
+
+        private void saveButtonClicked(object sender, EventArgs e)
+        {
+            sleepTime = Convert.ToInt32(SleepTimeNumber.Text);
+            //DisplayAlert("User entered", sleepTime.ToString(), "OK");
         }
     }
 }

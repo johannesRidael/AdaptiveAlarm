@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj": {}
+    "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj": {
+    "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
+        "projectUniqueName": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
         "projectName": "Adaptive Alarm.Android",
-        "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
-        "packagesPath": "C:\\Users\\eeeeee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\obj\\",
+        "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
+        "packagesPath": "C:\\Users\\u1216245\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eeeeee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\u1216245\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
         "frameworks": {
           "monoandroid12.0": {
             "projectReferences": {
-              "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
-                "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
+              "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
+                "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
               }
             }
           }
@@ -50,17 +54,21 @@
         }
       }
     },
-    "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
+    "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+        "projectUniqueName": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
         "projectName": "Adaptive Alarm",
-        "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
-        "packagesPath": "C:\\Users\\eeeeee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\obj\\",
+        "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+        "packagesPath": "C:\\Users\\u1216245\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eeeeee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\u1216245\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,8 +82,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj": {
-                "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj"
+              "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj": {
+                "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj"
               }
             }
           }
@@ -119,17 +127,21 @@
         }
       }
     },
-    "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj": {
+    "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj",
+        "projectUniqueName": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj",
         "projectName": "DataMonitorLib",
-        "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj",
-        "packagesPath": "C:\\Users\\eeeeee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\obj\\",
+        "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\DataMonitorLib.csproj",
+        "packagesPath": "C:\\Users\\u1216245\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\DataMonitorLib\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eeeeee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\u1216245\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

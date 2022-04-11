@@ -20,6 +20,22 @@
             </Picker>
             <Button Text="Reset Sleep Data" Margin="10,0,10,0"/>
             <Label Text="Current working dataset began: 03/29/2022" Margin="10,0,10,20"/>
+            <Label Text="How long does it take you to fall asleep?" Margin="10, 20, 10,0"/>
+            <Grid  >
+                <Entry x:Name="SleepTimeNumber"
+                   Keyboard="Numeric"
+                   VerticalOptions="StartAndExpand"
+                   Margin="10, 0, 20, 0"
+                       Grid.Column="0">
+                </Entry>
+                <Label Text="minutes" Margin="0, 20, 0, 0" Grid.Column="1"/>
+            </Grid>
+
+            <Button Text="Save"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="EndAndExpand"
+                    Margin="0, 0, 20, 20"
+                    Clicked="saveButtonClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
