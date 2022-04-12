@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "zGAyjvZ4aBzqXyQy8ras8KKCb0TqQJHYQL3yRgpwoEOsPkk+WEpDG0X0fRKviCLyKKvwTQGgJTZjyY8pSBebHw==",
+  "dgSpecHash": "US1QRBwfH5oGbz0btDYxJarMjPi7431nJakXxmsSf6EuS8u5dfFLCNW4alTGYGNyrTOJBqOi1xAEZ5BC88wldA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
+  "projectFilePath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\eeeeee\\.nuget\\packages\\fitbit.net\\2.3.0\\fitbit.net.2.3.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512"
+    "C:\\Users\\Bryce\\.nuget\\packages\\fitbit.net\\2.3.0\\fitbit.net.2.3.0.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512"
   ],
   "logs": []
 }

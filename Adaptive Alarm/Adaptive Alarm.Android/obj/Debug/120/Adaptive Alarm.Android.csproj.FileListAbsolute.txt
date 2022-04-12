@@ -1895,10 +1895,6 @@ A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\stamp\_Conv
 A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
-A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\bin\Debug\DataMonitorLib.dll
-A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\bin\Debug\DataMonitorLib.pdb
-A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\android\assets\DataMonitorLib.dll
-A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\android\assets\DataMonitorLib.pdb
 A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\android\assets\Fitbit.Portable.dll
 A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\android\assets\Fitbit.Portable.pdb
 C:\Users\eeeeee\Source\Repos\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm.Android\obj\Debug\120\MonoAndroid,Version=v12.0.AssemblyAttributes.cs

@@ -19,3 +19,22 @@ C:\Users\eeeeee\Source\Repos\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Deb
 C:\Users\eeeeee\Source\Repos\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.dll
 C:\Users\eeeeee\Source\Repos\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\ref\Adaptive Alarm.dll
 C:\Users\eeeeee\Source\Repos\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.pdb
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.deps.json
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\ref\Adaptive Alarm.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.pdb
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.csproj.AssemblyReference.cache
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.GeneratedMSBuildEditorConfig.editorconfig
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\App.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\Information.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.AssemblyInfoInputs.cache
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.AssemblyInfo.cs
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.csproj.CoreCompileInputs.cache
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\XamlC.stamp
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\ref\Adaptive Alarm.dll
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.pdb
+A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs

@@ -9,10 +9,11 @@
     ".NETStandard,Version=v2.0/": {
       "Adaptive Alarm/1.0.0": {
         "dependencies": {
-          "DataMonitorLib": "1.0.0",
+          "Fitbit.NET": "2.3.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "13.0.1",
-          "Xamarin.Essentials": "1.7.0"
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2401"
         },
         "runtime": {
           "Adaptive Alarm.dll": {}
@@ -78,16 +79,6 @@
             "fileVersion": "5.0.0.905"
           }
         }
-      },
-      "DataMonitorLib/1.0.0": {
-        "dependencies": {
-          "Fitbit.NET": "2.3.0",
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2401"
-        },
-        "runtime": {
-          "DataMonitorLib.dll": {}
-        }
       }
     }
   },
@@ -145,11 +136,6 @@
       "sha512": "sha512-fk/V8QWjeyo8UXcsqsNRMd6o1H5PBfyXYm97nxvhMsJIdeqDgfRWyIsSurM8uLGLQGdQP23R+hHj7vcTSo2UjQ==",
       "path": "xamarin.forms/5.0.0.2401",
       "hashPath": "xamarin.forms.5.0.0.2401.nupkg.sha512"
-    },
-    "DataMonitorLib/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

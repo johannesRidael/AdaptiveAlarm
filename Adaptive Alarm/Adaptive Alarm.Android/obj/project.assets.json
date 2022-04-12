@@ -1566,30 +1566,16 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "DataMonitorLib": "1.0.0",
-          "Newtonsoft.Json": "13.0.1",
-          "Xamarin.Essentials": "1.7.0"
-        },
-        "compile": {
-          "bin/placeholder/Adaptive Alarm.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Adaptive Alarm.dll": {}
-        }
-      },
-      "DataMonitorLib/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
           "Fitbit.NET": "2.3.0",
+          "Newtonsoft.Json": "13.0.1",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2401"
         },
         "compile": {
-          "bin/placeholder/DataMonitorLib.dll": {}
+          "bin/placeholder/Adaptive Alarm.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DataMonitorLib.dll": {}
+          "bin/placeholder/Adaptive Alarm.dll": {}
         }
       }
     }
@@ -3240,11 +3226,6 @@
       "type": "project",
       "path": "../Adaptive Alarm/Adaptive Alarm.csproj",
       "msbuildProject": "../Adaptive Alarm/Adaptive Alarm.csproj"
-    },
-    "DataMonitorLib/1.0.0": {
-      "type": "project",
-      "path": "../../DataMonitorLib/DataMonitorLib.csproj",
-      "msbuildProject": "../../DataMonitorLib/DataMonitorLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3255,21 +3236,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eeeeee\\.nuget\\packages\\": {}
+    "C:\\Users\\Bryce\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
+      "projectUniqueName": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
       "projectName": "Adaptive Alarm.Android",
-      "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
-      "packagesPath": "C:\\Users\\eeeeee\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\obj\\",
+      "projectPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
+      "packagesPath": "C:\\Users\\Bryce\\.nuget\\packages\\",
+      "outputPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\eeeeee\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Bryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid12.0"
@@ -3281,8 +3267,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
-              "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
+            "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
+              "projectPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
             }
           }
         }
