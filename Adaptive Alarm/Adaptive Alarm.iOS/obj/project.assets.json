@@ -1185,11 +1185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
       "projectName": "Adaptive Alarm.iOS",
-      "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
+      "projectPath": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
       "packagesPath": "C:\\Users\\u1216245\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\obj\\",
+      "outputPath": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1210,8 +1210,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
-              "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
+            "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
+              "projectPath": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
             }
           }
         }

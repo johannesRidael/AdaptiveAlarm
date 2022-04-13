@@ -32,7 +32,6 @@ namespace Adaptive_Alarm.Views
         private void saveButtonClicked(object sender, EventArgs e)
         {
             sleepTime = Convert.ToInt32(SleepTimeNumber.Text);
-            //DisplayAlert("User entered", sleepTime.ToString(), "OK");
         }
     }
 }

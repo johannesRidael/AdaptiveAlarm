@@ -12,6 +12,9 @@ namespace Adaptive_Alarm.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+
+        //public string wakeUpTime { get; } = "Waking you up at";
+
         public MainPage()
         {
             InitializeComponent();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9YsXjcTcersWPSTLapOdPJlz9DpwXGjVNFK58/I7ZNi4URHPoqLKMrcMMpm528LzASNdeOFPdR2Hy7/deXxuzg==",
+  "dgSpecHash": "N9uHRfGzcQI+7+2tD7sHwYFgghKy7sCGROaIzvZ+FRzCWElmODqe8jcxWh7NOX4HASfODNUYjuwmUtDVQfoSvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+  "projectFilePath": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\u1216245\\.nuget\\packages\\fitbit.net\\2.3.0\\fitbit.net.2.3.0.nupkg.sha512",
     "C:\\Users\\u1216245\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

@@ -3261,11 +3261,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
+      "projectUniqueName": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
       "projectName": "Adaptive Alarm.Android",
-      "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
+      "projectPath": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\Adaptive Alarm.Android.csproj",
       "packagesPath": "C:\\Users\\u1216245\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\obj\\",
+      "outputPath": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -3286,8 +3286,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
-              "projectPath": "C:\\Users\\u1216245\\Source\\Repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
+            "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
+              "projectPath": "C:\\Users\\u1216245\\source\\repos\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
             }
           }
         }
