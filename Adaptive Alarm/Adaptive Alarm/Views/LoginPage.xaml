@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout Margin="20">
             <!-- WebView needs to be given height and width request within layouts to render. -->
-            <WebView x:Name="webView" WidthRequest="1000" HeightRequest="1000" />
+            <WebView x:Name="webView" WidthRequest="1000" HeightRequest="1000" Navigating="webView_Navigating"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

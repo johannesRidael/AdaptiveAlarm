@@ -24,6 +24,7 @@ namespace Adaptive_Alarm.Views
             DataMonitor dataMonitor = (DataMonitor)Application.Current.Properties["dataMonitor"];
             //DisplayAlert("Got DataMonitor", "Body", "OK");
 
+            //TODO: change this to be conditional on the currently selected device type.
             ((FitbitDataMonitor)dataMonitor).Authenticate();
         }
     }

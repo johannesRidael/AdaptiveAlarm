@@ -10,13 +10,14 @@
                 Scale="3"
                 Margin="10,10,10,30"/>
             <Button Text="Change Connected Device Type" Margin="10,0,10,0" Clicked="ChangeDeviceButtonClicked"/>
-            <Picker Title="Device Type" Margin="10,0,10,20" SelectedIndex="0">
+            <Picker Title="Device Type" Margin="10,0,10,20" x:Name="typePicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>None</x:String>
                         <x:String>Fitbit</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
+                <Picker.SelectedIndex>0</Picker.SelectedIndex>
             </Picker>
             <Button Text="Reset Sleep Data" Margin="10,0,10,0"/>
             <Label Text="Current working dataset began: 03/29/2022" Margin="10,0,10,20"/>

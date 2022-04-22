@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.adaptive_alarm">
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
-    <application android:label="Adaptive_Alarm.Android" android:theme="@style/MainTheme"></application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.adaptive_alarm" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
+  <!--allow backup set to false to avoid a situation where encrypted data cannot be read after porting to a new device (see Xamarin Essential Secure Storage for details)-->>
+	<application android:label="Adaptive_Alarm.Android" android:theme="@style/MainTheme" android:allowBackup="false"></application> 
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>

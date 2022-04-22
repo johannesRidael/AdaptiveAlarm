@@ -19,11 +19,18 @@ namespace DataMonitorLib
     public class FitbitDataMonitor : DataMonitor
     {
         private Fitbit.Api.Portable.OAuth2.OAuth2AccessToken token;
+        private Fitbit.Api.Portable.OAuth2.OAuth2Helper authHelper;
         // Temporary ClientId and Secret for use in testing.
-        private static string CLIENTID = "2388MW";
-        private static string CLIENTSECRET = "778c9cc1bd4c44842e876cef351ec899";
+        private const string CLIENTID = "2388MW";
+        private const string CLIENTSECRET = "778c9cc1bd4c44842e876cef351ec899";
 
-        public FitbitDataMonitor(){}
+        public FitbitDataMonitor()
+        {
+            FitbitAppCredentials credentials = new FitbitAppCredentials();
+            credentials.ClientId = CLIENTID;
+            credentials.ClientSecret = CLIENTSECRET;
+            this.authHelper = new Fitbit.Api.Portable.OAuth2.OAuth2Helper(credentials, "http://localhost:4306/aa/data-collection");
+        }
 
         public override void CollectDataPoint()
         {
@@ -41,85 +48,83 @@ namespace DataMonitorLib
             throw new NotImplementedException();
         }
 
-        public override void LoadState()
+        public override async void LoadState()
         {
-            //TODO: If a prior state was saved locally then load it in.
-            throw new NotImplementedException();
+            //TODO: Add code to load other state information as it is added
+            string potential_tok = await SecureStorage.GetAsync("fitbit_tok");
+            if (potential_tok != null)
+            {
+                try
+                {
+                    this.token = JsonConvert.DeserializeObject<Fitbit.Api.Portable.OAuth2.OAuth2AccessToken>(potential_tok);
+                }
+                catch (JsonException je)
+                {
+                    Console.WriteLine("There was an error loading a previous Fitbit API Token, reauthenticating");
+                    this.Authenticate();
+                    return;
+                }
+            }
+            else // there is no auth token saved to the device, reauthenticate
+            {
+                Console.WriteLine("No token found, authenticating");
+                this.Authenticate();
+                return;
+            }
         }
 
         public override void SaveState()
         {
-            //TODO: Save the current state locally.
-            throw new NotImplementedException();
+            // sets the token's UtcExpirationDate so that when we load it in we can use token.IsFresh to see if we need to refresh.
+            DateTime exp_time = DateTime.UtcNow + TimeSpan.FromSeconds(this.token.ExpiresIn);
+            this.token.UtcExpirationDate = exp_time;
+
+            string tok_s = JsonConvert.SerializeObject(this.token);
+            Console.WriteLine(tok_s);
+            
+            // store encrypted in the devices secure store.
+            SecureStorage.SetAsync("fitbit_tok", tok_s);
+
+            //TODO: add code to save other state as it is added.
         }
 
         /// <summary>
         /// Attempts to authenticate the Fitbit DataMonitor and set its Access and Refresh Tokens to new values.
         /// </summary>
-        /// <returns> Whether or not authentication was successful. </returns>
-        public bool Authenticate()
+        public void Authenticate()
         {
-            FitbitAppCredentials credentials = new FitbitAppCredentials();
-            credentials.ClientId = CLIENTID;
-            credentials.ClientSecret = CLIENTSECRET;
-            Fitbit.Api.Portable.OAuth2.OAuth2Helper ah = new Fitbit.Api.Portable.OAuth2.OAuth2Helper(credentials, "http://localhost:4306/aa/data-collection");
-
             // build authentication url and open it in the default web browser
-            String authUrl = ah.GenerateAuthUrl(new string[] { "sleep", "heartrate" }, null);
-            //Console.WriteLine(authUrl);
-            Uri uri = new Uri(authUrl);
+            string authUrl = this.authHelper.GenerateAuthUrl(new string[] { "sleep", "heartrate" }, null);
 
             // open a browser to authenticate w/ Fitbit.
-            //TODO: maybe change this to open a WebView instead (allows greater control and eliminates the need for a TCP listener).
-            LoginPage loginPage = (LoginPage)Application.Current.FindByName("loginPage");
-            loginPage= new LoginPage();
-            WebView webView = (WebView)Application.Current.FindByName("webView"); // This is the one in ADAPTIVE ALARM
-            webView = new WebView();
-            webView.Source = uri.ToString();
-
             Shell.Current.GoToAsync("app://shell/LoginPage");
             Console.WriteLine("Attempted to open LoginPage");
+            // While the loginPage control is being focused it will determine if the current device setting is for a fitbit, if it is
+            // it will call the below get auth url method and redirect there. That control will also be set to on redirect check the
+            // redirect url, if it begins 'https://localhost:4306/aa/data-collection' it will strip out the auth code and exchange it
+            // for a token set setting that value on our data monitor.
+        }
+
+        public string GetAuthUrl()
+        {
+            // build authentication url and open it in the default web browser
+            string authUrl = this.authHelper.GenerateAuthUrl(new string[] { "sleep", "heartrate" }, null);
+            return authUrl;
+        }
+
+        public async void GetToken(string code) //TODO: change this to return a bool indicating success or failure
+        {
+            Console.WriteLine("Auth Code: " + code);
+
+            this.token = await this.authHelper.ExchangeAuthCodeForAccessTokenAsync(code);
+            Console.WriteLine("Token: " + this.token.Token);
 
 
+            await Shell.Current.GoToAsync("app://shell/SettingsPage");
+            Console.WriteLine("Attempted to open Settings Page");
 
-            //try
-            //{
-            //    Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred); // well that was easy!
-            //}
-            //catch (Exception ex)
-            //{
-            //    // An unexpected error occured. No browser may be installed on the device.
-            //}
-
-            ////TODO: ensure that token retrieval is actually happening
-
-            //// start a tcp listener to get the user code from the fitbit response
-            //int port = 4306;
-            //TcpListener listener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
-            //listener.Start();
-
-            //TcpClient tcpClient = listener.AcceptTcpClient();
-            //NetworkStream stream = tcpClient.GetStream();
-            //StreamWriter writer = new StreamWriter(stream, Encoding.ASCII) { AutoFlush = true };
-            //StreamReader reader = new StreamReader(stream, Encoding.ASCII);
-
-            //string inputLine = reader.ReadLine();
-            ////Console.WriteLine("Got line: " + inputLine);
-            //writer.WriteLineAsync("HTTP/1.1 200 OK\r\nHello World!\r\n\r\n").Wait(); //TODO: Find a way to get this to give the user a friendly thank you page.
-            //tcpClient.Close();
-
-            //string code = inputLine.Split(' ')[1].Split('=')[1];
-            //Console.WriteLine("Auth Code: " + code);
-
-            //this.token = ah.ExchangeAuthCodeForAccessTokenAsync(code).Result;
-            //Console.WriteLine("Token: " + this.token.Token);
-
-            //// TODO: write the DataMonitor's token to a protected store incase of crash.
-            ////string tok_s = JsonConvert.SerializeObject(this.token);
-
-            ////Application.Current.Properties
-
-            return false;
+            // save the datamonitor's state in case of crash.
+            this.SaveState();
         }
     }
 }
