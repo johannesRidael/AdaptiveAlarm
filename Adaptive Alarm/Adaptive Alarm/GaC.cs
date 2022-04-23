@@ -8,7 +8,7 @@ namespace Adaptive_Alarm
 {
     internal class GaC
     {
-        private DateTime nearestMidnight(DateTime dt)
+        /*ivate DateTime timeShiftToDT(DateTime dt)
         {
             DateTime p1 = new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0);
             DateTime p2 = new DateTime(dt.Year, dt.Month, dt.Day + 1, 0, 0, 0);
@@ -24,8 +24,23 @@ namespace Adaptive_Alarm
             }
             //TODO: Add handling for nonconventional sleep times, i.e. graveyard workers
 
+        }*/
+        private DateTime timeSpanToDT(TimeSpan alarmTime)
+        {
+            DateTime dt = DateTime.Now;
+            DateTime p1 = new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0);
+            DateTime p2 = new DateTime(dt.Year, dt.Month, dt.Day + 1, 0, 0, 0);
+            p1 = p1 + alarmTime;
+            p2 = p2 + alarmTime;
+            double dif1 = Math.Abs((p1 - dt).TotalMinutes);
+            double dif2 = Math.Abs((p2 - dt).TotalMinutes);
+            if (dif1 < 0)
+            {
+                return p2;
+            }
+            return p1;
         }
-        private int maxInd(int[] arr)
+            private int maxInd(int[] arr)
         {
             int ret = -1;
             int max = arr[0];
@@ -217,10 +232,9 @@ namespace Adaptive_Alarm
             {
                 CurrCycle = optCycleTime;
             }
-            DateTime now = DateTime.Now;
-            DateTime nm = nearestMidnight(now);
-            DateTime wakeBy2 = nm + wakeBy;
-            TimeSpan ttSleep = wakeBy2 - now;
+            
+            DateTime wakeBy2 = timeSpanToDT(wakeBy);
+            TimeSpan ttSleep = wakeBy2 - DateTime.Now;
             double minToSleep = ttSleep.TotalMinutes;
 
             int timeTillAlarm = awakeTime;
