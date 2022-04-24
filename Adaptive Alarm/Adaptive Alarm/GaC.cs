@@ -28,8 +28,8 @@ namespace Adaptive_Alarm
         private DateTime timeSpanToDT(TimeSpan alarmTime)
         {
             DateTime dt = DateTime.Now;
-            DateTime p1 = new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0);
-            DateTime p2 = new DateTime(dt.Year, dt.Month, dt.Day + 1, 0, 0, 0);
+            DateTime p1 = DateTime.Today;
+            DateTime p2 = p1.AddDays(1);
             p1 = p1 + alarmTime;
             p2 = p2 + alarmTime;
             double dif1 = Math.Abs((p1 - dt).TotalMinutes);
@@ -55,7 +55,7 @@ namespace Adaptive_Alarm
             return ret;
         }
 
-        protected int findAlarmTime(TimeSpan wakeBy, int awakeTime)
+        protected int findAlarmTime(DateTime wakeBy, int awakeTime)
         {
             /*
              * wakeBy: TimeSpan for the correct day
@@ -233,8 +233,7 @@ namespace Adaptive_Alarm
                 CurrCycle = optCycleTime;
             }
             
-            DateTime wakeBy2 = timeSpanToDT(wakeBy);
-            TimeSpan ttSleep = wakeBy2 - DateTime.Now;
+            TimeSpan ttSleep = wakeBy - DateTime.Now;
             double minToSleep = ttSleep.TotalMinutes;
 
             int timeTillAlarm = awakeTime;
