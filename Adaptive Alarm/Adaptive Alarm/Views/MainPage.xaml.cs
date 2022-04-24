@@ -24,8 +24,8 @@ namespace Adaptive_Alarm.Views
         public MainPage()
         {
             InitializeComponent();
-            saveFilename = "AppData.Json";
-            
+            saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.Json");
+
             if (File.Exists(saveFilename))
             {
                 string jsonstring = File.ReadAllText(saveFilename);
@@ -48,6 +48,14 @@ namespace Adaptive_Alarm.Views
              * 
              * TPNext.Time = appData.next
              */
+            /*
+            TPMonday.PropertyChanged += "OnTimePickerPropertyChanged";
+            TPTuesday.Time = appData.tuesday;
+            TPWednesday.Time = appData.wednesday;
+            TPThursday.Time = appData.thursday;
+            TPFriday.Time = appData.friday;
+            TPSaturday.Time = appData.saturday;
+            TPSunday.Time = appData.sunday;*/
 
         }
         void updateAppData()
@@ -69,6 +77,7 @@ namespace Adaptive_Alarm.Views
 
         void OnTimePickerPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
+            // Saves all the times to files
             if (args.PropertyName == "Time")
             {
                 updateAppData();

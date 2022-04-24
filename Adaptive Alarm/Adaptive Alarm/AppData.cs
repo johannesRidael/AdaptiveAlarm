@@ -16,6 +16,7 @@ namespace Utility
         public TimeSpan next { get; set; }
         //private TimeSpan[] listVer;
         public DateTime nextChanged { get; set; }
+        public int AwakeTime { get; set; }
 
         public AppData()
         {

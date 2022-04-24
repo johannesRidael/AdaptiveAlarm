@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DataMonitorLib;
+using System.IO;
+using Utility;
+using Newtonsoft.Json;
 
 namespace Adaptive_Alarm.Views
 {
@@ -33,6 +36,13 @@ namespace Adaptive_Alarm.Views
         private void saveButtonClicked(object sender, EventArgs e)
         {
             sleepTime = Convert.ToInt32(SleepTimeNumber.Text);
+            string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            string jsonstring = File.ReadAllText(saveFilename);
+            AppData data = JsonConvert.DeserializeObject<AppData>(jsonstring);
+            data.AwakeTime = sleepTime;
+            jsonstring = JsonConvert.SerializeObject(data);
+            File.WriteAllText(saveFilename, jsonstring);
+            
         }
     }
 }
