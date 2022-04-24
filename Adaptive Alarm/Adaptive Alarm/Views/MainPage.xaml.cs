@@ -18,6 +18,9 @@ namespace Adaptive_Alarm.Views
 
         AppData appData;
         string saveFilename;
+
+        //public string wakeUpTime { get; } = "Waking you up at";
+
         public MainPage()
         {
             InitializeComponent();

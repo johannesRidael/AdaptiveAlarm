@@ -1,53 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
- 
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Adaptive_Alarm.Views.MainPage">
     <ContentPage.Content>
         <StackLayout>
-    <Grid Margin="10, 10, 10, 10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Label Text="Monday:" 
+            <Label Text="Waking you up tomorrow at: 6:42 AM" FontSize="Medium" Margin="10, 10, 10, 0"/>
+            <Grid Margin="10, 30, 10, 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Monday:" 
                Grid.Row="0" Grid.Column="0" FontSize="Large"/>
-        <TimePicker x:Name="TPMonday" Time="7:00" Grid.Row="0" Grid.Column="1" Margin="10, 10, 10, 10"/>
+                <TimePicker x:Name="TPMonday" Time="7:00" Grid.Row="0" Grid.Column="1" Margin="10, 0, 10, 0"/>
 
-        <Label Text="Tuesday:" 
+                <Label Text="Tuesday:" 
                Grid.Row="1" Grid.Column="0" FontSize="Large"
                />
-        <TimePicker x:Name="TPTuesday" Time="7:00" Grid.Row="1" Grid.Column="1" Margin="10, 10, 10, 10" />
+                <TimePicker x:Name="TPTuesday" Time="7:00" Grid.Row="1" Grid.Column="1" Margin="10, 0, 10, 0" />
 
-        <Label Text="Wednesday:" Grid.Row="2" Grid.Column="0" FontSize="Large"/>
-        <TimePicker x:Name="TPWednesday" Time="7:00" Grid.Row="2" Grid.Column="1" Margin="10, 10, 10, 10"/>
+                <Label Text="Wednesday:" Grid.Row="2" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPWednesday" Time="7:00" Grid.Row="2" Grid.Column="1" Margin="10, 0, 10, 0"/>
 
-        <Label Text="Thursday" Grid.Row="3" Grid.Column="0" FontSize="Large"/>
-        <TimePicker x:Name="TPThursday" Time="7:00" Grid.Row="3" Grid.Column="1" Margin="10, 10, 10, 10"/>
+                <Label Text="Thursday" Grid.Row="3" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPThursday" Time="7:00" Grid.Row="3" Grid.Column="1" Margin="10, 0, 10, 0"/>
 
-        <Label Text="Friday" Grid.Row="4" Grid.Column="0" FontSize="Large"/>
-        <TimePicker x:Name="TPFriday" Time="7:00" Grid.Row="4" Grid.Column="1" Margin="10, 10, 10, 10"/>
+                <Label Text="Friday" Grid.Row="4" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPFriday" Time="7:00" Grid.Row="4" Grid.Column="1" Margin="10, 0, 10, 0"/>
 
-        <Label Text="Saturday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
-        <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 10, 10, 10"/>
+                <Label Text="Saturday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 0, 10, 0"/>
 
-        <Label Text="Sunday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
-        <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 10, 10, 10"/>
+                <Label Text="Sunday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 0, 10, 0"/>
 
-        
-    </Grid>
 
-            <Button Text="Change alarms for the week" VerticalOptions="Center" Margin="100, 0, 100, 0"/>
+            </Grid>
+
+            <Button Text="Change alarms for the week" VerticalOptions="Center" Margin="100, 0, 100, 20"/>
 
         </StackLayout>
 

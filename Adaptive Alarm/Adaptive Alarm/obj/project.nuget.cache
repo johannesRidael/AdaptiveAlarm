@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "WNbapX+xSXWiXADOX9wz0yxNMRvcXHeVyMj0vXhcLbctrX3buNN3zHpLSMHDOOl2hmyMk0oyAiFuXw5CFom5cQ==",
+  "dgSpecHash": "XwgwRf7vfhSS8Xrd/JFb2uWPs9jgo2ig1jg0SmFWXNNzKtBsE9kIue7Fj/9WY8GQBZV7y+ZacPL1IvWPTT2t0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+  "projectFilePath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\eeeeee\\.nuget\\packages\\fitbit.net\\2.3.0\\fitbit.net.2.3.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\eeeeee\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512"
+    "C:\\Users\\Bryce\\.nuget\\packages\\fitbit.net\\2.3.0\\fitbit.net.2.3.0.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\Bryce\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512"
   ],
   "logs": []
 }

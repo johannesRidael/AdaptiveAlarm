@@ -1,22 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj": {}
+    "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj": {
+    "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
+        "projectUniqueName": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
         "projectName": "Adaptive Alarm.iOS",
-        "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
-        "packagesPath": "C:\\Users\\eeeeee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\obj\\",
+        "projectPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\Adaptive Alarm.iOS.csproj",
+        "packagesPath": "C:\\Users\\Bryce\\.nuget\\packages\\",
+        "outputPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eeeeee\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Bryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "xamarinios10"
@@ -28,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
-                "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
+              "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
+                "projectPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj"
               }
             }
           }
@@ -61,18 +65,22 @@
         }
       }
     },
-    "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
+    "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+        "projectUniqueName": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
         "projectName": "Adaptive Alarm",
-        "projectPath": "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
-        "packagesPath": "C:\\Users\\eeeeee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eeeeee\\Source\\Repos\\johannesRidael\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\obj\\",
+        "projectPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\Adaptive Alarm.csproj",
+        "packagesPath": "C:\\Users\\Bryce\\.nuget\\packages\\",
+        "outputPath": "A:\\AdaptiveAlarm\\Adaptive Alarm\\Adaptive Alarm\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eeeeee\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Bryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -130,7 +138,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
         }
       }
     }

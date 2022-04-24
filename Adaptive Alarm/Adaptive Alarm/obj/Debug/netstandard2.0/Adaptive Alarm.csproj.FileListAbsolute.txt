@@ -37,7 +37,6 @@ A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive
 A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\ref\Adaptive Alarm.dll
 A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.pdb
 A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
-A:\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\obj\Debug\netstandard2.0\Adaptive Alarm.csproj.AssemblyReference.cache
 C:\Users\eeeeee\source\repos\johannesRidael\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.deps.json
 C:\Users\eeeeee\Source\Repos\johannesRidael\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\Adaptive Alarm.dll
 C:\Users\eeeeee\source\repos\johannesRidael\AdaptiveAlarm\Adaptive Alarm\Adaptive Alarm\bin\Debug\netstandard2.0\ref\Adaptive Alarm.dll
