@@ -13,6 +13,7 @@ namespace GaCData
         public int lowerBound { get; set; }
         public Queue<int> BFSqueue { get; set; }
         public int firstQscore { get; set; }
+        public int lastCycle { get; set; }
 
         public GaCDataContainer()
         {
@@ -24,6 +25,7 @@ namespace GaCData
             upperBound = 120;
             lowerBound = 60;
             firstQscore = -1;
+            lastCycle = 90;
         }
     }
 }

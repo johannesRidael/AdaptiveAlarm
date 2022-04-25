@@ -4,7 +4,7 @@ using GaCData;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace Adaptive_Alarm
+namespace GuessCheck
 {
     internal class GaC
     {
@@ -25,7 +25,7 @@ namespace Adaptive_Alarm
             //TODO: Add handling for nonconventional sleep times, i.e. graveyard workers
 
         }*/
-        private DateTime timeSpanToDT(TimeSpan alarmTime)
+        private static DateTime timeSpanToDT(TimeSpan alarmTime)
         {
             DateTime dt = DateTime.Now;
             DateTime p1 = DateTime.Today;
@@ -40,7 +40,7 @@ namespace Adaptive_Alarm
             }
             return p1;
         }
-            private int maxInd(int[] arr)
+        private static int maxInd(int[] arr)
         {
             int ret = -1;
             int max = arr[0];
@@ -55,7 +55,7 @@ namespace Adaptive_Alarm
             return ret;
         }
 
-        protected int findAlarmTime(DateTime wakeBy, int awakeTime)
+        public static int findAlarmTime(DateTime wakeBy, int awakeTime)
         {
             /*
              * wakeBy: TimeSpan for the correct day
@@ -72,6 +72,7 @@ namespace Adaptive_Alarm
             int high;
             int low;
             int firstQScore;
+            int lastCycle;
             int[] searchTree = new int[] {0, 90, 75, 105, 67, 83, 97, 113, 63, 71, 79, 87, 93, 101, 109, 117, 61, 65, 69, 73, 77, 81, 85, 89, 91, 95, 99, 103, 107,
             111, 115, 119, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120};
             //searchTree is a BinarySearchTree represented as an array
@@ -97,14 +98,21 @@ namespace Adaptive_Alarm
             high = data.upperBound;
             low = data.lowerBound;
             firstQScore = data.firstQscore;
+            lastCycle = data.lastCycle;
 
-            int CurrCycle = -1;
+            int CurrCycle = 90;
             if (optCycleTime == 0)
             {
                 if (ind == 0)
                 {//initialization
                     ind = 1;
                     CurrCycle = 90;
+                
+                }
+                else if (scores[ind] == 0)
+                {
+                    //no score was recorded, use last value
+                    CurrCycle = lastCycle;
                 }
                 else if (low != 60 || high != 120)
                 {//we have found a parent that scored better than both its children, so search between its two children
@@ -223,6 +231,7 @@ namespace Adaptive_Alarm
                 data.upperBound = high;
                 data.lowerBound = low;
                 data.BFSqueue = BFSqueue;
+                data.lastCycle = CurrCycle;
                 data.ScoreAttemptTreeInd = ind;
                 string jsonstring = JsonConvert.SerializeObject(data);
                 File.WriteAllText(saveFilename, jsonstring);

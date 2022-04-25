@@ -5,7 +5,7 @@
              x:Class="Adaptive_Alarm.Views.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Waking you up tomorrow at: 6:42 AM" FontSize="Medium" Margin="10, 10, 10, 0"/>
+            <Label x:Name="TimeMessage" Text="Waking you up tomorrow at: 6:42 AM" FontSize="Medium" Margin="10, 10, 10, 0"/>
             <Grid Margin="10, 30, 10, 10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -48,7 +48,7 @@
 
             </Grid>
 
-            <Button Text="Change alarms for the week" VerticalOptions="Center" Margin="100, 0, 100, 20"/>
+            <Button Text="Change alarms for the week" VerticalOptions="Center" Margin="100, 0, 100, 20" Clicked="OnSleepPressed"/>
 
         </StackLayout>
 

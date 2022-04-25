@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using System.IO;
 using Newtonsoft.Json;
 using System.ComponentModel;
+using GuessCheck;
 
 namespace Adaptive_Alarm.Views
 {
@@ -24,7 +25,7 @@ namespace Adaptive_Alarm.Views
         public MainPage()
         {
             InitializeComponent();
-            saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.Json");
+            saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
 
             if (File.Exists(saveFilename))
             {
@@ -82,6 +83,36 @@ namespace Adaptive_Alarm.Views
             {
                 updateAppData();
             }
+        }
+
+        void runGAC()
+        {
+            //TimeMessage.Text = "Finding Alarm Time to wake up before "  ;
+            //TimeMessage.Text = appData.currDateTime().ToString();
+            int totalMin = GaC.findAlarmTime(appData.currDateTime(), appData.AwakeTime);
+            DateTime nTime = DateTime.Now;
+            TimeSpan time = TimeSpan.FromMinutes(totalMin);
+            DateTime wakeTime = nTime + time;
+            TimeMessage.Text = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) + " To wake up before " + appData.currDateTime().ToString(); ;
+        }
+
+
+        void OnSleepPressed(object sender, EventArgs e)
+        {
+            if (File.Exists(saveFilename))
+            {
+                string jsonstring = File.ReadAllText(saveFilename);
+                appData = JsonConvert.DeserializeObject<AppData>(jsonstring);
+            }
+            else
+            {
+                appData = new AppData();
+            }
+            int totalMin = GaC.findAlarmTime(appData.currDateTime(), appData.AwakeTime);
+            DateTime nTime = DateTime.Now;
+            TimeSpan time = TimeSpan.FromMinutes(totalMin);
+            DateTime wakeTime = nTime + time;
+            TimeMessage.Text = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) + " To wake up before " + appData.currDateTime().ToString(); ;
         }
     }
 }                       

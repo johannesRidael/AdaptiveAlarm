@@ -28,6 +28,7 @@ namespace Utility
             saturday = new TimeSpan(7, 0, 0);
             sunday = new TimeSpan(7, 0, 0);
             next = new TimeSpan(7, 0, 0);
+            AwakeTime = 0;
             // = new TimeSpan[] { next, monday, tuesday, wednesday, thursday, friday, saturday, sunday }
         }
 

@@ -21,7 +21,23 @@ namespace Adaptive_Alarm.Views
         public List<string> deviceTypes = new List<string>(){ "None", "Fitbit" };
         public SettingsPage()
         {
+            
             InitializeComponent();
+
+            string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            AppData data;
+            string jsonstring;
+            if (File.Exists(saveFilename))
+            {
+                jsonstring = File.ReadAllText(saveFilename);
+                data = JsonConvert.DeserializeObject<AppData>(jsonstring);
+            }
+            else
+            {
+                data = new AppData();
+            }
+            SleepTimeNumber.Text = data.AwakeTime.ToString();
+
         }
 
         private void ChangeDeviceButtonClicked(object sender, EventArgs e)
@@ -37,8 +53,16 @@ namespace Adaptive_Alarm.Views
         {
             sleepTime = Convert.ToInt32(SleepTimeNumber.Text);
             string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
-            string jsonstring = File.ReadAllText(saveFilename);
-            AppData data = JsonConvert.DeserializeObject<AppData>(jsonstring);
+            AppData data;
+            string jsonstring;
+            if (File.Exists(saveFilename)){
+                jsonstring = File.ReadAllText(saveFilename);
+                data = JsonConvert.DeserializeObject<AppData>(jsonstring); 
+            }
+            else
+            {
+                data = new AppData();
+            }
             data.AwakeTime = sleepTime;
             jsonstring = JsonConvert.SerializeObject(data);
             File.WriteAllText(saveFilename, jsonstring);
