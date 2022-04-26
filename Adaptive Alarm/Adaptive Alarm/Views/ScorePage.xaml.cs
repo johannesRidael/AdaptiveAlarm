@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Adaptive_Alarm
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    
     public partial class ScorePage : ContentPage
     {
         public ScorePage()
         {
             InitializeComponent();
-            Selections = GetSelection();
+            selections = GetSelection();
             this.BindingContext = this;
         }
 
@@ -31,6 +30,8 @@ namespace Adaptive_Alarm
                 OnPropertyChanged();
             }
         }
+
+        
 
         private float amount;
         public float SelectedAmount
@@ -52,7 +53,7 @@ namespace Adaptive_Alarm
                 // TODO: For future algorithm displaying... 
                 new Selection { Name = "Time", Amount = 100, Color = Color.SlateBlue, Image = "time.png" },
                 new Selection { Name = "Average", Amount = 75, Color = Color.Purple, Image = "pulse.png" },
-                new Selection { Name = "Other", Amount = 95, Color = Color.PeachPuff, Image = "heart.png" },
+                new Selection { Name = "Other", Amount = 95, Color = Color.LightPink, Image = "heart.png" },
             };
         }
 

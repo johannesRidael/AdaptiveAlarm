@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Adaptive_Alarm.ScorePage">
     
     <Grid RowDefinitions="Auto, Auto, *" BackgroundColor="#F3F3F3" RowSpacing="20">
@@ -10,7 +10,7 @@
         </StackLayout>
         <ScrollView Grid.Row="1" VerticalOptions="Start" Orientation="Horizontal" Margin="30"
                     HorizontalScrollBarVisibility="Never">
-            <StackLayout Orientation="Horizontal" BindableLayout.ItemsSource="{Binding Budgets}" 
+            <StackLayout Orientation="Horizontal" BindableLayout.ItemsSource="{Binding Selections}" 
                         VerticalOptions="Start" HeightRequest="100">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
@@ -23,7 +23,7 @@
                                 <StackLayout x:Name="DetailsView" Grid.Column="1" VerticalOptions="Center" Padding="20,0" 
                                              TranslationX="-40" IsVisible="False">
                                     <Label Text ="{Binding Name}" FontSize="16" TextColor="White" FontAttributes="Bold"/>
-                                    <Label Text ="{Binding Amount, StringFormat='${0:N0}'}" FontSize="14" TextColor="White"
+                                    <Label Text ="{Binding Amount, StringFormat='${100:N0}'}" FontSize="14" TextColor="White"
                                            FontAttributes="Bold"/>
                                 </StackLayout>
                                 <BoxView CornerRadius="20" HeightRequest="70" WidthRequest="70" 
