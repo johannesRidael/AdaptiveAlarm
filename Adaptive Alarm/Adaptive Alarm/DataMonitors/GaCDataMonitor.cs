@@ -16,7 +16,6 @@ namespace DataMonitorLib
 
         public override void CollectDataPoint()
         {
-            // this is represented in lines 54- of the testing app.
             throw new NotImplementedException();
         }
 
