@@ -42,8 +42,8 @@
                 <Label Text="Saturday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
 
-                <Label Text="Sunday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
+                <Label Text="Tomorrow" Grid.Row="7" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPNextDay" Time="7:00" Grid.Row="7" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
 
 
             </Grid>
