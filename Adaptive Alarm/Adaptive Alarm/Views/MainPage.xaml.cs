@@ -97,7 +97,7 @@ namespace Adaptive_Alarm.Views
         }
 
 
-        void OnSleepPressed(object sender, EventArgs e)
+        async void OnSleepPressed(object sender, EventArgs e)
         {
             if (File.Exists(saveFilename))
             {
@@ -112,7 +112,15 @@ namespace Adaptive_Alarm.Views
             DateTime nTime = DateTime.Now;
             TimeSpan time = TimeSpan.FromMinutes(totalMin);
             DateTime wakeTime = nTime + time;
-            TimeMessage.Text = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) + " To wake up before " + appData.currDateTime().ToString(); ;
+            string message = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) 
+                + " To wake up before " + appData.currDateTime().ToString();
+            TimeMessage.Text = message;
+            await DisplayAlert("Reminder", message, "OK");
+        }
+
+        async void OnScorePressed(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ScorePage());
         }
     }
 }                       
