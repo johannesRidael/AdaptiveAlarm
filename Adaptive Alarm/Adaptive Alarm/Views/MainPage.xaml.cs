@@ -43,6 +43,11 @@ namespace Adaptive_Alarm.Views
             TPFriday.Time = appData.friday;
             TPSaturday.Time = appData.saturday;
             TPSunday.Time = appData.sunday;
+
+            double score = 100; //TODO: Put the score here.
+            string message = "Your sleeping score for last night is " + score;
+            DisplayAlert("Reminder", message, "OK");
+
             /*if((DateTime.Now - appData.nextChanged).TotalHours > 16){
              *  
              *  appData.next = appData.currTimeSpan()}
