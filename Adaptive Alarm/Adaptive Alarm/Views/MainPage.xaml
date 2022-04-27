@@ -5,7 +5,7 @@
              x:Class="Adaptive_Alarm.Views.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="TimeMessage" Text="Waking you up tomorrow at: 6:42 AM" FontSize="Medium" Margin="10, 10, 10, 0"/>
+            <Label x:Name="TimeMessage" Text="Press 'I'm going to sleep' for your wake time" FontSize="Medium" Margin="10, 10, 10, 0"/>
             <Grid Margin="10, 30, 10, 10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -23,32 +23,32 @@
                 </Grid.ColumnDefinitions>
                 <Label Text="Monday:" 
                Grid.Row="0" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPMonday" Time="7:00" Grid.Row="0" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
+                <TimePicker x:Name="TPMonday" Time="7:00" Grid.Row="0" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedM"/>
 
                 <Label Text="Tuesday:" 
                Grid.Row="1" Grid.Column="0" FontSize="Large"
                />
-                <TimePicker x:Name="TPTuesday" Time="7:00" Grid.Row="1" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
+                <TimePicker x:Name="TPTuesday" Time="7:00" Grid.Row="1" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTu"/>
 
                 <Label Text="Wednesday:" Grid.Row="2" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPWednesday" Time="7:00" Grid.Row="2" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
+                <TimePicker x:Name="TPWednesday" Time="7:00" Grid.Row="2" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedW"/>
 
                 <Label Text="Thursday" Grid.Row="3" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPThursday" Time="7:00" Grid.Row="3" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
+                <TimePicker x:Name="TPThursday" Time="7:00" Grid.Row="3" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTh"/>
 
                 <Label Text="Friday" Grid.Row="4" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPFriday" Time="7:00" Grid.Row="4" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
+                <TimePicker x:Name="TPFriday" Time="7:00" Grid.Row="4" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedF"/>
 
                 <Label Text="Saturday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
+                <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSa"/>
 
                 <Label Text="Sunday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
+                <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSu"/>
 
 
             </Grid>
 
-            <Button Text="Change alarms for the week" VerticalOptions="Center" Margin="100, 0, 100, 20" Clicked="OnSleepPressed"/>
+            <Button Text="I am going to sleep now" VerticalOptions="Center" Margin="100, 0, 100, 20" Clicked="OnSleepPressed"/>
             <Button Text="Check your Score" VerticalOptions="Center" Margin="100, 0, 100, 20" Clicked="OnScorePressed"/>
 
         </StackLayout>

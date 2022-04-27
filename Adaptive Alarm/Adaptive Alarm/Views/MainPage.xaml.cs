@@ -59,42 +59,6 @@ namespace Adaptive_Alarm.Views
             TPSunday.Time = appData.sunday;*/
 
         }
-        void updateAppData()
-        {
-            appData.monday = TPMonday.Time;
-            appData.tuesday = TPTuesday.Time;
-            appData.wednesday = TPWednesday.Time;
-            appData.thursday = TPThursday.Time;
-            appData.friday = TPFriday.Time;
-            appData.saturday = TPSaturday.Time;
-            appData.sunday = TPSunday.Time;
-            /*if(appData.next != TPNext.Time){
-             *  appData.nextChanged = DateTime.Now;
-             *  appData.next = TPNext.Time;
-             */
-            string jsonstring = JsonConvert.SerializeObject(appData);
-            File.WriteAllText(saveFilename, jsonstring);
-        }
-
-        void OnTimePickerPropertyChanged(object sender, PropertyChangedEventArgs args)
-        {
-            // Saves all the times to files
-            if (args.PropertyName == "Time")
-            {
-                updateAppData();
-            }
-        }
-
-        void runGAC()
-        {
-            //TimeMessage.Text = "Finding Alarm Time to wake up before "  ;
-            //TimeMessage.Text = appData.currDateTime().ToString();
-            int totalMin = GaC.findAlarmTime(appData.currDateTime(), appData.AwakeTime);
-            DateTime nTime = DateTime.Now;
-            TimeSpan time = TimeSpan.FromMinutes(totalMin);
-            DateTime wakeTime = nTime + time;
-            TimeMessage.Text = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) + " To wake up before " + appData.currDateTime().ToString(); ;
-        }
 
 
         async void OnSleepPressed(object sender, EventArgs e)
@@ -114,7 +78,7 @@ namespace Adaptive_Alarm.Views
             DateTime wakeTime = nTime + time;
             string message = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) 
                 + " To wake up before " + appData.currDateTime().ToString();
-            TimeMessage.Text = message;
+            //TimeMessage.Text = message;
             await DisplayAlert("Reminder", message, "OK");
         }
 
@@ -122,5 +86,83 @@ namespace Adaptive_Alarm.Views
         {
             await Navigation.PushAsync(new ScorePage());
         }
+
+        void OnTimePickerPropertyChangedM(object sender, PropertyChangedEventArgs args)
+        {
+            // Saves all the times to files
+            if (args.PropertyName == "Time")
+            {
+                appData.monday = TPMonday.Time;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
+            }
+        }
+
+        void OnTimePickerPropertyChangedTu(object sender, PropertyChangedEventArgs args)
+        {
+            // Saves all the times to files
+            if (args.PropertyName == "Time")
+            {
+                appData.tuesday = TPTuesday.Time;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
+            }
+        }
+
+        void OnTimePickerPropertyChangedW(object sender, PropertyChangedEventArgs args)
+        {
+            // Saves all the times to files
+            if (args.PropertyName == "Time")
+            {
+                appData.wednesday = TPWednesday.Time;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
+            }
+        }
+
+        void OnTimePickerPropertyChangedTh(object sender, PropertyChangedEventArgs args)
+        {
+            // Saves all the times to files
+            if (args.PropertyName == "Time")
+            {
+                appData.thursday = TPThursday.Time;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
+            }
+        }
+
+        void OnTimePickerPropertyChangedF(object sender, PropertyChangedEventArgs args)
+        {
+            // Saves all the times to files
+            if (args.PropertyName == "Time")
+            {
+                appData.friday = TPFriday.Time;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
+            }
+        }
+
+        void OnTimePickerPropertyChangedSa(object sender, PropertyChangedEventArgs args)
+        {
+            // Saves all the times to files
+            if (args.PropertyName == "Time")
+            {
+                appData.saturday = TPSaturday.Time;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
+            }
+        }
+
+        void OnTimePickerPropertyChangedSu(object sender, PropertyChangedEventArgs args)
+        {
+            // Saves all the times to files
+            if (args.PropertyName == "Time")
+            {
+                appData.sunday = TPSunday.Time;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
+            }
+        }
+
     }
 }                       
