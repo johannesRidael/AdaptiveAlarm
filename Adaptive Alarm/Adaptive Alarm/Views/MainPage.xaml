@@ -21,31 +21,32 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <Label Text="Tomorrow" Grid.Row="0" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPNext" Time="7:00" Grid.Row="0" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedNe"/>
                 <Label Text="Monday:" 
-               Grid.Row="0" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPMonday" Time="7:00" Grid.Row="0" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedM"/>
+               Grid.Row="1" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPMonday" Time="7:00" Grid.Row="1" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedM"/>
 
                 <Label Text="Tuesday:" 
-               Grid.Row="1" Grid.Column="0" FontSize="Large"
+               Grid.Row="2" Grid.Column="0" FontSize="Large"
                />
-                <TimePicker x:Name="TPTuesday" Time="7:00" Grid.Row="1" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTu"/>
+                <TimePicker x:Name="TPTuesday" Time="7:00" Grid.Row="2" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTu"/>
 
-                <Label Text="Wednesday:" Grid.Row="2" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPWednesday" Time="7:00" Grid.Row="2" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedW"/>
+                <Label Text="Wednesday:" Grid.Row="3" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPWednesday" Time="7:00" Grid.Row="3" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedW"/>
 
-                <Label Text="Thursday" Grid.Row="3" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPThursday" Time="7:00" Grid.Row="3" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTh"/>
+                <Label Text="Thursday" Grid.Row="4" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPThursday" Time="7:00" Grid.Row="4" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTh"/>
 
-                <Label Text="Friday" Grid.Row="4" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPFriday" Time="7:00" Grid.Row="4" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedF"/>
+                <Label Text="Friday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPFriday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedF"/>
 
-                <Label Text="Saturday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSa"/>
+                <Label Text="Saturday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSa"/>
 
-                <Label Text="Tomorrow" Grid.Row="7" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPNextDay" Time="7:00" Grid.Row="7" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChanged"/>
-                <Label Text="Sunday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
-                <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSu"/>
+                
+                <Label Text="Sunday" Grid.Row="7" Grid.Column="0" FontSize="Large"/>
+                <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="7" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSu"/>
 
 
             </Grid>

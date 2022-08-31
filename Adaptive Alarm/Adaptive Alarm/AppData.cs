@@ -16,7 +16,9 @@ namespace Utility
         public TimeSpan next { get; set; }
         //private TimeSpan[] listVer;
         public DateTime nextChanged { get; set; }
+        public DateTime scoreAdded { get; set; }
         public int AwakeTime { get; set; }
+
 
         public AppData()
         {
@@ -29,6 +31,8 @@ namespace Utility
             sunday = new TimeSpan(7, 0, 0);
             next = new TimeSpan(7, 0, 0);
             AwakeTime = 0;
+            scoreAdded = DateTime.Now.AddDays(-3);
+            nextChanged = DateTime.Now.AddDays(-3);
             // = new TimeSpan[] { next, monday, tuesday, wednesday, thursday, friday, saturday, sunday }
         }
 
@@ -63,7 +67,10 @@ namespace Utility
             /*
              * Returns a TimeSpan corresponding to the one that should be used if user slept right now
              */
-
+            if ((DateTime.Now - nextChanged).TotalHours < 16)
+            {
+                return next;
+            }
             DateTime now = DateTime.Now;
             DateTime today = DateTime.Today;
             DateTime tomorrow = today.AddDays(1);
@@ -90,6 +97,11 @@ namespace Utility
             DateTime tomorrow = today.AddDays(1);
             TimeSpan todays = GetTimeSpan(now.DayOfWeek);
             TimeSpan tomos = GetTimeSpan(tomorrow.DayOfWeek);
+            if ((DateTime.Now - nextChanged).TotalHours < 16)
+            {
+                todays = next;
+                tomos = next;
+            }
             today = today + todays;
             tomorrow = tomorrow + tomos;
 

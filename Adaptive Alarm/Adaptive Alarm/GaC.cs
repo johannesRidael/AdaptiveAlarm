@@ -55,6 +55,24 @@ namespace GuessCheck
             return ret;
         }
 
+        public static void addScore(int score)
+        {
+            string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GaCData.json");
+            GaCDataContainer data;
+            if (File.Exists(saveFilename))
+            {
+                string jsonstring = File.ReadAllText(saveFilename);
+                data = JsonConvert.DeserializeObject<GaCDataContainer>(jsonstring);
+            }
+            else
+            {
+                data = new GaCDataContainer();
+            }
+            data.ScoresArr[data.ScoreAttemptTreeInd] = score;
+            string jsonstrin = JsonConvert.SerializeObject(data);
+            File.WriteAllText(saveFilename, jsonstrin);
+        }
+
         public static int findAlarmTime(DateTime wakeBy, int awakeTime)
         {
             /*

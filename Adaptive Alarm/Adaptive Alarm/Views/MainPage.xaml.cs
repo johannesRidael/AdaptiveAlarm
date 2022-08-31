@@ -22,7 +22,7 @@ namespace Adaptive_Alarm.Views
 
         //public string wakeUpTime { get; } = "Waking you up at";
 
-        public MainPage()
+        public  MainPage()
         {
             InitializeComponent();
             saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
@@ -44,16 +44,22 @@ namespace Adaptive_Alarm.Views
             TPSaturday.Time = appData.saturday;
             TPSunday.Time = appData.sunday;
 
-            double score = 100; //TODO: Put the score here.
-            string message = "Your sleeping score for last night is " + score;
-            DisplayAlert("Reminder", message, "OK");
+            
+            
 
-            /*if((DateTime.Now - appData.nextChanged).TotalHours > 16){
-             *  
-             *  appData.next = appData.currTimeSpan()}
-             * 
-             * TPNext.Time = appData.next
-             */
+            if((DateTime.Now - appData.nextChanged).TotalHours > 16){
+
+                appData.next = appData.currTimeSpan();
+
+            }
+
+            TPNext.Time = appData.next;
+
+            if((DateTime.Now - appData.scoreAdded).TotalHours > 16)
+            {
+                ScorePrompt();
+            }
+             
             /*
             TPMonday.PropertyChanged += "OnTimePickerPropertyChanged";
             TPTuesday.Time = appData.tuesday;
@@ -65,7 +71,26 @@ namespace Adaptive_Alarm.Views
 
         }
 
-
+        private async void ScorePrompt()
+        {
+            HashSet<string> acceptableScores = new HashSet<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+            string result = await DisplayPromptAsync("Wakefulness", "How rested did you feel waking up this morning?", placeholder:"Scale 1-10 where 10 is best", maxLength:2, keyboard:Keyboard.Numeric);
+          
+            if (!string.IsNullOrWhiteSpace(result))
+            {
+                result = result.Trim();
+                while (!acceptableScores.Contains(result))
+                {
+                    result = await DisplayPromptAsync("Wakefulness", "Please input a number 1-10", placeholder: "Scale 1-10 where 10 is best", maxLength: 2, keyboard: Keyboard.Numeric);
+                    if (!string.IsNullOrWhiteSpace(result)){
+                        result = result.Trim(); 
+                    }
+                }
+                int score = Convert.ToInt32(result);
+                GaC.addScore(score);
+                appData.scoreAdded = DateTime.Now;
+            }
+        }
         async void OnSleepPressed(object sender, EventArgs e)
         {
             if (File.Exists(saveFilename))
@@ -166,6 +191,18 @@ namespace Adaptive_Alarm.Views
                 appData.sunday = TPSunday.Time;
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
+            }
+        }
+
+        void OnTimePickerPropertyChangedNe(object sender, PropertyChangedEventArgs args)
+        {
+            // Saves all the times to files
+            if (args.PropertyName == "Time")
+            {
+                appData.next = TPNext.Time;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
+                appData.nextChanged = DateTime.Now;
             }
         }
 
