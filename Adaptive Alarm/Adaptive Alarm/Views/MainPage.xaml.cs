@@ -206,5 +206,45 @@ namespace Adaptive_Alarm.Views
             }
         }
 
+        void TomorrowOnToggled(object sender, ToggledEventArgs e)
+        {
+            //DisplayAlert("Alert", "Tomorrow", "OK");
+        }
+
+        void MondayOnToggled(object sender, ToggledEventArgs e)
+        {
+            //DisplayAlert("Alert", "Monday", "OK");
+        }
+
+        void TuesdayOnToggled(object sender, ToggledEventArgs e)
+        {
+            //DisplayAlert("Alert", "Tuesday", "OK");
+        }
+
+        void WednesdayOnToggled(object sender, ToggledEventArgs e)
+        {
+            //DisplayAlert("Alert", "Wednesday", "OK");
+        }
+
+        void ThursdayOnToggled(object sender, ToggledEventArgs e)
+        {
+            //DisplayAlert("Alert", "Thursday", "OK");
+        }
+
+        void FridayOnToggled(object sender, ToggledEventArgs e)
+        {
+            //DisplayAlert("Alert", "Friday", "OK");
+        }
+
+        void SaturdayOnToggled(object sender, ToggledEventArgs e)
+        {
+            //DisplayAlert("Alert", "Saturday", "OK");
+        }
+
+        void SundayOnToggled(object sender, ToggledEventArgs e)
+        {
+            //DisplayAlert("Alert", "Sunday", "OK");
+        }
+
     }
 }                       

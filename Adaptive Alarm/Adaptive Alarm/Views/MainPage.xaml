@@ -2,7 +2,8 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Adaptive_Alarm.Views.MainPage">
+             x:Class="Adaptive_Alarm.Views.MainPage"
+             Title="Adaptive Alarm">
     <ContentPage.Content>
         <StackLayout>
             <Label x:Name="TimeMessage" Text="Press 'I'm going to sleep' for your wake time" FontSize="Medium" Margin="10, 10, 10, 0"/>
@@ -20,34 +21,39 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Tomorrow" Grid.Row="0" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPNext" Time="7:00" Grid.Row="0" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedNe"/>
-                <Label Text="Monday:" 
-               Grid.Row="1" Grid.Column="0" FontSize="Large"/>
+                <Switch x:Name="tomorrowSwitch" Toggled="TomorrowOnToggled" Grid.Row="0" Grid.Column="2"/>
+
+                <Label Text="Monday:" Grid.Row="1" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPMonday" Time="7:00" Grid.Row="1" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedM"/>
-
-                <Label Text="Tuesday:" 
-               Grid.Row="2" Grid.Column="0" FontSize="Large"
-               />
+                <Switch x:Name="mondaySwitch" Toggled="MondayOnToggled" Grid.Row="1" Grid.Column="2"/>
+                
+                <Label Text="Tuesday:" Grid.Row="2" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPTuesday" Time="7:00" Grid.Row="2" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTu"/>
-
+                <Switch x:Name="tuesdaySwitch" Toggled="TuesdayOnToggled" Grid.Row="2" Grid.Column="2"/>
+                
                 <Label Text="Wednesday:" Grid.Row="3" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPWednesday" Time="7:00" Grid.Row="3" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedW"/>
-
+                <Switch x:Name="wednesdaySwitch" Toggled="WednesdayOnToggled" Grid.Row="3" Grid.Column="2"/>
+                
                 <Label Text="Thursday" Grid.Row="4" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPThursday" Time="7:00" Grid.Row="4" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTh"/>
-
+                <Switch x:Name="thursdaySwitch" Toggled="ThursdayOnToggled" Grid.Row="4" Grid.Column="2"/>
+                
                 <Label Text="Friday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPFriday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedF"/>
+                <Switch x:Name="fridaySwitch" Toggled="FridayOnToggled" Grid.Row="5" Grid.Column="2"/>
 
                 <Label Text="Saturday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSa"/>
-
+                <Switch x:Name="saturdaySwitch" Toggled="SaturdayOnToggled" Grid.Row="6" Grid.Column="2"/>
                 
                 <Label Text="Sunday" Grid.Row="7" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="7" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSu"/>
-
+                <Switch x:Name="sundaySwitch" Toggled="SundayOnToggled" Grid.Row="7" Grid.Column="2"/>
 
             </Grid>
 
