@@ -126,10 +126,10 @@ namespace Adaptive_Alarm.Views
             DateTime nTime = DateTime.Now;
             TimeSpan time = TimeSpan.FromMinutes(totalMin);
             DateTime wakeTime = nTime + time;
-            notificationManager.SendNotification("succes?", string.Format("{0:hh:mm tt}", wakeTime));
-            notificationManager.SendNotification("test", "1 min later", DateTime.Now.AddMinutes(1));
-            notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime);
-            string message = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) 
+            //notificationManager.SendNotification("succes?", string.Format("{0:hh:mm tt}", wakeTime));
+            //notificationManager.SendNotification("test", "1 min later", DateTime.Now.AddMinutes(1));
+            notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime.AddMinutes(-1));
+            string message = "Initial Alarm set for " + string.Format("{0:hh:mm tt}", wakeTime) 
                 + " To wake up before " + appData.currDateTime().ToString();
             //TimeMessage.Text = message;
             await DisplayAlert("Reminder", message, "OK");
