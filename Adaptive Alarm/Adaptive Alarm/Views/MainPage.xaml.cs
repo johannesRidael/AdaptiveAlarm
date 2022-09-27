@@ -19,6 +19,8 @@ namespace Adaptive_Alarm.Views
 
         AppData appData;
         string saveFilename;
+        INotificationManager notificationManager;
+        int notificationNumber = 0;
 
         //public string wakeUpTime { get; } = "Waking you up at";
 
@@ -26,6 +28,12 @@ namespace Adaptive_Alarm.Views
         {
             InitializeComponent();
             saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            notificationManager = DependencyService.Get<INotificationManager>();
+            notificationManager.NotificationReceived += (sender, eventArgs) =>
+            {
+                var evtData = (NotificationEventArgs)eventArgs;
+                ShowNotification(evtData.Title, evtData.Message);
+            };
 
             if (File.Exists(saveFilename))
             {
@@ -71,6 +79,18 @@ namespace Adaptive_Alarm.Views
 
         }
 
+        void ShowNotification(string title, string message)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                var msg = new Label()
+                {
+                    Text = $"Notification Received:\nTitle: {title}\nMessage: {message}"
+                };
+                stackLayout.Children.Add(msg);
+            });
+        }
+
         private async void ScorePrompt()
         {
             HashSet<string> acceptableScores = new HashSet<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
@@ -106,6 +126,9 @@ namespace Adaptive_Alarm.Views
             DateTime nTime = DateTime.Now;
             TimeSpan time = TimeSpan.FromMinutes(totalMin);
             DateTime wakeTime = nTime + time;
+            notificationManager.SendNotification("succes?", string.Format("{0:hh:mm tt}", wakeTime));
+            notificationManager.SendNotification("test", "1 min later", DateTime.Now.AddMinutes(1));
+            notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime);
             string message = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) 
                 + " To wake up before " + appData.currDateTime().ToString();
             //TimeMessage.Text = message;

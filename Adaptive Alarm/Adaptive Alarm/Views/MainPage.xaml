@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Adaptive_Alarm.Views.MainPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="stackLayout">
             <Label x:Name="TimeMessage" Text="Press 'I'm going to sleep' for your wake time" FontSize="Medium" Margin="10, 10, 10, 0"/>
             <Grid Margin="10, 30, 10, 10">
                 <Grid.RowDefinitions>
