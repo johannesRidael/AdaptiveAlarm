@@ -85,10 +85,9 @@
     <FlyoutItem Title="Settings" Icon="settings.png">
         <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </FlyoutItem>
-    <!--
-    <FlyoutItem Title="Stats" Icon="icon_about.png">
+    <FlyoutItem Title="Stats" Icon="bed.png">
         <ShellContent Route="ScorePage" ContentTemplate="{DataTemplate local:ScorePage}" />
-    </FlyoutItem>-->
+    </FlyoutItem> 
     <FlyoutItem Title="More Information" Icon="icon_about.png">
         <ShellContent Route="Information" ContentTemplate="{DataTemplate local:Information}" />
     </FlyoutItem>

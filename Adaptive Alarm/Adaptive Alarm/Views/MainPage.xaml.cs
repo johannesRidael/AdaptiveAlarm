@@ -112,10 +112,10 @@ namespace Adaptive_Alarm.Views
             await DisplayAlert("Reminder", message, "OK");
         }
 
-        async void OnScorePressed(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ScorePage());
-        }
+        //async void OnScorePressed(object sender, EventArgs e)
+        //{
+            //await Navigation.PushAsync(new ScorePage());
+        //}
 
         void OnTimePickerPropertyChangedM(object sender, PropertyChangedEventArgs args)
         {
