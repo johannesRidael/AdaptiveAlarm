@@ -57,8 +57,8 @@
 
             </Grid>
 
-            <Button Text="I am going to sleep now" VerticalOptions="Center" Margin="100, 0, 100, 20" Clicked="OnSleepPressed"/>
-            <Button Text="Check your Score" VerticalOptions="Center" Margin="100, 0, 100, 20" Clicked="OnScorePressed"/>
+            <Button Text="I am going to sleep now" VerticalOptions="Center" Margin="100, 40, 100, 0" Clicked="OnSleepPressed"/>
+            <!--<Button Text="Check your Score" VerticalOptions="Center" Margin="100, 0, 100, 20" Clicked="OnScorePressed"/>-->
 
         </StackLayout>
 

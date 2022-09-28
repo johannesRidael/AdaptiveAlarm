@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="Adaptive_Alarm.ScorePage">
-    
+             x:Class="Adaptive_Alarm.Views.ScorePage"
+             Title="ScorePage">
+
     <Grid RowDefinitions="Auto, Auto, *" BackgroundColor="#F3F3F3" RowSpacing="20">
         <StackLayout Padding="30" WidthRequest="300" HorizontalOptions="Start">
             <Label Text ="Your sleeping score:" FontSize="30" TextColor="Black" />

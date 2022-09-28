@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Adaptive_Alarm
+namespace Adaptive_Alarm.Views
 {
     
     public partial class ScorePage : ContentPage
@@ -19,6 +19,7 @@ namespace Adaptive_Alarm
             selections = GetSelection();
             this.BindingContext = this;
         }
+
 
         private ObservableCollection<Selection> selections;
         public ObservableCollection<Selection> Selections
