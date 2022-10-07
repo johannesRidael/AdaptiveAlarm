@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Shiny;
 using UIKit;
+
+[assembly: Shiny.ShinyApplication(
+    ShinyStartupTypeName = "Adaptive_Alarm.MyShinyStartup",
+    XamarinFormsAppTypeName = "Adaptive_Alarm.App"
+)]
+
 
 namespace Adaptive_Alarm.iOS
 {
@@ -41,7 +48,7 @@ namespace Adaptive_Alarm.iOS
 
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             }*/
-
+            this.ShinyFinishedLaunching(new MyShinyStartup(), options);
             return base.FinishedLaunching(app, options);
         }
     }
