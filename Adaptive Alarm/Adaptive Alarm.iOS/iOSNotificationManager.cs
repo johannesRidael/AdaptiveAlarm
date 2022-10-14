@@ -1,6 +1,7 @@
 ﻿using System;
 using Adaptive_Alarm;
 using Foundation;
+using UIKit;
 using UserNotifications;
 using Xamarin.Forms;
 
@@ -19,15 +20,16 @@ namespace LocalNotifications.iOS
             UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert, (approved, err) =>
             {
                 hasNotificationsPermission = approved;
+                var notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(UIUserNotificationType.Alert | UIUserNotificationType.Sound, null);
             });
         }
 
-        public void SendNotification(string title, string message, DateTime? notifyTime = null)
+        public int SendNotification(string title, string message, DateTime? notifyTime = null)
         {
             // EARLY OUT: app doesn't have permissions
             if (!hasNotificationsPermission)
             {
-                return;
+                return -1;
             }
 
             messageId++;
@@ -53,6 +55,45 @@ namespace LocalNotifications.iOS
             }
 
             var request = UNNotificationRequest.FromIdentifier(messageId.ToString(), content, trigger);
+            UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
+            {
+                if (err != null)
+                {
+                    throw new Exception($"Failed to schedule notification: {err}");
+                }
+            });
+            return messageId;
+        }
+
+        public void updateNotification(string title, string message, DateTime? notifyTime, int ID)
+        {
+            // EARLY OUT: app doesn't have permissions
+            if (!hasNotificationsPermission)
+            {
+                return;
+            }
+
+            var content = new UNMutableNotificationContent()
+            {
+                Title = title,
+                Subtitle = "",
+                Body = message,
+                Badge = 1
+            };
+
+            UNNotificationTrigger trigger;
+            if (notifyTime != null)
+            {
+                // Create a calendar-based trigger.
+                trigger = UNCalendarNotificationTrigger.CreateTrigger(GetNSDateComponents(notifyTime.Value), false);
+            }
+            else
+            {
+                // Create a time-based trigger, interval is in seconds and must be greater than 0.
+                trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(0.25, false);
+            }
+
+            var request = UNNotificationRequest.FromIdentifier(ID.ToString(), content, trigger);
             UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
             {
                 if (err != null)

@@ -4,6 +4,7 @@ using Adaptive_Alarm.Droid;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
+using Android.Media;
 using Android.OS;
 using AndroidX.Core.App;
 using Xamarin.Forms;
@@ -42,7 +43,7 @@ namespace Adaptive_Alarm.Droid
             }
         }
 
-        public void SendNotification(string title, string message, DateTime? notifyTime = null)
+        public int SendNotification(string title, string message, DateTime? notifyTime = null)
         {
             if (!channelInitialized)
             {
@@ -64,6 +65,24 @@ namespace Adaptive_Alarm.Droid
             {
                 Show(title, message);
             }
+            return pendingIntentId - 1;
+        }
+        
+        public void updateNotification(string title, string message, DateTime? notifyTime, int ID)
+        {
+            if (!channelInitialized)
+            {
+                CreateNotificationChannel();
+            }
+            Intent intent = new Intent(AndroidApp.Context, typeof(AlarmHandler));
+            intent.PutExtra(TitleKey, title);
+            intent.PutExtra(MessageKey, message);
+
+            PendingIntent pendingIntent = PendingIntent.GetBroadcast(AndroidApp.Context, ID, intent, PendingIntentFlags.CancelCurrent);
+            long triggerTime = GetNotifyTime(notifyTime.Value);
+            AlarmManager alarmManager = AndroidApp.Context.GetSystemService(Context.AlarmService) as AlarmManager;
+            alarmManager.Set(AlarmType.RtcWakeup, triggerTime, pendingIntent);
+
         }
 
         public void ReceiveNotification(string title, string message)
@@ -90,7 +109,9 @@ namespace Adaptive_Alarm.Droid
                 .SetContentText(message)
                 .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.xamarin_logo))
                 .SetSmallIcon(Resource.Drawable.xamarin_logo)
-                .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
+                .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate)
+                .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
+                
 
             Notification notification = builder.Build();
             manager.Notify(messageId++, notification);

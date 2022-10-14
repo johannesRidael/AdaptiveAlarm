@@ -109,6 +109,8 @@ namespace Adaptive_Alarm.Views
                 int score = Convert.ToInt32(result);
                 GaC.addScore(score);
                 appData.scoreAdded = DateTime.Now;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
             }
         }
         async void OnSleepPressed(object sender, EventArgs e)
@@ -127,12 +129,14 @@ namespace Adaptive_Alarm.Views
             TimeSpan time = TimeSpan.FromMinutes(totalMin);
             DateTime wakeTime = nTime + time;
             //notificationManager.SendNotification("succes?", string.Format("{0:hh:mm tt}", wakeTime));
-            //notificationManager.SendNotification("test", "1 min later", DateTime.Now.AddMinutes(1));
-            notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime.AddMinutes(-1));
+            notificationManager.SendNotification("test", "1 min later", DateTime.Now.AddMinutes(1));
+            appData.wakeAlarmID = notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime.AddMinutes(-1));
             string message = "Initial Alarm set for " + string.Format("{0:hh:mm tt}", wakeTime) 
                 + " To wake up before " + appData.currDateTime().ToString();
             //TimeMessage.Text = message;
             await DisplayAlert("Reminder", message, "OK");
+            string sonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, sonstring);
         }
 
         async void OnScorePressed(object sender, EventArgs e)

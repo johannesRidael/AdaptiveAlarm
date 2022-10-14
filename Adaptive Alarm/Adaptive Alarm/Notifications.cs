@@ -8,8 +8,10 @@ namespace Adaptive_Alarm
     {
         event EventHandler NotificationReceived;
         void Initialize();
-        void SendNotification(string title, string message, DateTime? notifyTime = null);
+        int SendNotification(string title, string message, DateTime? notifyTime = null);
         void ReceiveNotification(string title, string message);
+
+        void updateNotification(string title, string message, DateTime? notifyTime, int ID);
     }
 
     public class NotificationEventArgs : EventArgs
