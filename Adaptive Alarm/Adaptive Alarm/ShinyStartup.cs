@@ -3,6 +3,7 @@ using Shiny;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Shiny.Jobs;
 
 namespace Adaptive_Alarm
 {
@@ -12,6 +13,10 @@ namespace Adaptive_Alarm
         {
             // this is where you'll load things like BLE, GPS, etc - those are covered in other sections
             // things like the jobs, environment, power, are all installed automatically
+            services.UseJobs(true);
+            services.UseNotifications(); // adding notifications for some job fun
+
+            services.RegisterJob(typeof(BackgroundJob));
         }
     }
 }
