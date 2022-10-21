@@ -83,11 +83,6 @@ namespace DataMonitorLib
             throw new NotImplementedException();
         }
 
-        public override List<DateTime> GetSleepSessionCollectionTimes()
-        {
-            throw new NotImplementedException();
-        }
-
         public override async void LoadState()
         {
             string potential_tok = await SecureStorage.GetAsync("fitbit_tok");
@@ -182,6 +177,11 @@ namespace DataMonitorLib
 
             // save the datamonitor's state in case of crash.
             this.SaveState();
+        }
+
+        public override void ClearState()
+        {
+            throw new NotImplementedException();
         }
     }
 }

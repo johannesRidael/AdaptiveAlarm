@@ -13,6 +13,10 @@ namespace DataMonitorLib
 {
     class GaCDataMonitor : DataMonitor
     {
+        public override void ClearState()
+        {
+            throw new NotImplementedException();
+        }
 
         public override void CollectDataPoint()
         {
@@ -20,11 +24,6 @@ namespace DataMonitorLib
         }
 
         public override DateTime EstimateWakeupTime()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<DateTime> GetSleepSessionCollectionTimes()
         {
             throw new NotImplementedException();
         }

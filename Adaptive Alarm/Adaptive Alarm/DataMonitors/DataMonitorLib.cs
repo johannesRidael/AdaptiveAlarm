@@ -22,14 +22,14 @@ namespace DataMonitorLib
         public abstract void LoadState();
 
         /// <summary>
+        /// Clears the data associated with this data monitor.
+        /// </summary>
+        public abstract void ClearState();
+
+        /// <summary>
         /// Estimates and returns the optimal wakeup time given the DataMonitor's current state.
         /// </summary>
         public abstract DateTime EstimateWakeupTime();
-
-        /// <summary>
-        /// Generates and Returns a list of times within the next 12 hours at which the DataMonitor should collect data points and update its internal state.
-        /// </summary>
-        public abstract List<DateTime> GetSleepSessionCollectionTimes();
 
         /// <summary>
         /// Collects a datapoint and updates its internal state accordingly.
