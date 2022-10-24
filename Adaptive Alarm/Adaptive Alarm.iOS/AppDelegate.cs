@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using LocalNotifications.iOS;
 using UIKit;
+using UserNotifications;
 
 namespace Adaptive_Alarm.iOS
 {
@@ -23,6 +25,8 @@ namespace Adaptive_Alarm.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            UNUserNotificationCenter.Current.Delegate = new iOSNotificationReceiver();
             LoadApplication(new App());
             /*
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))

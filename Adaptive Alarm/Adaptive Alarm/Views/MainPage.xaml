@@ -5,7 +5,7 @@
              x:Class="Adaptive_Alarm.Views.MainPage"
              Title="Adaptive Alarm">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="stackLayout">
             <Label x:Name="TimeMessage" Text="Press 'I'm going to sleep' for your wake time" FontSize="Medium" Margin="10, 10, 10, 0"/>
             <Grid Margin="10, 30, 10, 10">
                 <Grid.RowDefinitions>

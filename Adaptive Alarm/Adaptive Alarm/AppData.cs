@@ -19,6 +19,8 @@ namespace Utility
         public DateTime scoreAdded { get; set; }
         public int AwakeTime { get; set; }
 
+        public int wakeAlarmID { get; set; }
+
 
         public AppData()
         {
@@ -33,6 +35,7 @@ namespace Utility
             AwakeTime = 0;
             scoreAdded = DateTime.Now.AddDays(-3);
             nextChanged = DateTime.Now.AddDays(-3);
+            wakeAlarmID = -1;
             // = new TimeSpan[] { next, monday, tuesday, wednesday, thursday, friday, saturday, sunday }
         }
 
