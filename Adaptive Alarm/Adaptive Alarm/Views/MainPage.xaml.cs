@@ -36,6 +36,7 @@ namespace Adaptive_Alarm.Views
             {
                 appData = new AppData();
             }
+            //Set time pickers to saved data
             TPMonday.Time = appData.monday;
             TPTuesday.Time = appData.tuesday;
             TPWednesday.Time = appData.wednesday;
@@ -44,10 +45,21 @@ namespace Adaptive_Alarm.Views
             TPSaturday.Time = appData.saturday;
             TPSunday.Time = appData.sunday;
 
-            
-            
+            //Set switches to saved data
+            tomorrowSwitch.IsToggled = appData.TomorrowSwitchState;
+            mondaySwitch.IsToggled = appData.MondaySwitchState;
+            tuesdaySwitch.IsToggled = appData.TuesdaySwitchState;
+            wednesdaySwitch.IsToggled = appData.WednesdaySwitchState;
+            thursdaySwitch.IsToggled = appData.ThursdaySwitchState;
+            fridaySwitch.IsToggled = appData.FridaySwitchState;
+            saturdaySwitch.IsToggled = appData.SaturdaySwitchState;
+            sundaySwitch.IsToggled = appData.SundaySwitchState;
 
-            if((DateTime.Now - appData.nextChanged).TotalHours > 16){
+
+
+
+
+            if ((DateTime.Now - appData.nextChanged).TotalHours > 16){
 
                 appData.next = appData.currTimeSpan();
 
@@ -126,6 +138,9 @@ namespace Adaptive_Alarm.Views
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
             }
+
+            //if (!mondaySwitch.IsToggled)
+                //mondaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedTu(object sender, PropertyChangedEventArgs args)
@@ -137,6 +152,9 @@ namespace Adaptive_Alarm.Views
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
             }
+
+            //if (!tuesdaySwitch.IsToggled)
+                //tuesdaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedW(object sender, PropertyChangedEventArgs args)
@@ -148,6 +166,9 @@ namespace Adaptive_Alarm.Views
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
             }
+
+            //if (!wednesdaySwitch.IsToggled)
+                //wednesdaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedTh(object sender, PropertyChangedEventArgs args)
@@ -159,6 +180,9 @@ namespace Adaptive_Alarm.Views
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
             }
+
+            //if (!thursdaySwitch.IsToggled)
+                //thursdaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedF(object sender, PropertyChangedEventArgs args)
@@ -170,6 +194,9 @@ namespace Adaptive_Alarm.Views
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
             }
+
+            //if (!fridaySwitch.IsToggled)
+                //fridaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedSa(object sender, PropertyChangedEventArgs args)
@@ -181,6 +208,9 @@ namespace Adaptive_Alarm.Views
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
             }
+
+            //if (!saturdaySwitch.IsToggled)
+                //saturdaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedSu(object sender, PropertyChangedEventArgs args)
@@ -192,6 +222,9 @@ namespace Adaptive_Alarm.Views
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
             }
+
+            //if (!sundaySwitch.IsToggled)
+                //sundaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedNe(object sender, PropertyChangedEventArgs args)
@@ -204,46 +237,78 @@ namespace Adaptive_Alarm.Views
                 File.WriteAllText(saveFilename, jsonstring);
                 appData.nextChanged = DateTime.Now;
             }
+
+            //if (!tomorrowSwitch.IsToggled)
+                //tomorrowSwitch.IsToggled = true;
         }
 
         void TomorrowOnToggled(object sender, ToggledEventArgs e)
         {
+            appData.TomorrowSwitchState = tomorrowSwitch.IsToggled;
+            string jsonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, jsonstring);
             //DisplayAlert("Alert", "Tomorrow", "OK");
         }
 
         void MondayOnToggled(object sender, ToggledEventArgs e)
         {
+            appData.MondaySwitchState = mondaySwitch.IsToggled;
+            string jsonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, jsonstring);
             //DisplayAlert("Alert", "Monday", "OK");
         }
 
         void TuesdayOnToggled(object sender, ToggledEventArgs e)
         {
+            appData.TuesdaySwitchState = tuesdaySwitch.IsToggled;
+            string jsonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, jsonstring);
             //DisplayAlert("Alert", "Tuesday", "OK");
         }
 
         void WednesdayOnToggled(object sender, ToggledEventArgs e)
         {
+            appData.WednesdaySwitchState = wednesdaySwitch.IsToggled;
+            string jsonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, jsonstring);
             //DisplayAlert("Alert", "Wednesday", "OK");
         }
 
         void ThursdayOnToggled(object sender, ToggledEventArgs e)
         {
+            appData.ThursdaySwitchState = thursdaySwitch.IsToggled;
+            string jsonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, jsonstring);
             //DisplayAlert("Alert", "Thursday", "OK");
         }
 
         void FridayOnToggled(object sender, ToggledEventArgs e)
         {
+            appData.FridaySwitchState = fridaySwitch.IsToggled;
+            string jsonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, jsonstring);
             //DisplayAlert("Alert", "Friday", "OK");
         }
 
         void SaturdayOnToggled(object sender, ToggledEventArgs e)
         {
+            appData.SaturdaySwitchState = saturdaySwitch.IsToggled;
+            string jsonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, jsonstring);
             //DisplayAlert("Alert", "Saturday", "OK");
         }
 
         void SundayOnToggled(object sender, ToggledEventArgs e)
         {
+            appData.SundaySwitchState = sundaySwitch.IsToggled;
+            string jsonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, jsonstring);
             //DisplayAlert("Alert", "Sunday", "OK");
+        }
+
+        void OnMultiplePressed(object sender, EventArgs e)
+        {
+
         }
 
     }

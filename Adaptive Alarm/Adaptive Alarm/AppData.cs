@@ -19,6 +19,15 @@ namespace Utility
         public DateTime scoreAdded { get; set; }
         public int AwakeTime { get; set; }
 
+        public bool TomorrowSwitchState { get; set; }
+        public bool MondaySwitchState { get; set; }
+        public bool TuesdaySwitchState { get; set; }
+        public bool WednesdaySwitchState { get; set; }
+        public bool ThursdaySwitchState { get; set; }
+        public bool FridaySwitchState { get; set; }
+        public bool SaturdaySwitchState { get; set; }
+        public bool SundaySwitchState { get; set; }
+
 
         public AppData()
         {
