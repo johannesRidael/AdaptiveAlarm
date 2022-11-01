@@ -10,6 +10,7 @@ using DataMonitorLib;
 using System.IO;
 using Utility;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
 
 namespace Adaptive_Alarm.Views
 {
@@ -24,7 +25,7 @@ namespace Adaptive_Alarm.Views
             
             InitializeComponent();
 
-            string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            string saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
             AppData data;
             string jsonstring;
             if (File.Exists(saveFilename))
@@ -43,7 +44,6 @@ namespace Adaptive_Alarm.Views
         private void ChangeDeviceButtonClicked(object sender, EventArgs e)
         {
             DataMonitor dataMonitor = (DataMonitor)Application.Current.Properties["dataMonitor"];
-            //DisplayAlert("Got DataMonitor", "Body", "OK");
 
             //TODO: change this to be conditional on the currently selected device type.
             ((FitbitDataMonitor)dataMonitor).Authenticate();
@@ -52,7 +52,7 @@ namespace Adaptive_Alarm.Views
         private void saveButtonClicked(object sender, EventArgs e)
         {
             sleepTime = Convert.ToInt32(SleepTimeNumber.Text);
-            string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            string saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
             AppData data;
             string jsonstring;
             if (File.Exists(saveFilename)){

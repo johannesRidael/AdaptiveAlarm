@@ -13,7 +13,7 @@ namespace Adaptive_Alarm
     public partial class App : Application
     {
         //TODO: wrap this and any other needed variables into an object that will be stored and loaded into local memory on app close/open.
-        private DataMonitor dataMonitor = new FitbitDataMonitor(); //TODO: make this build based upon application settings and set the default to "NoneDataMonitor"
+        private DataMonitor dataMonitor = new GaCDataMonitor(); //TODO: make this build based upon application settings and set the default to "NoneDataMonitor"
 
         public App()
         {
@@ -43,10 +43,10 @@ namespace Adaptive_Alarm
             DataMonitor dm;
             if (s.CurrentDeviceType == "None") { dm = new GaCDataMonitor(); }
             else { dm = new FitbitDataMonitor(); }
-            
+
             dm.LoadState();
             this.Properties["dataMonitor"] = dm;
-            
+
         }
 
         protected override void OnSleep()

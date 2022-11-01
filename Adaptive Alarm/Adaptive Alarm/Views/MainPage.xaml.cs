@@ -9,7 +9,8 @@ using Xamarin.Forms.Xaml;
 using System.IO;
 using Newtonsoft.Json;
 using System.ComponentModel;
-using GuessCheck;
+using DataMonitorLib;
+using Xamarin.Essentials;
 
 namespace Adaptive_Alarm.Views
 {
@@ -20,12 +21,10 @@ namespace Adaptive_Alarm.Views
         AppData appData;
         string saveFilename;
 
-        //public string wakeUpTime { get; } = "Waking you up at";
-
         public  MainPage()
         {
             InitializeComponent();
-            saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
 
             if (File.Exists(saveFilename))
             {
@@ -55,42 +54,14 @@ namespace Adaptive_Alarm.Views
 
             TPNext.Time = appData.next;
 
-            if((DateTime.Now - appData.scoreAdded).TotalHours > 16)
+            if((DateTime.Now - appData.scoreAdded).TotalHours > 16) //TODO: change this to be contingent on data monitor type
             {
-                ScorePrompt();
-            }
-             
-            /*
-            TPMonday.PropertyChanged += "OnTimePickerPropertyChanged";
-            TPTuesday.Time = appData.tuesday;
-            TPWednesday.Time = appData.wednesday;
-            TPThursday.Time = appData.thursday;
-            TPFriday.Time = appData.friday;
-            TPSaturday.Time = appData.saturday;
-            TPSunday.Time = appData.sunday;*/
-
-        }
-
-        private async void ScorePrompt()
-        {
-            HashSet<string> acceptableScores = new HashSet<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-            string result = await DisplayPromptAsync("Wakefulness", "How rested did you feel waking up this morning?", placeholder:"Scale 1-10 where 10 is best", maxLength:2, keyboard:Keyboard.Numeric);
-          
-            if (!string.IsNullOrWhiteSpace(result))
-            {
-                result = result.Trim();
-                while (!acceptableScores.Contains(result))
-                {
-                    result = await DisplayPromptAsync("Wakefulness", "Please input a number 1-10", placeholder: "Scale 1-10 where 10 is best", maxLength: 2, keyboard: Keyboard.Numeric);
-                    if (!string.IsNullOrWhiteSpace(result)){
-                        result = result.Trim(); 
-                    }
-                }
-                int score = Convert.ToInt32(result);
-                GaC.addScore(score);
-                appData.scoreAdded = DateTime.Now;
+                DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
+                dm.CollectDataPoint();
             }
         }
+
+    
         async void OnSleepPressed(object sender, EventArgs e)
         {
             if (File.Exists(saveFilename))
@@ -102,10 +73,8 @@ namespace Adaptive_Alarm.Views
             {
                 appData = new AppData();
             }
-            int totalMin = GaC.findAlarmTime(appData.currDateTime(), appData.AwakeTime);
-            DateTime nTime = DateTime.Now;
-            TimeSpan time = TimeSpan.FromMinutes(totalMin);
-            DateTime wakeTime = nTime + time;
+            DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
+            DateTime wakeTime = dm.EstimateWakeupTime(); //TODO: use this to update the alarm notification automatically
             string message = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) 
                 + " To wake up before " + appData.currDateTime().ToString();
             //TimeMessage.Text = message;
@@ -117,6 +86,7 @@ namespace Adaptive_Alarm.Views
             await Navigation.PushAsync(new ScorePage());
         }
 
+        #region Timepicker listeners
         void OnTimePickerPropertyChangedM(object sender, PropertyChangedEventArgs args)
         {
             // Saves all the times to files
@@ -205,6 +175,6 @@ namespace Adaptive_Alarm.Views
                 appData.nextChanged = DateTime.Now;
             }
         }
-
+        #endregion
     }
 }                       

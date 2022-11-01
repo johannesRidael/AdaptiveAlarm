@@ -181,7 +181,8 @@ namespace DataMonitorLib
 
         public override void ClearState()
         {
-            throw new NotImplementedException();
+            SecureStorage.SetAsync("fitbit_tok", null);
+            File.Delete(Path.Combine(FileSystem.AppDataDirectory, "FitbitStateDurations.json"));
         }
     }
 }
