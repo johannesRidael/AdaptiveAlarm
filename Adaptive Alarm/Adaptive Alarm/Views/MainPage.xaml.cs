@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using System.ComponentModel;
 using DataMonitorLib;
 using Xamarin.Essentials;
+using Shiny.Jobs;
+using Shiny;
 
 namespace Adaptive_Alarm.Views
 {
@@ -61,8 +63,15 @@ namespace Adaptive_Alarm.Views
             }
         }
 
-    
-        async void OnSleepPressed(object sender, EventArgs e)
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+            
+        //    IJobManager manager = ShinyHost.Resolve<IJobManager>();
+        //    var results = manager.Run("BackgroundJob").Result;
+        //}
+
+            async void OnSleepPressed(object sender, EventArgs e)
         {
             if (File.Exists(saveFilename))
             {

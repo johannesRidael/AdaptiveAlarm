@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Adaptive_Alarm
@@ -7,6 +8,7 @@ namespace Adaptive_Alarm
     /// <summary>
     /// Outlines a class to hold information on the current application settings.
     /// </summary>
+    [KnownType(typeof(Settings))]
     public class Settings
     {
         public string CurrentDeviceType;

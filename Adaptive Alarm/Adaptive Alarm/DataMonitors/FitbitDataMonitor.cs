@@ -35,6 +35,7 @@ namespace DataMonitorLib
 
         public override async void CollectDataPoint()
         {
+            Console.WriteLine("GaCDataMonitor - CollectDataPointRunning");
             // Build a Fitbit client and download the current day's sleep data.
             FitbitAppCredentials credentials = new FitbitAppCredentials();
             credentials.ClientId = CLIENTID;

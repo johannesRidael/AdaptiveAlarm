@@ -28,8 +28,10 @@ namespace DataMonitorLib
 
         public override void CollectDataPoint()
         {
+            Console.WriteLine("GaCDataMonitor - CollectDataPointRunning"); //TODO: Fix this so it can actually run (perhaps move the data collection code for the GaC Model?
             if (Shell.Current.IsFocused) // App is in the foreground, get a datapoint
             {
+                
                 HashSet<string> acceptableScores = new HashSet<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
                 string result = Shell.Current.DisplayPromptAsync("Wakefulness", "How rested did you feel waking up this morning?", placeholder: "Scale 1-10 where 10 is best", maxLength: 2, keyboard: Keyboard.Numeric).Result;
 
@@ -47,7 +49,7 @@ namespace DataMonitorLib
                     int score = Convert.ToInt32(result);
                     this.data.ScoresArr[this.data.ScoreAttemptTreeInd] = score;
 
-                    //appData.scoreAdded = DateTime.Now; //TODO: after movinc app data to App properties, fix
+                    //appData.scoreAdded = DateTime.Now; //TODO: after moving app data to App properties, fix
                 }
             } // else, app is in the background. Leave it be.
         }

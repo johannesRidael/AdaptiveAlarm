@@ -12,19 +12,13 @@ namespace Adaptive_Alarm
 {
     public partial class App : Application
     {
-        //TODO: wrap this and any other needed variables into an object that will be stored and loaded into local memory on app close/open.
-        private DataMonitor dataMonitor = new GaCDataMonitor(); //TODO: make this build based upon application settings and set the default to "NoneDataMonitor"
 
         public App()
         {
             InitializeComponent();
 
             MainPage = new AppShell();
-            this.Properties["dataMonitor"] = dataMonitor;
-        }
 
-        protected override void OnStart()
-        {
             // Reads in settings
             var path = Path.Combine(FileSystem.AppDataDirectory, "Settings.json");
             Settings s;
@@ -39,7 +33,7 @@ namespace Adaptive_Alarm
             {
                 s = new Settings();
             }
-            this.Properties["currentDataSetStart"] = s.CurrentDataSetStartDate;
+            this.Properties["settings"] = s;
             DataMonitor dm;
             if (s.CurrentDeviceType == "None") { dm = new GaCDataMonitor(); }
             else { dm = new FitbitDataMonitor(); }
@@ -49,17 +43,13 @@ namespace Adaptive_Alarm
 
         }
 
+        protected override void OnStart()
+        {
+        }
+
         protected override void OnSleep()
         {
-            // Saves settings
-            var dm = this.Properties["dataMonitor"];
-            string s;
-#pragma warning disable CS0184 // 'is' expression's given expression is never of the provided type
-            if (dm.GetType() is GaCDataMonitor)
-                s = "None";
-            else s = "Fitbit";
-#pragma warning restore CS0184 // 'is' expression's given expression is never of the provided type
-            Settings settings = new Settings(s, (DateTime)this.Properties["currentDataSetStart"]);
+            Settings settings = (Settings)this.Properties["settings"];
 
             var path = Path.Combine(FileSystem.AppDataDirectory, "Settings.json");
             using (StreamWriter streamWriter = File.CreateText(path))

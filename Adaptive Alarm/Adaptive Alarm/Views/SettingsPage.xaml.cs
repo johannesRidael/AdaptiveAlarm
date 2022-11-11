@@ -44,9 +44,20 @@ namespace Adaptive_Alarm.Views
         private void ChangeDeviceButtonClicked(object sender, EventArgs e)
         {
             DataMonitor dataMonitor = (DataMonitor)Application.Current.Properties["dataMonitor"];
+            Settings settings = (Settings)Application.Current.Properties["settings"];
 
-            //TODO: change this to be conditional on the currently selected device type.
-            ((FitbitDataMonitor)dataMonitor).Authenticate();
+            if ((string)typePicker.SelectedItem == "None")
+            {
+                dataMonitor = new GaCDataMonitor();
+            }
+            else
+            {
+                dataMonitor = new FitbitDataMonitor();
+                ((FitbitDataMonitor)dataMonitor).Authenticate();
+            }
+            settings.CurrentDeviceType = (string)typePicker.SelectedItem;
+            Application.Current.Properties["dataMonitor"] = dataMonitor;
+            Application.Current.Properties["settings"] = settings;
         }
 
         private void saveButtonClicked(object sender, EventArgs e)
