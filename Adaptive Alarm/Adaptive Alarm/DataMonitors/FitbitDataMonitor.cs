@@ -21,8 +21,8 @@ namespace DataMonitorLib
         private Fitbit.Api.Portable.OAuth2.OAuth2AccessToken token;
         private Fitbit.Api.Portable.OAuth2.OAuth2Helper authHelper;
         // Temporary ClientId and Secret for use in testing.
-        private const string CLIENTID = "2388MW";
-        private const string CLIENTSECRET = "778c9cc1bd4c44842e876cef351ec899";
+        private const string CLIENTID = "238S3D";
+        private const string CLIENTSECRET = "078679b0a1f8ad4b5d4aebba989571a7";
         private Dictionary<String, ValueTuple<int, int>> avgStateDurations; // represents sleep states as a dictionary of (occurances, avg duration) tuples
 
         public FitbitDataMonitor()
