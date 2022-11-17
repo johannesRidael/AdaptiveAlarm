@@ -10,6 +10,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.ComponentModel;
 using GuessCheck;
+using Fitbit.Api.Portable.Models;
 
 namespace Adaptive_Alarm.Views
 {
@@ -19,6 +20,7 @@ namespace Adaptive_Alarm.Views
 
         AppData appData;
         string saveFilename;
+        bool afterBootup = false;
 
         //public string wakeUpTime { get; } = "Waking you up at";
 
@@ -55,10 +57,6 @@ namespace Adaptive_Alarm.Views
             saturdaySwitch.IsToggled = appData.SaturdaySwitchState;
             sundaySwitch.IsToggled = appData.SundaySwitchState;
 
-
-
-
-
             if ((DateTime.Now - appData.nextChanged).TotalHours > 16){
 
                 appData.next = appData.currTimeSpan();
@@ -71,6 +69,8 @@ namespace Adaptive_Alarm.Views
             {
                 ScorePrompt();
             }
+
+            
              
             /*
             TPMonday.PropertyChanged += "OnTimePickerPropertyChanged";
@@ -102,6 +102,8 @@ namespace Adaptive_Alarm.Views
                 GaC.addScore(score);
                 appData.scoreAdded = DateTime.Now;
             }
+
+            afterBootup = true;
         }
         async void OnSleepPressed(object sender, EventArgs e)
         {
@@ -137,10 +139,10 @@ namespace Adaptive_Alarm.Views
                 appData.monday = TPMonday.Time;
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
-            }
 
-            //if (!mondaySwitch.IsToggled)
-                //mondaySwitch.IsToggled = true;
+                if (afterBootup)
+                    mondaySwitch.IsToggled = true;
+            }
         }
 
         void OnTimePickerPropertyChangedTu(object sender, PropertyChangedEventArgs args)
@@ -151,10 +153,10 @@ namespace Adaptive_Alarm.Views
                 appData.tuesday = TPTuesday.Time;
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
-            }
 
-            //if (!tuesdaySwitch.IsToggled)
-                //tuesdaySwitch.IsToggled = true;
+                if (afterBootup)
+                    tuesdaySwitch.IsToggled = true;
+            }
         }
 
         void OnTimePickerPropertyChangedW(object sender, PropertyChangedEventArgs args)
@@ -165,10 +167,10 @@ namespace Adaptive_Alarm.Views
                 appData.wednesday = TPWednesday.Time;
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
-            }
 
-            //if (!wednesdaySwitch.IsToggled)
-                //wednesdaySwitch.IsToggled = true;
+                if (afterBootup)
+                    wednesdaySwitch.IsToggled = true;
+            }
         }
 
         void OnTimePickerPropertyChangedTh(object sender, PropertyChangedEventArgs args)
@@ -179,10 +181,10 @@ namespace Adaptive_Alarm.Views
                 appData.thursday = TPThursday.Time;
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
-            }
 
-            //if (!thursdaySwitch.IsToggled)
-                //thursdaySwitch.IsToggled = true;
+                if (afterBootup)
+                    thursdaySwitch.IsToggled = true;
+            }
         }
 
         void OnTimePickerPropertyChangedF(object sender, PropertyChangedEventArgs args)
@@ -193,10 +195,10 @@ namespace Adaptive_Alarm.Views
                 appData.friday = TPFriday.Time;
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
-            }
 
-            //if (!fridaySwitch.IsToggled)
-                //fridaySwitch.IsToggled = true;
+                if (afterBootup)
+                    fridaySwitch.IsToggled = true;
+            }
         }
 
         void OnTimePickerPropertyChangedSa(object sender, PropertyChangedEventArgs args)
@@ -207,10 +209,11 @@ namespace Adaptive_Alarm.Views
                 appData.saturday = TPSaturday.Time;
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
+
+                if (afterBootup)
+                    saturdaySwitch.IsToggled = true;
             }
 
-            //if (!saturdaySwitch.IsToggled)
-                //saturdaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedSu(object sender, PropertyChangedEventArgs args)
@@ -221,10 +224,11 @@ namespace Adaptive_Alarm.Views
                 appData.sunday = TPSunday.Time;
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
+
+                if (afterBootup)
+                    sundaySwitch.IsToggled = true;
             }
 
-            //if (!sundaySwitch.IsToggled)
-                //sundaySwitch.IsToggled = true;
         }
 
         void OnTimePickerPropertyChangedNe(object sender, PropertyChangedEventArgs args)
@@ -236,10 +240,10 @@ namespace Adaptive_Alarm.Views
                 string jsonstring = JsonConvert.SerializeObject(appData);
                 File.WriteAllText(saveFilename, jsonstring);
                 appData.nextChanged = DateTime.Now;
-            }
 
-            //if (!tomorrowSwitch.IsToggled)
-                //tomorrowSwitch.IsToggled = true;
+                if (afterBootup)
+                    tomorrowSwitch.IsToggled = true;
+            }
         }
 
         void TomorrowOnToggled(object sender, ToggledEventArgs e)
@@ -255,7 +259,6 @@ namespace Adaptive_Alarm.Views
             appData.MondaySwitchState = mondaySwitch.IsToggled;
             string jsonstring = JsonConvert.SerializeObject(appData);
             File.WriteAllText(saveFilename, jsonstring);
-            //DisplayAlert("Alert", "Monday", "OK");
         }
 
         void TuesdayOnToggled(object sender, ToggledEventArgs e)
@@ -263,7 +266,6 @@ namespace Adaptive_Alarm.Views
             appData.TuesdaySwitchState = tuesdaySwitch.IsToggled;
             string jsonstring = JsonConvert.SerializeObject(appData);
             File.WriteAllText(saveFilename, jsonstring);
-            //DisplayAlert("Alert", "Tuesday", "OK");
         }
 
         void WednesdayOnToggled(object sender, ToggledEventArgs e)
@@ -271,7 +273,6 @@ namespace Adaptive_Alarm.Views
             appData.WednesdaySwitchState = wednesdaySwitch.IsToggled;
             string jsonstring = JsonConvert.SerializeObject(appData);
             File.WriteAllText(saveFilename, jsonstring);
-            //DisplayAlert("Alert", "Wednesday", "OK");
         }
 
         void ThursdayOnToggled(object sender, ToggledEventArgs e)
@@ -279,7 +280,6 @@ namespace Adaptive_Alarm.Views
             appData.ThursdaySwitchState = thursdaySwitch.IsToggled;
             string jsonstring = JsonConvert.SerializeObject(appData);
             File.WriteAllText(saveFilename, jsonstring);
-            //DisplayAlert("Alert", "Thursday", "OK");
         }
 
         void FridayOnToggled(object sender, ToggledEventArgs e)
@@ -287,7 +287,6 @@ namespace Adaptive_Alarm.Views
             appData.FridaySwitchState = fridaySwitch.IsToggled;
             string jsonstring = JsonConvert.SerializeObject(appData);
             File.WriteAllText(saveFilename, jsonstring);
-            //DisplayAlert("Alert", "Friday", "OK");
         }
 
         void SaturdayOnToggled(object sender, ToggledEventArgs e)
@@ -295,7 +294,6 @@ namespace Adaptive_Alarm.Views
             appData.SaturdaySwitchState = saturdaySwitch.IsToggled;
             string jsonstring = JsonConvert.SerializeObject(appData);
             File.WriteAllText(saveFilename, jsonstring);
-            //DisplayAlert("Alert", "Saturday", "OK");
         }
 
         void SundayOnToggled(object sender, ToggledEventArgs e)
@@ -303,13 +301,123 @@ namespace Adaptive_Alarm.Views
             appData.SundaySwitchState = sundaySwitch.IsToggled;
             string jsonstring = JsonConvert.SerializeObject(appData);
             File.WriteAllText(saveFilename, jsonstring);
-            //DisplayAlert("Alert", "Sunday", "OK");
         }
 
+        // A helper method that checks which checkboxes are checked and updates the alarms accordingly
+        void SetAlarms()
+        {
+
+            if(tomorrowCheckBox.IsChecked)
+                TPNext.Time = TPMultiple.Time;
+
+            if(mondayCheckBox.IsChecked)
+                TPMonday.Time = TPMultiple.Time;
+
+            if (tuesdayCheckBox.IsChecked)
+                TPTuesday.Time = TPMultiple.Time;
+
+            if (wednesdayCheckBox.IsChecked)
+                TPWednesday.Time = TPMultiple.Time;
+
+            if (thursdayCheckBox.IsChecked)
+                TPThursday.Time = TPMultiple.Time;
+
+            if (fridayCheckBox.IsChecked)
+                TPFriday.Time = TPMultiple.Time;
+
+            if (saturdayCheckBox.IsChecked)
+                TPSaturday.Time = TPMultiple.Time;
+
+            if (sundayCheckBox.IsChecked)
+                TPSunday.Time = TPMultiple.Time;
+
+        }
+
+        // Helper method that hides checkboxes after user sets or cancels
+        void hideCheckboxes()
+        {
+            tomorrowCheckBox.IsVisible = false;
+            mondayCheckBox.IsVisible = false;
+            tuesdayCheckBox.IsVisible = false;
+            wednesdayCheckBox.IsVisible = false;
+            thursdayCheckBox.IsVisible = false;
+            fridayCheckBox.IsVisible = false;
+            saturdayCheckBox.IsVisible = false;
+            sundayCheckBox.IsVisible = false;
+        }
+
+        //A helper method that unchecks all checkboxes
+        void clearCheckboxes()
+        {
+            tomorrowCheckBox.IsChecked = false;
+            mondayCheckBox.IsChecked = false;
+            tuesdayCheckBox.IsChecked = false;
+            wednesdayCheckBox.IsChecked = false;
+            thursdayCheckBox.IsChecked = false;
+            fridayCheckBox.IsChecked = false;
+            saturdayCheckBox.IsChecked = false;
+            sundayCheckBox.IsChecked = false;
+
+        }
+
+        //Change UI to allow user to set multiple alarms to the same time
         void OnMultiplePressed(object sender, EventArgs e)
         {
 
+            //Make checkboxes appear
+            tomorrowCheckBox.IsVisible = true;
+            mondayCheckBox.IsVisible = true;
+            tuesdayCheckBox.IsVisible = true;
+            wednesdayCheckBox.IsVisible = true;
+            thursdayCheckBox.IsVisible = true;
+            fridayCheckBox.IsVisible = true;
+            saturdayCheckBox.IsVisible = true;
+            sundayCheckBox.IsVisible = true;
+
+            //Change buttons at the bottom
+            sleepNowButton.IsVisible = false;
+            setMultipleAlarmsButton.IsVisible = false;
+            TPMultiple.IsVisible = true;
+            confirmMultipleAlarmsButton.IsVisible = true;
+            cancelMultipleAlarmsButton.IsVisible = true;
+
         }
 
+        //Set alarms based on which checkboxes users clicked
+        void onConfirmedPressed(object sender, EventArgs e)
+        {
+          
+            //Make checkboxes invisible
+            hideCheckboxes();
+
+            //Call method to check the checkboxes and update alarms
+            SetAlarms();
+
+            //Clear checkboxes so that none are checked next time user clicks the button
+            clearCheckboxes();
+
+            //Return buttons to normal
+            confirmMultipleAlarmsButton.IsVisible = false;
+            cancelMultipleAlarmsButton.IsVisible = false;
+            TPMultiple.IsVisible = false;
+            sleepNowButton.IsVisible = true;
+            setMultipleAlarmsButton.IsVisible = true;
+
+        }
+
+        //If user decides not to set alarms allow them to cancel
+        void onCancelPressed(object sender, EventArgs e)
+        {
+            //Hide and clear checkboxes without setting any alarms
+            hideCheckboxes();
+            clearCheckboxes();
+
+            confirmMultipleAlarmsButton.IsVisible = false;
+            cancelMultipleAlarmsButton.IsVisible = false;
+            TPMultiple.IsVisible = false;
+            sleepNowButton.IsVisible = true;
+            setMultipleAlarmsButton.IsVisible = true;
+
+        }
     }
 }                       

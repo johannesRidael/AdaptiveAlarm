@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label x:Name="TimeMessage" Text="Press 'I'm going to sleep' for your wake time" FontSize="Medium" Margin="10, 10, 10, 0"/>
-            <Grid Margin="10, 30, 10, 10">
+            <Grid Margin="10, 30, 10, 10" x:Name="AlarmGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -22,43 +22,58 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Label Text="Tomorrow" Grid.Row="0" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPNext" Time="7:00" Grid.Row="0" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedNe"/>
                 <Switch x:Name="tomorrowSwitch" Toggled="TomorrowOnToggled" Grid.Row="0" Grid.Column="2"/>
-
+                <CheckBox x:Name="tomorrowCheckBox" IsChecked="False" Grid.Row="0" Grid.Column="3" IsVisible="false"/>
+                
                 <Label Text="Monday:" Grid.Row="1" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPMonday" Time="7:00" Grid.Row="1" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedM"/>
                 <Switch x:Name="mondaySwitch" Toggled="MondayOnToggled" Grid.Row="1" Grid.Column="2"/>
-                
+                <CheckBox x:Name="mondayCheckBox" IsChecked="False" Grid.Row="1" Grid.Column="3" IsVisible="false"/>
+
                 <Label Text="Tuesday:" Grid.Row="2" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPTuesday" Time="7:00" Grid.Row="2" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTu"/>
                 <Switch x:Name="tuesdaySwitch" Toggled="TuesdayOnToggled" Grid.Row="2" Grid.Column="2"/>
+                <CheckBox x:Name="tuesdayCheckBox" IsChecked="False" Grid.Row="2" Grid.Column="3" IsVisible="false"/>
                 
                 <Label Text="Wednesday:" Grid.Row="3" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPWednesday" Time="7:00" Grid.Row="3" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedW"/>
                 <Switch x:Name="wednesdaySwitch" Toggled="WednesdayOnToggled" Grid.Row="3" Grid.Column="2"/>
+                <CheckBox x:Name="wednesdayCheckBox" IsChecked="False" Grid.Row="3" Grid.Column="3" IsVisible="false"/>
                 
                 <Label Text="Thursday" Grid.Row="4" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPThursday" Time="7:00" Grid.Row="4" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedTh"/>
                 <Switch x:Name="thursdaySwitch" Toggled="ThursdayOnToggled" Grid.Row="4" Grid.Column="2"/>
+                <CheckBox x:Name="thursdayCheckBox" IsChecked="False" Grid.Row="4" Grid.Column="3" IsVisible="false"/>
                 
                 <Label Text="Friday" Grid.Row="5" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPFriday" Time="7:00" Grid.Row="5" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedF"/>
                 <Switch x:Name="fridaySwitch" Toggled="FridayOnToggled" Grid.Row="5" Grid.Column="2"/>
+                <CheckBox x:Name="fridayCheckBox" IsChecked="False" Grid.Row="5" Grid.Column="3" IsVisible="false"/>
 
                 <Label Text="Saturday" Grid.Row="6" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPSaturday" Time="7:00" Grid.Row="6" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSa"/>
                 <Switch x:Name="saturdaySwitch" Toggled="SaturdayOnToggled" Grid.Row="6" Grid.Column="2"/>
+                <CheckBox x:Name="saturdayCheckBox" IsChecked="False" Grid.Row="6" Grid.Column="3" IsVisible="false"/>
                 
                 <Label Text="Sunday" Grid.Row="7" Grid.Column="0" FontSize="Large"/>
                 <TimePicker x:Name="TPSunday" Time="7:00" Grid.Row="7" Grid.Column="1" Margin="10, 0, 10, 0" PropertyChanged="OnTimePickerPropertyChangedSu"/>
                 <Switch x:Name="sundaySwitch" Toggled="SundayOnToggled" Grid.Row="7" Grid.Column="2"/>
+                <CheckBox x:Name="sundayCheckBox" IsChecked="False" Grid.Row="7" Grid.Column="3" IsVisible="false"/>
 
             </Grid>
 
-            <Button Text="I am going to sleep now" VerticalOptions="Center" Margin="100, 20, 100, 0" Clicked="OnSleepPressed"/>
-            <Button Text="Set multiple alarms" VerticalOptions="Center" Margin="100, 10, 100, 0" Clicked="OnMultiplePressed"/>
+            <Button x:Name="sleepNowButton" Text="I am going to sleep now" VerticalOptions="Center" Margin="100, 20, 100, 0" Clicked="OnSleepPressed"/>
+            <Button x:Name="setMultipleAlarmsButton" Text="Set multiple alarms" VerticalOptions="Center" Margin="100, 10, 100, 0" Clicked="OnMultiplePressed"/>
+            <TimePicker x:Name="TPMultiple" Time="7:00" IsVisible="False" VerticalOptions="Center" Margin="100, 10, 100, 0"/>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="confirmMultipleAlarmsButton" Text="Set" BackgroundColor="Lime" VerticalOptions="Center" Margin="100, 10, 0, 0" Clicked="onConfirmedPressed" IsVisible="false"/>
+                <Button x:Name="cancelMultipleAlarmsButton" Text="Cancel" BackgroundColor="Red" VerticalOptions="Center" Margin="0, 10, 0, 0" Clicked="onCancelPressed" IsVisible="false"/>
+            </StackLayout>
+            
 
         </StackLayout>
 
