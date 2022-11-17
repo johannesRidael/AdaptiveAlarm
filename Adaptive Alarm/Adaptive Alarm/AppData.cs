@@ -19,6 +19,7 @@ namespace Utility
         public DateTime scoreAdded { get; set; }
         public int AwakeTime { get; set; }
 
+
         public bool TomorrowSwitchState { get; set; }
         public bool MondaySwitchState { get; set; }
         public bool TuesdaySwitchState { get; set; }
@@ -27,6 +28,8 @@ namespace Utility
         public bool FridaySwitchState { get; set; }
         public bool SaturdaySwitchState { get; set; }
         public bool SundaySwitchState { get; set; }
+        public int wakeAlarmID { get; set; }
+
 
 
         public AppData()
@@ -42,6 +45,7 @@ namespace Utility
             AwakeTime = 0;
             scoreAdded = DateTime.Now.AddDays(-3);
             nextChanged = DateTime.Now.AddDays(-3);
+            wakeAlarmID = -1;
             // = new TimeSpan[] { next, monday, tuesday, wednesday, thursday, friday, saturday, sunday }
         }
 

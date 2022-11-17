@@ -21,6 +21,8 @@ namespace Adaptive_Alarm.Views
         AppData appData;
         string saveFilename;
         bool afterBootup = false;
+        INotificationManager notificationManager;
+        int notificationNumber = 0;
 
         //public string wakeUpTime { get; } = "Waking you up at";
 
@@ -28,6 +30,12 @@ namespace Adaptive_Alarm.Views
         {
             InitializeComponent();
             saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            notificationManager = DependencyService.Get<INotificationManager>();
+            notificationManager.NotificationReceived += (sender, eventArgs) =>
+            {
+                var evtData = (NotificationEventArgs)eventArgs;
+                ShowNotification(evtData.Title, evtData.Message);
+            };
 
             if (File.Exists(saveFilename))
             {
@@ -83,6 +91,18 @@ namespace Adaptive_Alarm.Views
 
         }
 
+        void ShowNotification(string title, string message)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                var msg = new Label()
+                {
+                    Text = $"Notification Received:\nTitle: {title}\nMessage: {message}"
+                };
+                stackLayout.Children.Add(msg);
+            });
+        }
+
         private async void ScorePrompt()
         {
             HashSet<string> acceptableScores = new HashSet<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
@@ -101,6 +121,8 @@ namespace Adaptive_Alarm.Views
                 int score = Convert.ToInt32(result);
                 GaC.addScore(score);
                 appData.scoreAdded = DateTime.Now;
+                string jsonstring = JsonConvert.SerializeObject(appData);
+                File.WriteAllText(saveFilename, jsonstring);
             }
 
             afterBootup = true;
@@ -120,10 +142,15 @@ namespace Adaptive_Alarm.Views
             DateTime nTime = DateTime.Now;
             TimeSpan time = TimeSpan.FromMinutes(totalMin);
             DateTime wakeTime = nTime + time;
-            string message = "Please set your alarm for " + string.Format("{0:hh:mm tt}", wakeTime) 
+            //notificationManager.SendNotification("succes?", string.Format("{0:hh:mm tt}", wakeTime));
+            //notificationManager.SendNotification("test", "1 min later", DateTime.Now.AddMinutes(1));
+            appData.wakeAlarmID = notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime.AddMinutes(-1));
+            string message = "Initial Alarm set for " + string.Format("{0:hh:mm tt}", wakeTime) 
                 + " To wake up before " + appData.currDateTime().ToString();
             //TimeMessage.Text = message;
             await DisplayAlert("Reminder", message, "OK");
+            string sonstring = JsonConvert.SerializeObject(appData);
+            File.WriteAllText(saveFilename, sonstring);
         }
 
         //async void OnScorePressed(object sender, EventArgs e)
