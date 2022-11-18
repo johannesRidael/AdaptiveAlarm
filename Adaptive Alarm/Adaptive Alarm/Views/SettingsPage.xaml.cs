@@ -43,7 +43,7 @@ namespace Adaptive_Alarm.Views
 
         private void ChangeDeviceButtonClicked(object sender, EventArgs e)
         {
-            DataMonitor dataMonitor = (DataMonitor)Application.Current.Properties["dataMonitor"];
+            DataMonitor dataMonitor;
             Settings settings = (Settings)Application.Current.Properties["settings"];
 
             if ((string)typePicker.SelectedItem == "None")

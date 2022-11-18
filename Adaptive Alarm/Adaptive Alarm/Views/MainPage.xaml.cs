@@ -55,23 +55,20 @@ namespace Adaptive_Alarm.Views
             }
 
             TPNext.Time = appData.next;
+        }
 
-            if((DateTime.Now - appData.scoreAdded).TotalHours > 16) //TODO: change this to be contingent on data monitor type
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (((Settings)Application.Current.Properties["settings"]).CurrentDeviceType == "None" && (bool)Application.Current.Properties["isInForeground"] && (bool)Application.Current.Properties["gacNeedsNewData"])
             {
-                DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
-                dm.CollectDataPoint();
+                GaCDataMonitor dm = (GaCDataMonitor)App.Current.Properties["dataMonitor"];
+                dm.PromptForData();
             }
         }
 
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-            
-        //    IJobManager manager = ShinyHost.Resolve<IJobManager>();
-        //    var results = manager.Run("BackgroundJob").Result;
-        //}
-
-            async void OnSleepPressed(object sender, EventArgs e)
+        async void OnSleepPressed(object sender, EventArgs e)
         {
             if (File.Exists(saveFilename))
             {

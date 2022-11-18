@@ -41,10 +41,12 @@ namespace Adaptive_Alarm
             dm.LoadState();
             this.Properties["dataMonitor"] = dm;
 
+            Application.Current.Properties["isInForeground"] = false;
         }
 
         protected override void OnStart()
         {
+            Application.Current.Properties["isInForeground"] = true;
         }
 
         protected override void OnSleep()
@@ -54,10 +56,12 @@ namespace Adaptive_Alarm
             var path = Path.Combine(FileSystem.AppDataDirectory, "Settings.json");
             using (StreamWriter streamWriter = File.CreateText(path))
                 streamWriter.WriteAsync(JsonConvert.SerializeObject(settings));
+            Application.Current.Properties["isInForeground"] = false;
         }
 
         protected override void OnResume()
         {
+            Application.Current.Properties["isInForeground"] = true;
         }
 
     }
