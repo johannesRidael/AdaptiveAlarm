@@ -61,7 +61,7 @@ namespace Adaptive_Alarm.Views
         {
             base.OnAppearing();
 
-            if (((Settings)Application.Current.Properties["settings"]).CurrentDeviceType == "None" && (bool)Application.Current.Properties["isInForeground"] && (bool)Application.Current.Properties["gacNeedsNewData"])
+            if (Application.Current.Properties["CurrentDeviceType"].Equals("None") && (bool)Application.Current.Properties["isInForeground"] && (bool)Application.Current.Properties["gacNeedsNewData"])
             {
                 GaCDataMonitor dm = (GaCDataMonitor)App.Current.Properties["dataMonitor"];
                 dm.PromptForData();

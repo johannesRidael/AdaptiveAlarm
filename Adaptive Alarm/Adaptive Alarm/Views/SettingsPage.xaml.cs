@@ -39,25 +39,26 @@ namespace Adaptive_Alarm.Views
             }
             SleepTimeNumber.Text = data.AwakeTime.ToString();
 
+            typePicker.SelectedItem = Application.Current.Properties["CurrentDeviceType"];
+            datasetStartLabel.Text = $"Current working dataset began: {((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).ToString("d")}";
         }
 
         private void ChangeDeviceButtonClicked(object sender, EventArgs e)
         {
-            DataMonitor dataMonitor;
-            Settings settings = (Settings)Application.Current.Properties["settings"];
+            DataMonitor dataMonitor = null;
 
-            if ((string)typePicker.SelectedItem == "None")
+            if ((string)typePicker.SelectedItem == "Fitbit")
             {
-                dataMonitor = new GaCDataMonitor();
+                DataMonitor tentativeDM = new FitbitDataMonitor();
+                Application.Current.Properties["tentativeDM"] = tentativeDM;
+                ((FitbitDataMonitor)tentativeDM).Authenticate();
             }
             else
             {
-                dataMonitor = new FitbitDataMonitor();
-                ((FitbitDataMonitor)dataMonitor).Authenticate();
+                dataMonitor = new GaCDataMonitor();
             }
-            settings.CurrentDeviceType = (string)typePicker.SelectedItem;
+            Application.Current.Properties["CurrentDeviceType"] = (string)typePicker.SelectedItem;
             Application.Current.Properties["dataMonitor"] = dataMonitor;
-            Application.Current.Properties["settings"] = settings;
         }
 
         private void saveButtonClicked(object sender, EventArgs e)
@@ -77,7 +78,13 @@ namespace Adaptive_Alarm.Views
             data.AwakeTime = sleepTime;
             jsonstring = JsonConvert.SerializeObject(data);
             File.WriteAllText(saveFilename, jsonstring);
-            
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            typePicker.SelectedItem = Application.Current.Properties["CurrentDeviceType"];
+            datasetStartLabel.Text = $"Current working dataset began: {((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).ToString("d")}";
         }
     }
 }

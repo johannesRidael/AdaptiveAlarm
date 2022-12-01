@@ -5,6 +5,7 @@ using GaCData;
 using Newtonsoft.Json;
 using System.IO;
 using DataMonitorLib;
+using Adaptive_Alarm;
 using Xamarin.Essentials;
 using Xamarin.Forms.Internals;
 
@@ -12,30 +13,21 @@ namespace Adaptive_Alarm
 {
     public partial class App : Application
     {
-
+        public DataMonitor dm { get; set; }
         public App()
         {
             InitializeComponent();
 
             MainPage = new AppShell();
 
-            // Reads in settings
-            var path = Path.Combine(FileSystem.AppDataDirectory, "Settings.json");
-            Settings s;
-            if (File.Exists(path))
-            {
-                string settingsJson;
-                using (StreamReader streamReader = File.OpenText(path))
-                    settingsJson = streamReader.ReadToEndAsync().Result;
-                s = JsonConvert.DeserializeObject<Settings>(settingsJson);
-            }
-            else
-            {
-                s = new Settings();
-            }
-            this.Properties["settings"] = s;
+            // Provides default settings if it cannot find a prior value
+            if (!this.Properties.ContainsKey("CurrentDeviceType"))
+                this.Properties["CurrentDeviceType"] = "None";
+            if (!this.Properties.ContainsKey("CurrentDataSetStartDate"))
+                this.Properties["CurrentDataSetStartDate"] = DateTime.Now;
+
             DataMonitor dm;
-            if (s.CurrentDeviceType == "None") { dm = new GaCDataMonitor(); }
+            if (this.Properties["CurrentDeviceType"].Equals("None")) { dm = new GaCDataMonitor(); }
             else { dm = new FitbitDataMonitor(); }
 
             dm.LoadState();
@@ -51,11 +43,6 @@ namespace Adaptive_Alarm
 
         protected override void OnSleep()
         {
-            Settings settings = (Settings)this.Properties["settings"];
-
-            var path = Path.Combine(FileSystem.AppDataDirectory, "Settings.json");
-            using (StreamWriter streamWriter = File.CreateText(path))
-                streamWriter.WriteAsync(JsonConvert.SerializeObject(settings));
             Application.Current.Properties["isInForeground"] = false;
         }
 

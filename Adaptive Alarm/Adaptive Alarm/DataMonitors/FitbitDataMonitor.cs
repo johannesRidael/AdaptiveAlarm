@@ -47,7 +47,7 @@ namespace DataMonitorLib
 
         public override async void CollectDataPoint()
         {
-            Console.WriteLine("GaCDataMonitor - CollectDataPointRunning");
+            Console.WriteLine("FitbitDataMonitor - CollectDataPointRunning");
             // Build a Fitbit client and download the current day's sleep data.
             FitbitAppCredentials credentials = new FitbitAppCredentials();
             credentials.ClientId = CLIENTID;
@@ -69,22 +69,20 @@ namespace DataMonitorLib
             }
 
             //TODO: update the arraylists and items related to last collection time
-            startOfLastCollectedSession = sleepSession.StartTime;
-            if (startOfLastCollectedSession.Date < DateTime.Now.Date) // add a new index for the new day's data
+            if (startOfLastCollectedSession.Date < sleepSession.StartTime.Date) // add a new index for the new day's data
             {
-                remCycles.Add(new ArrayList());
-                deepCycles.Add(new ArrayList());
-                lightCycles.Add(new ArrayList());
-                wakeCycles.Add(new ArrayList());
+                remCycles.Add(new ArrayList(10));
+                deepCycles.Add(new ArrayList(10));
+                lightCycles.Add(new ArrayList(10));
+                wakeCycles.Add(new ArrayList(10));
             }
-            else if (startOfLastCollectedSession.Date == DateTime.Now.Date) // set the last observed state if the user may be asleep
+            else if (startOfLastCollectedSession.Date == sleepSession.StartTime.Date) // set the last observed state if the user may be asleep
             {
                 lastKnownCycleState = (sleepSession.Levels.Data.Last()).Level;
             }
 
             // add all of the current day's sleep data
-            Settings settings = (Settings)Application.Current.Properties["settings"];
-            int index = (startOfLastCollectedSession.Date - settings.CurrentDataSetStartDate.Date).Days;
+            int index = (sleepSession.StartTime.Date - ((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).Date).Days;
 
             int r = 0, d = 0, l = 0, a = 0;
             foreach (var cycle in sleepSession.Levels.Data)
@@ -93,25 +91,53 @@ namespace DataMonitorLib
                 {
                     case "rem":
                         {
-                            ((ArrayList)remCycles[index])[r] = cycle.Seconds;
+                            if (a < ((ArrayList)remCycles[index]).Count)
+                            {
+                                ((ArrayList)remCycles[index])[a] = cycle.Seconds;
+                            }
+                            else
+                            {
+                                ((ArrayList)remCycles[index]).Add(cycle.Seconds);
+                            }
                             r++;
                             break;
                         }
                     case "deep":
                         {
-                            ((ArrayList)deepCycles[index])[d] = cycle.Seconds;
+                            if (a < ((ArrayList)deepCycles[index]).Count)
+                            {
+                                ((ArrayList)deepCycles[index])[a] = cycle.Seconds;
+                            }
+                            else
+                            {
+                                ((ArrayList)deepCycles[index]).Add(cycle.Seconds);
+                            }
                             d++;
                             break;
                         }
                     case "light":
                         {
-                            ((ArrayList)lightCycles[index])[l] = cycle.Seconds;
+                            if (a < ((ArrayList)lightCycles[index]).Count)
+                            {
+                                ((ArrayList)lightCycles[index])[a] = cycle.Seconds;
+                            }
+                            else
+                            {
+                                ((ArrayList)lightCycles[index]).Add(cycle.Seconds);
+                            }
                             l++;
                             break;
                         }
                     case "wake":
                         {
-                            ((ArrayList)wakeCycles[index])[a] = cycle.Seconds;
+                            if (a < ((ArrayList)wakeCycles[index]).Count)
+                            {
+                                ((ArrayList)wakeCycles[index])[a] = cycle.Seconds;
+                            }
+                            else
+                            {
+                                ((ArrayList)wakeCycles[index]).Add(cycle.Seconds);
+                            }
                             a++;
                             break;
                         }
@@ -119,6 +145,7 @@ namespace DataMonitorLib
                 }
             }
 
+            startOfLastCollectedSession = sleepSession.StartTime;
             datetimeLastCollected = DateTime.Now;
         }
 
@@ -169,7 +196,7 @@ namespace DataMonitorLib
 
             DateTime start = startOfLastCollectedSession; // we will assume they went/will go to sleep at the last time we saw them go to sleep
 
-            int currentDaysIndex = (startOfLastCollectedSession.Date - ((Settings)Application.Current.Properties["settings"]).CurrentDataSetStartDate.Date).Days;
+            int currentDaysIndex = (startOfLastCollectedSession.Date - ((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).Date).Days;
             int rIndex = ((ArrayList)remCycles[currentDaysIndex]).Count;
             int dIndex = ((ArrayList)deepCycles[currentDaysIndex]).Count;
             int lIndex = ((ArrayList)lightCycles[currentDaysIndex]).Count;
@@ -293,6 +320,12 @@ namespace DataMonitorLib
                 wakeCyclesString = await streamReader.ReadToEndAsync();
             this.wakeCycles = JsonConvert.DeserializeObject<ArrayList>(wakeCyclesString);
 
+            // set the values to a default if there is no previous data
+            //if (this.remCycles.Count == 0 || this.deepCycles.Count == 0 || this.lightCycles.Count == 0 || this.wakeCycles.Count == 0)
+            //{
+
+            //}
+
             //TODO: Add code to load other state information as it is added
         }
 
@@ -304,7 +337,7 @@ namespace DataMonitorLib
             this.token.UtcExpirationDate = exp_time;
 
             string tok_s = JsonConvert.SerializeObject(this.token);
-            Console.WriteLine(tok_s);
+            //Console.WriteLine(tok_s);
 
             // store encrypted in the devices secure store.
             await SecureStorage.SetAsync("fitbit_tok", tok_s);
@@ -371,7 +404,7 @@ namespace DataMonitorLib
         public string GetAuthUrl()
         {
             // build authentication url and open it in the default web browser
-            string authUrl = this.authHelper.GenerateAuthUrl(new string[] { "sleep", "heartrate" }, null);
+            string authUrl = this.authHelper.GenerateAuthUrl(new string[] { "sleep"}, null);
             return authUrl;
         }
 
@@ -384,7 +417,7 @@ namespace DataMonitorLib
 
 
             await Shell.Current.GoToAsync("app://shell/SettingsPage");
-            Console.WriteLine("Attempted to open Settings Page");
+            Console.WriteLine("Attempted to open Settings Page after Fitbit Token retrieved");
 
             // save the datamonitor's state in case of crash.
             this.SaveState();
