@@ -47,6 +47,16 @@ namespace Adaptive_Alarm.Views
 
             //TODO: change this to be conditional on the currently selected device type.
             ((FitbitDataMonitor)dataMonitor).Authenticate();
+
+            //FOR APPLE
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                ((AppleWatchDataMonitorInterface)dataMonitor).RequestHKAccess();
+            }
+            else
+            {
+                Console.WriteLine("Apple watch data collection is only supported on apple devices");
+            }
         }
 
         private void saveButtonClicked(object sender, EventArgs e)

@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AppleWatchDataMonitor.cs" />
     <Compile Include="iOSNotificationManager.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
