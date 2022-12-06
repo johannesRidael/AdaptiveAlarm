@@ -11,6 +11,10 @@ using Newtonsoft.Json;
 using System.ComponentModel;
 using GuessCheck;
 using Fitbit.Api.Portable.Models;
+using DataMonitorLib;
+using Xamarin.Essentials;
+using Shiny.Jobs;
+using Shiny;
 
 namespace Adaptive_Alarm.Views
 {
@@ -24,12 +28,10 @@ namespace Adaptive_Alarm.Views
         INotificationManager notificationManager;
         int notificationNumber = 0;
 
-        //public string wakeUpTime { get; } = "Waking you up at";
-
         public  MainPage()
         {
             InitializeComponent();
-            saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
             notificationManager = DependencyService.Get<INotificationManager>();
             notificationManager.NotificationReceived += (sender, eventArgs) =>
             {
@@ -78,7 +80,6 @@ namespace Adaptive_Alarm.Views
                 ScorePrompt();
             }
 
-            
              
             /*
             TPMonday.PropertyChanged += "OnTimePickerPropertyChanged";
@@ -102,31 +103,21 @@ namespace Adaptive_Alarm.Views
                 stackLayout.Children.Add(msg);
             });
         }
+        }
 
-        private async void ScorePrompt()
+        protected override void OnAppearing()
         {
-            HashSet<string> acceptableScores = new HashSet<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-            string result = await DisplayPromptAsync("Wakefulness", "How rested did you feel waking up this morning?", placeholder:"Scale 1-10 where 10 is best", maxLength:2, keyboard:Keyboard.Numeric);
-          
-            if (!string.IsNullOrWhiteSpace(result))
+            base.OnAppearing();
+
+            if (Application.Current.Properties["CurrentDeviceType"].Equals("None") && (bool)Application.Current.Properties["isInForeground"] && (bool)Application.Current.Properties["gacNeedsNewData"])
             {
-                result = result.Trim();
-                while (!acceptableScores.Contains(result))
-                {
-                    result = await DisplayPromptAsync("Wakefulness", "Please input a number 1-10", placeholder: "Scale 1-10 where 10 is best", maxLength: 2, keyboard: Keyboard.Numeric);
-                    if (!string.IsNullOrWhiteSpace(result)){
-                        result = result.Trim(); 
-                    }
-                }
-                int score = Convert.ToInt32(result);
-                GaC.addScore(score);
-                appData.scoreAdded = DateTime.Now;
-                string jsonstring = JsonConvert.SerializeObject(appData);
-                File.WriteAllText(saveFilename, jsonstring);
+                GaCDataMonitor dm = (GaCDataMonitor)App.Current.Properties["dataMonitor"];
+                dm.PromptForData();
             }
 
             afterBootup = true;
         }
+
         async void OnSleepPressed(object sender, EventArgs e)
         {
             if (File.Exists(saveFilename))
@@ -138,10 +129,8 @@ namespace Adaptive_Alarm.Views
             {
                 appData = new AppData();
             }
-            int totalMin = GaC.findAlarmTime(appData.currDateTime(), appData.AwakeTime);
-            DateTime nTime = DateTime.Now;
-            TimeSpan time = TimeSpan.FromMinutes(totalMin);
-            DateTime wakeTime = nTime + time;
+            DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
+            DateTime wakeTime = dm.EstimateWakeupTime(); //TODO: use this to update the alarm notification automatically
             //notificationManager.SendNotification("succes?", string.Format("{0:hh:mm tt}", wakeTime));
             //notificationManager.SendNotification("test", "1 min later", DateTime.Now.AddMinutes(1));
             appData.wakeAlarmID = notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime.AddMinutes(-1));
@@ -158,6 +147,7 @@ namespace Adaptive_Alarm.Views
             //await Navigation.PushAsync(new ScorePage());
         //}
 
+        #region Timepicker listeners
         void OnTimePickerPropertyChangedM(object sender, PropertyChangedEventArgs args)
         {
             // Saves all the times to files

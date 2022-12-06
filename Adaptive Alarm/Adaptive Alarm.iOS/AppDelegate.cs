@@ -4,9 +4,16 @@ using System.Linq;
 
 using Foundation;
 using LocalNotifications.iOS;
+using Shiny;
 using UIKit;
 using UserNotifications;
 using HealthKit;
+
+[assembly: Shiny.ShinyApplication(
+    ShinyStartupTypeName = "Adaptive_Alarm.MyShinyStartup",
+    XamarinFormsAppTypeName = "Adaptive_Alarm.App"
+)]
+
 
 namespace Adaptive_Alarm.iOS
 {

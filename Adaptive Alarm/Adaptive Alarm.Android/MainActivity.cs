@@ -6,11 +6,17 @@ using Android.Runtime;
 using Android.OS;
 using Xamarin.Forms;
 using Android.Content;
+using Shiny;
+
+[assembly: Shiny.ShinyApplication(
+    ShinyStartupTypeName = "Adaptive_Alarm.MyShinyStartup",
+    XamarinFormsAppTypeName = "Adaptive_Alarm.App"
+)]
 
 namespace Adaptive_Alarm.Droid
 {
     [Activity(Label = "Adaptive_Alarm", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize, LaunchMode = LaunchMode.SingleTop)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public partial class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,12 +41,6 @@ namespace Adaptive_Alarm.Droid
                 string message = intent.GetStringExtra(AndroidNotificationManager.MessageKey);
                 DependencyService.Get<INotificationManager>().ReceiveNotification(title, message);
             }
-        }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }
