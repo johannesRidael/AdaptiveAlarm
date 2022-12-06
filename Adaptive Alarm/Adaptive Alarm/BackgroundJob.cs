@@ -13,8 +13,8 @@ namespace Adaptive_Alarm
 {
     public class BackgroundJob : IJob
     {
-        readonly INotificationManager notificationManager;
-        public BackgroundJob(INotificationManager notificationManager) => this.notificationManager = notificationManager;
+        //readonly INotificationManager notificationManager;
+        //public BackgroundJob(INotificationManager notificationManager) => this.notificationManager = notificationManager;
 
 
         public async Task Run(JobInfo jobInfo, CancellationToken cancelToken)

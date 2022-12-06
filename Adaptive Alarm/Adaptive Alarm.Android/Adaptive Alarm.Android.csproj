@@ -98,12 +98,6 @@
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Adaptive Alarm\Adaptive Alarm.csproj">
-      <Project>{60274152-50BD-4700-B64E-558CEBF0EC2E}</Project>
-      <Name>Adaptive Alarm</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\sleep.png" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adaptive Alarm\Adaptive Alarm.csproj">
+      <Project>{d3621a84-dd7c-4c1d-a731-bf5f878850e0}</Project>
+      <Name>Adaptive Alarm</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

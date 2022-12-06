@@ -137,11 +137,11 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Adaptive Alarm\Adaptive Alarm.csproj">
-      <Project>{60274152-50BD-4700-B64E-558CEBF0EC2E}</Project>
+      <Project>{d3621a84-dd7c-4c1d-a731-bf5f878850e0}</Project>
       <Name>Adaptive Alarm</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

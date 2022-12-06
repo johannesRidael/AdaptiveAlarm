@@ -31,6 +31,7 @@ namespace Adaptive_Alarm.Droid
         protected override void OnNewIntent(Intent intent)
         {
             CreateNotificationFromIntent(intent);
+            this.ShinyOnNewIntent(intent);
         }
 
         void CreateNotificationFromIntent(Intent intent)

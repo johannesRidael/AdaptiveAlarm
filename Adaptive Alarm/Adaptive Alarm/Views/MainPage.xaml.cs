@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 using System.IO;
 using Newtonsoft.Json;
 using System.ComponentModel;
-using GuessCheck;
 using Fitbit.Api.Portable.Models;
 using DataMonitorLib;
 using Xamarin.Essentials;
@@ -26,7 +25,6 @@ namespace Adaptive_Alarm.Views
         string saveFilename;
         bool afterBootup = false;
         INotificationManager notificationManager;
-        int notificationNumber = 0;
 
         public  MainPage()
         {
@@ -75,10 +73,10 @@ namespace Adaptive_Alarm.Views
 
             TPNext.Time = appData.next;
 
-            if((DateTime.Now - appData.scoreAdded).TotalHours > 16)
-            {
-                ScorePrompt();
-            }
+            //if((DateTime.Now - appData.scoreAdded).TotalHours > 16) //TODO: probably just needs to go (discovered after background data collection merge)
+            //{
+            //    ScorePrompt();
+            //}
 
              
             /*
@@ -102,7 +100,6 @@ namespace Adaptive_Alarm.Views
                 };
                 stackLayout.Children.Add(msg);
             });
-        }
         }
 
         protected override void OnAppearing()
@@ -436,5 +433,6 @@ namespace Adaptive_Alarm.Views
             setMultipleAlarmsButton.IsVisible = true;
 
         }
+        #endregion
     }
 }                       
