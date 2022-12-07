@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Adaptive_Alarm
 {
-    internal class AverageCycleModel
+    public class AverageCycleModel
     {
         public static int[] stages = { 3, 0, 1, 0, 2, 0, 1, 0, 2, 3, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0 }; //may remove or add awake sections, or update to be crafted for each individual
 

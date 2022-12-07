@@ -50,7 +50,17 @@ namespace Adaptive_Alarm.iOS
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             }*/
 
+            //AppleWatchDataMonitor.RequestHKAccess();
+            //AppleWatchDataMonitor.dumpData();
+
             return base.FinishedLaunching(app, options);
+        }
+
+        public override void OnActivated(UIApplication uiApplication)
+        {
+            base.OnActivated(uiApplication);
+            AppleWatchDataMonitor.RequestHKAccess();
+            AppleWatchDataMonitor.dumpData();
         }
     }
 }
