@@ -24,6 +24,7 @@ namespace Adaptive_Alarm.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
             //TODO: make the auth process conditional on the device type in a settings object.
             FitbitDataMonitor dataMonitor = (FitbitDataMonitor)Application.Current.Properties["tentativeDM"];
 

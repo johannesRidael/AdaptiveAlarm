@@ -28,9 +28,9 @@ namespace DataMonitorLib
 
         public override void CollectDataPoint()
         {
-            Console.WriteLine($"GaCDataMonitor - CollectDataPointRunning. Is Visible {Application.Current.Properties["isInForeground"]}"); //TODO: Fix this so it can actually run (perhaps move the data collection code for the GaC Model?
+            Console.WriteLine($"GaCDataMonitor - CollectDataPointRunning. Is Visible {Application.Current.Properties["isInForeground"]}");
 
-            Application.Current.Properties["gacNeedsNewData"] = true; // = (DateTime.Now - appData.scoreAdded > TimeSpan.FromHours(16)); //TODO: get this working / change so that this variable is set when the alarm goes off
+            Application.Current.Properties["gacNeedsNewData"] = true; //TODO: get this working / change so that this variable is set when the alarm goes off
         }
 
         public async void PromptForData()
@@ -245,7 +245,7 @@ namespace DataMonitorLib
                 DateTime wakeTime = DateTime.Now.AddMinutes(timeTillAlarm);
                 return wakeTime;
             }
-            return DateTime.MinValue; //TODO: change this to programmatically bring in the current setting for the next day's alarm
+            return DateTime.Today.AddDays(1).AddHours(8); //TODO: change this to programmatically bring in the current setting for the next day's alarm
         }
 
         public override void LoadState()
@@ -269,7 +269,6 @@ namespace DataMonitorLib
 
         public override void SaveState()
         {
-            //TODO: Save the current state locally.
             string jsonstrin = JsonConvert.SerializeObject(this.data);
             File.WriteAllText(saveFilename, jsonstrin);
         }

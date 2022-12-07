@@ -68,7 +68,6 @@ namespace DataMonitorLib
                 return; // if there is no primary sleep session in the day or it has already been colllected then return with no update to internal data.
             }
 
-            //TODO: update the arraylists and items related to last collection time
             if (startOfLastCollectedSession.Date < sleepSession.StartTime.Date) // add a new index for the new day's data
             {
                 remCycles.Add(new ArrayList(10));
@@ -319,12 +318,6 @@ namespace DataMonitorLib
             using (StreamReader streamReader = File.OpenText(wakeCyclesPath))
                 wakeCyclesString = await streamReader.ReadToEndAsync();
             this.wakeCycles = JsonConvert.DeserializeObject<ArrayList>(wakeCyclesString);
-
-            // set the values to a default if there is no previous data
-            //if (this.remCycles.Count == 0 || this.deepCycles.Count == 0 || this.lightCycles.Count == 0 || this.wakeCycles.Count == 0)
-            //{
-
-            //}
 
             //TODO: Add code to load other state information as it is added
         }

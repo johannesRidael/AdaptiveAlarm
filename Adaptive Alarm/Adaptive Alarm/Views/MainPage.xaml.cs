@@ -72,22 +72,6 @@ namespace Adaptive_Alarm.Views
             }
 
             TPNext.Time = appData.next;
-
-            //if((DateTime.Now - appData.scoreAdded).TotalHours > 16) //TODO: probably just needs to go (discovered after background data collection merge)
-            //{
-            //    ScorePrompt();
-            //}
-
-             
-            /*
-            TPMonday.PropertyChanged += "OnTimePickerPropertyChanged";
-            TPTuesday.Time = appData.tuesday;
-            TPWednesday.Time = appData.wednesday;
-            TPThursday.Time = appData.thursday;
-            TPFriday.Time = appData.friday;
-            TPSaturday.Time = appData.saturday;
-            TPSunday.Time = appData.sunday;*/
-
         }
 
         void ShowNotification(string title, string message)
@@ -127,22 +111,18 @@ namespace Adaptive_Alarm.Views
                 appData = new AppData();
             }
             DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
-            DateTime wakeTime = dm.EstimateWakeupTime(); //TODO: use this to update the alarm notification automatically
+            DateTime wakeTime = dm.EstimateWakeupTime();
+
             //notificationManager.SendNotification("succes?", string.Format("{0:hh:mm tt}", wakeTime));
             //notificationManager.SendNotification("test", "1 min later", DateTime.Now.AddMinutes(1));
+
             appData.wakeAlarmID = notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime.AddMinutes(-1));
             string message = "Initial Alarm set for " + string.Format("{0:hh:mm tt}", wakeTime) 
                 + " To wake up before " + appData.currDateTime().ToString();
-            //TimeMessage.Text = message;
             await DisplayAlert("Reminder", message, "OK");
             string sonstring = JsonConvert.SerializeObject(appData);
             File.WriteAllText(saveFilename, sonstring);
         }
-
-        //async void OnScorePressed(object sender, EventArgs e)
-        //{
-            //await Navigation.PushAsync(new ScorePage());
-        //}
 
         #region Timepicker listeners
         void OnTimePickerPropertyChangedM(object sender, PropertyChangedEventArgs args)
