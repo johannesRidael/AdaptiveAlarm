@@ -51,7 +51,7 @@ namespace Adaptive_Alarm.Views
             //FOR APPLE
             if (Device.RuntimePlatform == Device.iOS)
             {
-                ((AppleWatchDataMonitorInterface)dataMonitor).RequestHKAccess();
+                dataMonitor = DependencyService.Get<AppleWatchDataMonitorInterface>();
             }
             else
             {

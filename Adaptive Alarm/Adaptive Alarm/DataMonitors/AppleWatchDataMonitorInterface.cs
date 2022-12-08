@@ -9,7 +9,6 @@ namespace DataMonitorLib
     internal abstract class AppleWatchDataMonitorInterface : DataMonitor
     {
 
-        public abstract void RequestHKAccess();
 
 
     }

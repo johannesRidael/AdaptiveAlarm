@@ -59,8 +59,8 @@ namespace Adaptive_Alarm.iOS
         public override void OnActivated(UIApplication uiApplication)
         {
             base.OnActivated(uiApplication);
-            AppleWatchDataMonitor.RequestHKAccess();
-            AppleWatchDataMonitor.dumpData();
+            //AppleWatchDataMonitor.RequestHKAccess();
+            //AppleWatchDataMonitor.dumpData();
         }
     }
 }

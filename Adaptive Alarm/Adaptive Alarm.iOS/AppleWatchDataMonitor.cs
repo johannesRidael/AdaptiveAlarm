@@ -10,10 +10,11 @@ using HealthKit;
 using Newtonsoft.Json;
 using Utility;
 using System.IO;
-
-namespace Adaptive_Alarm.iOS
+using Adaptive_Alarm;
+[assembly: Xamarin.Forms.Dependency(typeof(AppleWatchDataMonitor))]
+namespace DataMonitorLib
 {
-    internal class AppleWatchDataMonitor : DataMonitor
+    public class AppleWatchDataMonitor : DataMonitor
     {
 
         DateTime lastSample = DateTime.MinValue;
@@ -25,7 +26,7 @@ namespace Adaptive_Alarm.iOS
         
 
 
-        public static void RequestHKAccess()
+        public void RequestHKAccess()
         {
             HKHealthStore healthKitStore = new HKHealthStore();
 
@@ -39,7 +40,7 @@ namespace Adaptive_Alarm.iOS
                     ReactToHealthCarePerms);
         }
             
-        private static void ReactToHealthCarePerms(bool success, NSError error)
+        private void ReactToHealthCarePerms(bool success, NSError error)
             {
             HKHealthStore healthKitStore = new HKHealthStore();
             var access = healthKitStore.GetAuthorizationStatus(HKCategoryType.Create(HKCategoryTypeIdentifier.SleepAnalysis));
@@ -209,15 +210,14 @@ namespace Adaptive_Alarm.iOS
 
         }
 
-        public override DateTime EstimateWakeupTime(DateTime wakeBy)
+        public override DateTime EstimateWakeupTime()
         {
-            //return AverageCycleModel.findAlarmTime(wakeBy, averages, curLoc, curMinIn, lastEndDate); //last end date is that last information we had
+            string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            string jsonstring = File.ReadAllText(saveFilename);
+            AppData appData = JsonConvert.DeserializeObject<AppData>(jsonstring);
+            DateTime wakeBy = appData.currDateTime();
+            return lastEndDate.AddMinutes(DataBasedModel.findAlarmTime(wakeBy, averages, curLoc, curMinIn/*, lastEndDate*/)); //last end date is that last information we had
         }
-
-        /*public override List<DateTime> GetSleepSessionCollectionTimes()
-        {no longer exists
-            throw new NotImplementedException();
-        }*/
 
         public override void LoadState()
         {
