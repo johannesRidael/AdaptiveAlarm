@@ -93,7 +93,15 @@ namespace Adaptive_Alarm.Views
             {
                 GaCDataMonitor dm = (GaCDataMonitor)App.Current.Properties["dataMonitor"];
                 dm.PromptForData();
+            } else if (!(Application.Current.Properties["CurrentDeviceType"].Equals("None")))
+            {
+                sleepNowButton.IsVisible= false;
             }
+            else
+            {
+                sleepNowButton.IsVisible= true;
+            }
+
 
             afterBootup = true;
         }
