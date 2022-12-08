@@ -19,7 +19,7 @@ namespace Adaptive_Alarm.Views
     {
         int sleepTime;
 
-        public List<string> deviceTypes = new List<string>(){ "None", "Fitbit" };
+        public List<string> deviceTypes = new List<string>(){ "None", "Fitbit", "Apple Watch" };
         public SettingsPage()
         {
             
@@ -63,7 +63,10 @@ namespace Adaptive_Alarm.Views
                 }
                 else
                 {
+                    DisplayAlert("Sorry", "for now Apple Watch use is only supported on IOS devices", "ok");
                     Console.WriteLine("Apple watch data collection is only supported on apple devices");
+                    typePicker.SelectedItem = "None";
+                    dataMonitor = new GaCDataMonitor();
                 }
             }
             else

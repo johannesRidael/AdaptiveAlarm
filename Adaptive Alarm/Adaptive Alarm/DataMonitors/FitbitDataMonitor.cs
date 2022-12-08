@@ -153,6 +153,11 @@ namespace DataMonitorLib
         {
             DateTime wakeBy = AppData.Load().currDateTime();
 
+            if (remCycles.Count == 0 || deepCycles.Count == 0 || lightCycles.Count == 0 || wakeCycles.Count == 0) // If we have no data simply return the max alarm time.
+            {
+                return wakeBy;
+            }
+
             TimeSpan timeToSleep = wakeBy - DateTime.Now;
             double minutesToSleep = timeToSleep.TotalMinutes;
 
@@ -188,9 +193,9 @@ namespace DataMonitorLib
                 }
                 // calculate that position's average duration
                 avgRemDuration[i] = (int)avgRemDuration[i] / remCycles.Count;
-                avgDeepDuration[i] = (int)avgDeepDuration[i] / remCycles.Count;
-                avgLightDuration[i] = (int)avgLightDuration[i] / remCycles.Count;
-                avgWakeDuration[i] = (int)avgWakeDuration[i] / remCycles.Count;
+                avgDeepDuration[i] = (int)avgDeepDuration[i] / deepCycles.Count;
+                avgLightDuration[i] = (int)avgLightDuration[i] / lightCycles.Count;
+                avgWakeDuration[i] = (int)avgWakeDuration[i] / wakeCycles.Count;
             }
 
             DateTime start = startOfLastCollectedSession; // we will assume they went/will go to sleep at the last time we saw them go to sleep

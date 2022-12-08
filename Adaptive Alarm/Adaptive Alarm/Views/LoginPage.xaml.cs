@@ -25,13 +25,16 @@ namespace Adaptive_Alarm.Views
         {
             base.OnAppearing();
 
-            //TODO: make the auth process conditional on the device type in a settings object.
-            FitbitDataMonitor dataMonitor = (FitbitDataMonitor)Application.Current.Properties["tentativeDM"];
+            if (Application.Current.Properties["CurrentDeviceType"].Equals("Fitbit"))
+            {
+                //TODO: make the auth process conditional on the device type in a settings object.
+                FitbitDataMonitor dataMonitor = (FitbitDataMonitor)Application.Current.Properties["tentativeDM"];
 
-            this.webView.Source = dataMonitor.GetAuthUrl();
-            
-            //DisplayAlert("Url", dataMonitor.getAuthUrl(), "close");
-            //this.webView.Reload();
+                this.webView.Source = dataMonitor.GetAuthUrl();
+
+                //DisplayAlert("Url", dataMonitor.getAuthUrl(), "close");
+                //this.webView.Reload();
+            }
         }
 
         private void webView_Navigating(object sender, WebNavigatingEventArgs e)

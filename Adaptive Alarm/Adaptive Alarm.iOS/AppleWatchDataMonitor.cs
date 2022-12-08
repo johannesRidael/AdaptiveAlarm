@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UIKit;
-using HealthKit;
 using Newtonsoft.Json;
 using Utility;
 using System.IO;

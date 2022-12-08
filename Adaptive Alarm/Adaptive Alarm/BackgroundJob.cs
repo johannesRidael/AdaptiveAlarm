@@ -23,12 +23,16 @@ namespace Adaptive_Alarm
             await Task.Run(() => dm.CollectDataPoint(), cancelToken);
             await Task.Run(() => dm.SaveState(), cancelToken);
 
-            // TODO: add code to update alarm time and UI element for tomorrow's alarm time according to the DataMonitor's new state.
-            INotificationManager notificationManager = DependencyService.Get<INotificationManager>();
-            int alarmId = AppData.Load().wakeAlarmID;
-            DateTime wakeTime = dm.EstimateWakeupTime();
-            if (alarmId == 0) { notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime); }
-            else { notificationManager.updateNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime, alarmId); }
+            // Updates the alarm time for tomorrow according to the DataMonitor's new state.
+            await Task.Run(() =>
+            {
+                INotificationManager notificationManager = DependencyService.Get<INotificationManager>();
+                int alarmId = AppData.Load().wakeAlarmID;
+                DateTime wakeTime = dm.EstimateWakeupTime();
+                Console.WriteLine($"Wakup time set for {wakeTime.ToString("MM/dd/yyyy HH:mm:ss")}");
+                if (alarmId == 0) { notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime); }
+                else { notificationManager.updateNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime, alarmId); }
+            });
 
         }
     }
