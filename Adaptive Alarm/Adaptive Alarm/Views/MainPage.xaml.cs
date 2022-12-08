@@ -22,14 +22,13 @@ namespace Adaptive_Alarm.Views
     {
 
         AppData appData;
-        string saveFilename;
+        string saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
         bool afterBootup = false;
         INotificationManager notificationManager;
 
         public  MainPage()
         {
             InitializeComponent();
-            saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
             notificationManager = DependencyService.Get<INotificationManager>();
             notificationManager.NotificationReceived += (sender, eventArgs) =>
             {
@@ -101,15 +100,7 @@ namespace Adaptive_Alarm.Views
 
         async void OnSleepPressed(object sender, EventArgs e)
         {
-            if (File.Exists(saveFilename))
-            {
-                string jsonstring = File.ReadAllText(saveFilename);
-                appData = JsonConvert.DeserializeObject<AppData>(jsonstring);
-            }
-            else
-            {
-                appData = new AppData();
-            }
+            appData = AppData.Load();
             DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
             DateTime wakeTime = dm.EstimateWakeupTime();
 
@@ -120,8 +111,7 @@ namespace Adaptive_Alarm.Views
             string message = "Initial Alarm set for " + string.Format("{0:hh:mm tt}", wakeTime) 
                 + " To wake up before " + appData.currDateTime().ToString();
             await DisplayAlert("Reminder", message, "OK");
-            string sonstring = JsonConvert.SerializeObject(appData);
-            File.WriteAllText(saveFilename, sonstring);
+            appData.Save();
         }
 
         #region Timepicker listeners

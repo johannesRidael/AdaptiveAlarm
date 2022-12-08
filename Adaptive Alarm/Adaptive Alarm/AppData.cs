@@ -1,6 +1,9 @@
 using Xamarin.Forms.Xaml;
 using System.Collections.Generic;
 using System;
+using Newtonsoft.Json;
+using System.IO;
+using Xamarin.Essentials;
 
 namespace Utility
 {
@@ -78,7 +81,7 @@ namespace Utility
         public TimeSpan currTimeSpan()
         {
             /*
-             * Returns a TimeSpan corresponding to the one that should be used if user slept right now
+             * Returns a TimeSpan corresponding to the one that should be used if user slept right now (the next alarm time)
              */
             if ((DateTime.Now - nextChanged).TotalHours < 16)
             {
@@ -103,7 +106,7 @@ namespace Utility
         public DateTime currDateTime()
         {
             /*
-             * Returns a DateTime corresponding to the one that should be used if user slept right now
+             * Returns a DateTime corresponding to the one that should be used if user slept right now (the next alarm time)
              */
             DateTime now = DateTime.Now;
             DateTime today = DateTime.Today;
@@ -127,5 +130,42 @@ namespace Utility
 
         }
 
+        /// <summary>
+        /// Loads an instance from persistent storage
+        /// </summary>
+        /// <returns></returns>
+        public static AppData Load()
+        {
+            string saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
+            AppData appData;
+            if (File.Exists(saveFilename))
+            {
+                string jsonstring = File.ReadAllText(saveFilename);
+                appData = JsonConvert.DeserializeObject<AppData>(jsonstring);
+            }
+            else
+            {
+                appData = new AppData();
+            }
+            return appData;
+        }
+
+        /// <summary>
+        /// Saves the current instance to disk
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void Save()
+        {
+            if (this != null)
+            {
+                string saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
+                string sonstring = JsonConvert.SerializeObject(this);
+                File.WriteAllText(saveFilename, sonstring);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(AppData));
+            }
+        }
     }
 }

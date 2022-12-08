@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using System.Threading;
 using Shiny;
 using Shiny.Jobs;
-using Shiny.Notifications;
 
 using DataMonitorLib;
+using Xamarin.Forms;
+using Utility;
 
 namespace Adaptive_Alarm
 {
@@ -23,6 +24,12 @@ namespace Adaptive_Alarm
             await Task.Run(() => dm.SaveState(), cancelToken);
 
             // TODO: add code to update alarm time and UI element for tomorrow's alarm time according to the DataMonitor's new state.
+            INotificationManager notificationManager = DependencyService.Get<INotificationManager>();
+            int alarmId = AppData.Load().wakeAlarmID;
+            DateTime wakeTime = dm.EstimateWakeupTime();
+            if (alarmId == 0) { notificationManager.SendNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime); }
+            else { notificationManager.updateNotification("WAKE UP", "IT IS TIME TO WAKE UP", wakeTime, alarmId); }
+
         }
     }
 }
