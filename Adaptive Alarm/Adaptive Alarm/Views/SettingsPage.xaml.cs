@@ -10,6 +10,7 @@ using DataMonitorLib;
 using System.IO;
 using Utility;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
 
 namespace Adaptive_Alarm.Views
 {
@@ -24,7 +25,7 @@ namespace Adaptive_Alarm.Views
             
             InitializeComponent();
 
-            string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            string saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
             AppData data;
             string jsonstring;
             if (File.Exists(saveFilename))
@@ -38,17 +39,24 @@ namespace Adaptive_Alarm.Views
             }
             SleepTimeNumber.Text = data.AwakeTime.ToString();
 
+            typePicker.SelectedItem = Application.Current.Properties["CurrentDeviceType"];
+            datasetStartLabel.Text = $"Current working dataset began: {((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).ToString("d")}";
         }
 
         private void ChangeDeviceButtonClicked(object sender, EventArgs e)
         {
-            DataMonitor dataMonitor = (DataMonitor)Application.Current.Properties["dataMonitor"];
-            //DisplayAlert("Got DataMonitor", "Body", "OK");
+            DataMonitor dataMonitor = null;
 
-            //TODO: change this to be conditional on the currently selected device type.
-            ((FitbitDataMonitor)dataMonitor).Authenticate();
 
-            //FOR APPLE
+
+            if ((string)typePicker.SelectedItem == "Fitbit")
+            {
+                DataMonitor tentativeDM = new FitbitDataMonitor();
+                Application.Current.Properties["tentativeDM"] = tentativeDM;
+                ((FitbitDataMonitor)tentativeDM).Authenticate();
+            }
+            else if ((string)typePicker.SelectedItem == "Apple Watch"){
+              //FOR APPLE
             if (Device.RuntimePlatform == Device.iOS)
             {
                 dataMonitor = DependencyService.Get<AppleWatchDataMonitorInterface>();
@@ -57,12 +65,20 @@ namespace Adaptive_Alarm.Views
             {
                 Console.WriteLine("Apple watch data collection is only supported on apple devices");
             }
+            }
+            else
+            {
+                dataMonitor = new GaCDataMonitor();
+            }
+            Application.Current.Properties["CurrentDeviceType"] = (string)typePicker.SelectedItem;
+            Application.Current.Properties["dataMonitor"] = dataMonitor;
+
         }
 
         private void saveButtonClicked(object sender, EventArgs e)
         {
             sleepTime = Convert.ToInt32(SleepTimeNumber.Text);
-            string saveFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AppData.json");
+            string saveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
             AppData data;
             string jsonstring;
             if (File.Exists(saveFilename)){
@@ -76,7 +92,13 @@ namespace Adaptive_Alarm.Views
             data.AwakeTime = sleepTime;
             jsonstring = JsonConvert.SerializeObject(data);
             File.WriteAllText(saveFilename, jsonstring);
-            
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            typePicker.SelectedItem = Application.Current.Properties["CurrentDeviceType"];
+            datasetStartLabel.Text = $"Current working dataset began: {((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).ToString("d")}";
         }
     }
 }

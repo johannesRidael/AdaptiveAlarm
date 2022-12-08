@@ -20,7 +20,7 @@
                 <Picker.SelectedIndex>0</Picker.SelectedIndex>
             </Picker>
             <Button Text="Reset Sleep Data" Margin="10,0,10,0"/>
-            <Label Text="Current working dataset began: 03/29/2022" Margin="10,0,10,20"/>
+            <Label Text="Current working dataset began: " Margin="10,0,10,20" x:Name="datasetStartLabel"/>
             <Label Text="How long does it take you to fall asleep?" Margin="10, 20, 10,0"/>
             <Grid  >
                 <Entry x:Name="SleepTimeNumber"

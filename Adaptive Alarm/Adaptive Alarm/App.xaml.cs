@@ -5,35 +5,50 @@ using GaCData;
 using Newtonsoft.Json;
 using System.IO;
 using DataMonitorLib;
+using Adaptive_Alarm;
+using Xamarin.Essentials;
+using Xamarin.Forms.Internals;
 
 namespace Adaptive_Alarm
 {
     public partial class App : Application
     {
-        //TODO: wrap this and any other needed variables into an object that will be stored and loaded into local memory on app close/open.
-        private string deviceType = "Fitbit"; //TODO: change default to None once we have a DataMonitor to match that.
-        private DataMonitor dataMonitor = new FitbitDataMonitor(); //TODO: make this build based upon application settings and set the default to "NoneDataMonitor"
-
+        public DataMonitor dm { get; set; }
         public App()
         {
             InitializeComponent();
 
             MainPage = new AppShell();
-            this.Properties["dataMonitor"] = dataMonitor;
+
+            // Provides default settings if it cannot find a prior value
+            if (!this.Properties.ContainsKey("CurrentDeviceType"))
+                this.Properties["CurrentDeviceType"] = "None";
+            if (!this.Properties.ContainsKey("CurrentDataSetStartDate"))
+                this.Properties["CurrentDataSetStartDate"] = DateTime.Now;
+
+            DataMonitor dm;
+            if (this.Properties["CurrentDeviceType"].Equals("None")) { dm = new GaCDataMonitor(); }
+            else { dm = new FitbitDataMonitor(); }
+
+            dm.LoadState();
+            this.Properties["dataMonitor"] = dm;
+
+            Application.Current.Properties["isInForeground"] = false;
         }
 
         protected override void OnStart()
         {
-            //TODO: read in settings and set GUI element values appropriately
-
+            Application.Current.Properties["isInForeground"] = true;
         }
 
         protected override void OnSleep()
         {
+            Application.Current.Properties["isInForeground"] = false;
         }
 
         protected override void OnResume()
         {
+            Application.Current.Properties["isInForeground"] = true;
         }
 
     }

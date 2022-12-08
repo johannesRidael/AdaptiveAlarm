@@ -4,9 +4,16 @@ using System.Linq;
 
 using Foundation;
 using LocalNotifications.iOS;
+using Shiny;
 using UIKit;
 using UserNotifications;
 using HealthKit;
+
+[assembly: Shiny.ShinyApplication(
+    ShinyStartupTypeName = "Adaptive_Alarm.MyShinyStartup",
+    XamarinFormsAppTypeName = "Adaptive_Alarm.App"
+)]
+
 
 namespace Adaptive_Alarm.iOS
 {
@@ -29,6 +36,7 @@ namespace Adaptive_Alarm.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            
 
             UNUserNotificationCenter.Current.Delegate = new iOSNotificationReceiver();
             LoadApplication(new App());
@@ -50,8 +58,8 @@ namespace Adaptive_Alarm.iOS
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             }*/
 
-            //AppleWatchDataMonitor.RequestHKAccess();
-            //AppleWatchDataMonitor.dumpData();
+
+            this.ShinyFinishedLaunching(new MyShinyStartup(), options);
 
             return base.FinishedLaunching(app, options);
         }
