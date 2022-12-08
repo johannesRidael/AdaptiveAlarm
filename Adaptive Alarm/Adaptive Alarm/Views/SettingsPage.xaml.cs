@@ -57,14 +57,14 @@ namespace Adaptive_Alarm.Views
             }
             else if ((string)typePicker.SelectedItem == "Apple Watch"){
               //FOR APPLE
-            if (Device.RuntimePlatform == Device.iOS)
-            {
-                dataMonitor = DependencyService.Get<AppleWatchDataMonitorInterface>();
-            }
-            else
-            {
-                Console.WriteLine("Apple watch data collection is only supported on apple devices");
-            }
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+                    dataMonitor = DependencyService.Get<AppleWatchDataMonitorInterface>();
+                }
+                else
+                {
+                    Console.WriteLine("Apple watch data collection is only supported on apple devices");
+                }
             }
             else
             {

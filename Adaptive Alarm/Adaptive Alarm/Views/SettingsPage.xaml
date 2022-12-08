@@ -15,6 +15,7 @@
                     <x:Array Type="{x:Type x:String}">
                         <x:String>None</x:String>
                         <x:String>Fitbit</x:String>
+                        <x:String>Apple Watch</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
                 <Picker.SelectedIndex>0</Picker.SelectedIndex>
