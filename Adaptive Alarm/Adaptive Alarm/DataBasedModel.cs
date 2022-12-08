@@ -5,11 +5,12 @@ using System.Text;
 
 namespace Adaptive_Alarm
 {
-    internal class DataBasedModel
+    public class DataBasedModel
     {
         //public static int[] stages = { 3, 0, 1, 0, 2, 0, 1, 0, 2, 3, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0 }; //may remove or add awake sections
-       
-        public static double findAlarmTime(DateTime wakeBy, int[] avgTimes, int Location, double minInLocation)
+
+        public static double findAlarmTime(DateTime wakeBy, double[] avgTimes, int Location, double minInLocation)
+
         {
             /*
              * wakeBy: DateTime corresponding to when the user needs to wake.
@@ -22,8 +23,6 @@ namespace Adaptive_Alarm
              * https://learn.chm.msu.edu/NeuroEd/neurobiology_disease/content/otheresources/sleepdisorders.pdf
              * 
              */
-
-
 
 
             TimeSpan ttSleep = wakeBy - DateTime.Now;
@@ -162,3 +161,4 @@ namespace Adaptive_Alarm
         }
     }
 }
+

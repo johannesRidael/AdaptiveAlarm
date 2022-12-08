@@ -58,8 +58,17 @@ namespace Adaptive_Alarm.iOS
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             }*/
 
+
             this.ShinyFinishedLaunching(new MyShinyStartup(), options);
+
             return base.FinishedLaunching(app, options);
+        }
+
+        public override void OnActivated(UIApplication uiApplication)
+        {
+            base.OnActivated(uiApplication);
+            //AppleWatchDataMonitor.RequestHKAccess();
+            //AppleWatchDataMonitor.dumpData();
         }
     }
 }

@@ -47,11 +47,24 @@ namespace Adaptive_Alarm.Views
         {
             DataMonitor dataMonitor = null;
 
+
+
             if ((string)typePicker.SelectedItem == "Fitbit")
             {
                 DataMonitor tentativeDM = new FitbitDataMonitor();
                 Application.Current.Properties["tentativeDM"] = tentativeDM;
                 ((FitbitDataMonitor)tentativeDM).Authenticate();
+            }
+            else if ((string)typePicker.SelectedItem == "Apple Watch"){
+              //FOR APPLE
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                dataMonitor = DependencyService.Get<AppleWatchDataMonitorInterface>();
+            }
+            else
+            {
+                Console.WriteLine("Apple watch data collection is only supported on apple devices");
+            }
             }
             else
             {
@@ -59,6 +72,7 @@ namespace Adaptive_Alarm.Views
             }
             Application.Current.Properties["CurrentDeviceType"] = (string)typePicker.SelectedItem;
             Application.Current.Properties["dataMonitor"] = dataMonitor;
+
         }
 
         private void saveButtonClicked(object sender, EventArgs e)
