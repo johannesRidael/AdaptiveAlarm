@@ -36,6 +36,7 @@ namespace Adaptive_Alarm.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            
 
             UNUserNotificationCenter.Current.Delegate = new iOSNotificationReceiver();
             LoadApplication(new App());
@@ -57,6 +58,7 @@ namespace Adaptive_Alarm.iOS
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             }*/
 
+            this.ShinyFinishedLaunching(new MyShinyStartup(), options);
             return base.FinishedLaunching(app, options);
         }
     }

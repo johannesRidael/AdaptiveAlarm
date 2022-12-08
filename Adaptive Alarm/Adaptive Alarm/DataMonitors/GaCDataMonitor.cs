@@ -19,6 +19,8 @@ namespace DataMonitorLib
     {
         private static string saveFilename = Path.Combine(FileSystem.AppDataDirectory, "GaCData.json");
         private GaCDataContainer data;
+        private static string appDataSaveFilename = Path.Combine(FileSystem.AppDataDirectory, "AppData.json");
+        private AppData appData;
 
         public override void ClearState()
         {
@@ -30,7 +32,16 @@ namespace DataMonitorLib
         {
             Console.WriteLine($"GaCDataMonitor - CollectDataPointRunning. Is Visible {Application.Current.Properties["isInForeground"]}");
 
-            Application.Current.Properties["gacNeedsNewData"] = true; //TODO: get this working / change so that this variable is set when the alarm goes off
+            appData = AppData.Load();
+            DayOfWeek today = DateTime.Now.DayOfWeek;
+            if (Math.Abs((DateTime.Now.TimeOfDay - appData.GetTimeSpan(today)).TotalMinutes) < 120)
+            {
+                Application.Current.Properties["gacNeedsNewData"] = true; // if we are within two hours of the alarm going off set it so that we get a score prompt on the main screen
+            }
+            else
+            {
+                Application.Current.Properties["gacNeedsNewData"] = false; // otherwise we don't want a score prompt
+            }
         }
 
         public async void PromptForData()
@@ -51,8 +62,11 @@ namespace DataMonitorLib
                 }
                 int score = Convert.ToInt32(result);
                 this.data.ScoresArr[this.data.ScoreAttemptTreeInd] = score;
+                
+                appData = AppData.Load();
+                appData.scoreAdded = DateTime.Now;
+                appData.Save();
 
-                //appData.scoreAdded = DateTime.Now; //TODO: after moving app data to App properties, fix
                 Application.Current.Properties["gacHasNewData"] = true;
                 Application.Current.Properties["gacNeedsNewData"] = false;
             }
@@ -63,7 +77,9 @@ namespace DataMonitorLib
             if ((bool)(Application.Current.Properties["gacHasNewData"]))
             {
                 //TODO: Bring these in systematically
-                DateTime wakeBy = DateTime.Today.AddDays(1).AddHours(8); //Next day's alarm time
+                appData = AppData.Load();
+
+                DateTime wakeBy = appData.currDateTime();
                 int awakeTime = 20; // time spent awake
 
                 int[] attempts;
@@ -245,7 +261,7 @@ namespace DataMonitorLib
                 DateTime wakeTime = DateTime.Now.AddMinutes(timeTillAlarm);
                 return wakeTime;
             }
-            return DateTime.Today.AddDays(1).AddHours(8); //TODO: change this to programmatically bring in the current setting for the next day's alarm
+            return AppData.Load().currDateTime();
         }
 
         public override void LoadState()

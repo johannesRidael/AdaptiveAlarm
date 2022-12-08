@@ -15,6 +15,7 @@ using Adaptive_Alarm.Views;
 using Adaptive_Alarm;
 using System.Collections;
 using System.Linq;
+using Utility;
 
 namespace DataMonitorLib
 {
@@ -150,8 +151,7 @@ namespace DataMonitorLib
 
         public override DateTime EstimateWakeupTime()
         {
-            //TODO: Bring this in systematically
-            DateTime wakeBy = DateTime.Today.AddDays(1).AddHours(8); //Next day's alarm time
+            DateTime wakeBy = AppData.Load().currDateTime();
 
             TimeSpan timeToSleep = wakeBy - DateTime.Now;
             double minutesToSleep = timeToSleep.TotalMinutes;
