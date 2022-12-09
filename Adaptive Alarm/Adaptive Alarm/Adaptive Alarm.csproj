@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="22.1.6" />
+    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="22.1.6" />
+    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="22.1.6" />
+    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="22.1.6" />
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="22.1.6" />
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="22.1.6" />
     <PackageReference Include="Fitbit.NET" Version="2.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />  
@@ -15,12 +21,20 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PulseScorePage.xaml.cs">
+      <DependentUpon>PulseScorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\QualityScorePage.xaml.cs">
+      <DependentUpon>QualityScorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TimeScorePage.xaml.cs">
+      <DependentUpon>TimeScorePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>

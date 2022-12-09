@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Adaptive_Alarm.Views.QualityScorePage">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0, 20, 0, 0
+            </OnPlatform.iOS>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+
+    <Grid Padding="20" RowSpacing="70"
+      BackgroundColor="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+           Text="72"
+           FontSize="100"/>
+
+        <Image Grid.Row="1" Grid.Column="0"
+           Source="heart.png"
+           WidthRequest="100"/>
+        
+        <Label Grid.Row="1" Grid.Column="1"
+           FontSize="Medium"
+           HorizontalTextAlignment="End">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Moderate   "
+                      TextColor="Orange"/>
+                    <Span Text=" Sleeping duration was good, but recovery was delayed beginning. beginning of sleep."/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label Grid.Row="2" Grid.Column="1"
+           FontSize="Medium"
+           HorizontalTextAlignment="End">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Tips  "
+                      TextColor="Green"/>
+                    <Span Text=" Remember to take it easy in the evening by avoiding mental and physical tasks well before going to bed."/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+
+    </Grid>
+
+
+
+
+
+</ContentPage>
+

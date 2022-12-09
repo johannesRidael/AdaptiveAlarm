@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Adaptive_Alarm.Views.PulseScorePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Adaptive_Alarm.ViewModels"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
+             >
+    <ContentPage.BindingContext>
+        <vm:PulseViewModel/>
+    </ContentPage.BindingContext>
+
+    <dxc:ChartView>
+        <dxc:ChartView.Series>
+            <dxc:SplineSeries LegendTextPattern="{}{CLV}/sec — {CHV}/sec">
+                <dxc:SplineSeries.Data>
+                    <dxc:SeriesDataAdapter DataSource="{Binding Data}" ArgumentDataMember="Argument">
+                        <dxc:ValueDataMember Member="Value" Type="Value"/>
+                    </dxc:SeriesDataAdapter>
+                </dxc:SplineSeries.Data>
+                <dxc:SplineSeries.SegmentColorizer>
+                    <dxc:GradientPointBasedSegmentColorizer>
+                        <dxc:GradientPointBasedSegmentColorizer.PointColorizer>
+                            <dxc:ValueBandPointColorizer>
+                                <dxc:ValueBandPointColorizer.ColorStops>
+                                    <dxc:ColorStop Color="#00008b" Value1="0" Value2="30"/>
+                                    <dxc:ColorStop Color="#6781c1" Value1="30" Value2="35"/>
+                                    <dxc:ColorStop Color="#add8e6" Value1="35" Value2="40"/>
+                                    <dxc:ColorStop Color="#0b872d" Value1="40" Value2="45"/>
+                                    <dxc:ColorStop Color="#0eab39" Value1="45" Value2="50"/>
+                                    <dxc:ColorStop Color="#12da49" Value1="50" Value2="55"/>
+                                    <dxc:ColorStop Color="#a3da12" Value1="55" Value2="60"/>
+                                    <dxc:ColorStop Color="#de7f5b" Value1="60" Value2="65"/>
+                                    <dxc:ColorStop Color="#ee622d" Value1="65" Value2="70"/>
+                                    <dxc:ColorStop Color="#ff4500" Value1="70" Value2="100"/>
+                                </dxc:ValueBandPointColorizer.ColorStops>
+                            </dxc:ValueBandPointColorizer>
+                        </dxc:GradientPointBasedSegmentColorizer.PointColorizer>
+                    </dxc:GradientPointBasedSegmentColorizer>
+                </dxc:SplineSeries.SegmentColorizer>
+            </dxc:SplineSeries>
+        </dxc:ChartView.Series>
+        <dxc:ChartView.Legend>
+            <dxc:Legend Orientation="TopToBottom"
+                        HorizontalPosition="Center"
+                        VerticalPosition="BottomOutside"/>
+        </dxc:ChartView.Legend>
+        <dxc:ChartView.AxisX>
+            <dxc:NumericAxisX GridOffset="0" GridAlignment="1">
+                <dxc:NumericAxisX.Label>
+                    <dxc:AxisLabel />
+                </dxc:NumericAxisX.Label>
+            </dxc:NumericAxisX>
+        </dxc:ChartView.AxisX>
+        <dxc:ChartView.AxisY>
+            <dxc:NumericAxisY>
+                <dxc:NumericAxisY.Label>
+                    <dxc:AxisLabel TextFormat="#" />
+                </dxc:NumericAxisY.Label>
+                <dxc:NumericAxisY.Range>
+                    <dxc:NumericRange VisualMin="20" VisualMax="100"/>
+                </dxc:NumericAxisY.Range>
+                <dxc:NumericAxisY.Title>
+                    <dxc:AxisTitle Text="#/sec"
+                           Alignment="Outside">
+                        <dxc:AxisTitle.Style>
+                            <dxc:TitleStyle>
+                                <dxc:TitleStyle.TextStyle>
+                                    <dxc:TextStyle Color="DarkRed" Size="15"/>
+                                </dxc:TitleStyle.TextStyle>
+                            </dxc:TitleStyle>
+                        </dxc:AxisTitle.Style>
+                    </dxc:AxisTitle>
+                </dxc:NumericAxisY.Title>
+            </dxc:NumericAxisY>
+        </dxc:ChartView.AxisY>
+    </dxc:ChartView>
+
+
+</ContentPage>
+
