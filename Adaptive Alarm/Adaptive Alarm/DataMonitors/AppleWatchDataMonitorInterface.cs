@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataMonitorLib
 {
-    internal abstract class AppleWatchDataMonitorInterface : DataMonitor
+    public abstract class AppleWatchDataMonitorInterface : DataMonitor
     {
 
 

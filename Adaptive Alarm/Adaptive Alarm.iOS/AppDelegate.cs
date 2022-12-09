@@ -40,7 +40,19 @@ namespace Adaptive_Alarm.iOS
 
             UNUserNotificationCenter.Current.Delegate = new iOSNotificationReceiver();
             LoadApplication(new App());
-            /*
+            
+            
+
+
+            this.ShinyFinishedLaunching(new MyShinyStartup(), options);
+
+            return base.FinishedLaunching(app, options);
+        }
+
+        public override void OnActivated(UIApplication uiApplication)
+        {
+            base.OnActivated(uiApplication);
+
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
                 // Ask the user for permission to get notifications on iOS 10.0+
@@ -56,19 +68,7 @@ namespace Adaptive_Alarm.iOS
                         new NSSet());
 
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-            }*/
-
-
-            this.ShinyFinishedLaunching(new MyShinyStartup(), options);
-
-            return base.FinishedLaunching(app, options);
-        }
-
-        public override void OnActivated(UIApplication uiApplication)
-        {
-            base.OnActivated(uiApplication);
-            //AppleWatchDataMonitor.RequestHKAccess();
-            //AppleWatchDataMonitor.dumpData();
+            }
         }
     }
 }

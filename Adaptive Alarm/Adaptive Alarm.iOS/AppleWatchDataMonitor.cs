@@ -13,7 +13,7 @@ using Adaptive_Alarm;
 [assembly: Xamarin.Forms.Dependency(typeof(AppleWatchDataMonitor))]
 namespace DataMonitorLib
 {
-    public class AppleWatchDataMonitor : DataMonitor
+    public class AppleWatchDataMonitor : AppleWatchDataMonitorInterface
     {
 
         DateTime lastSample = DateTime.MinValue;
