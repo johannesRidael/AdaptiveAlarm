@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Adaptive_Alarm.Views.TimeScorePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Adaptive_Alarm.ViewModels"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             >
+    <ContentPage.BindingContext>
+        <vm:TimeViewModel/>
+    </ContentPage.BindingContext>
+
+    <charts:PieChartView SelectionMode="Single" SelectionBehavior="Hatch">
+        <charts:PieChartView.Hint>
+            <charts:PieHint ShowMode="OnTap"/>
+        </charts:PieChartView.Hint>
+        <charts:PieChartView.Series>
+            <charts:DonutSeries Data="{Binding DonutSeriesData}">
+                <charts:DonutSeries.CenterLabel>
+                    <charts:PieCenterTextLabel TextPattern="{Binding DonutCenterLabelPattern}" ContentRatio="0.35"/>
+                </charts:DonutSeries.CenterLabel>
+                <charts:DonutSeries.HintOptions>
+                    <charts:PieSeriesHintOptions PointTextPattern="{}{L}: {VP}% ({V}h)"/>
+                </charts:DonutSeries.HintOptions>
+                <charts:DonutSeries.Label>
+                    <charts:PieSeriesLabel TextPattern="{}{L} {V}" Position="TwoColumns" />
+                </charts:DonutSeries.Label>
+            </charts:DonutSeries>
+        </charts:PieChartView.Series>
+        <charts:PieChartView.Legend>
+            <charts:Legend Orientation="TopToBottom"
+                    HorizontalPosition="Center"
+                    VerticalPosition="BottomOutside"/>
+        </charts:PieChartView.Legend>
+    </charts:PieChartView>
+
+
+</ContentPage>
+

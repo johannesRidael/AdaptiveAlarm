@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="Adaptive_Alarm.Views.ScorePage"
-             Title="ScorePage">
+<ContentPage x:Class="Adaptive_Alarm.Views.ScorePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
+             >
 
-    <Grid RowDefinitions="Auto, Auto, *" BackgroundColor="#F3F3F3" RowSpacing="20">
+    <Grid RowDefinitions="Auto, Auto, *" BackgroundColor="#F3F3F3" >
         <StackLayout Padding="30" WidthRequest="300" HorizontalOptions="Start">
-            <Label Text ="Your sleeping score:" FontSize="30" TextColor="Black" />
-            <Label Text ="Select an item to check" FontSize="20" />
+            <Label Text ="Your sleeping score:" FontSize="25" TextColor="Black" />
+            <Label Text ="Select an item to check and click the score for detalis." FontSize="15" />
         </StackLayout>
-        <ScrollView Grid.Row="1" VerticalOptions="Start" Orientation="Horizontal" Margin="30"
+        <ScrollView Grid.Row="1" VerticalOptions="Start" Orientation="Horizontal" Margin="10"
                     HorizontalScrollBarVisibility="Never">
             <StackLayout Orientation="Horizontal" BindableLayout.ItemsSource="{Binding Selections}" 
                         VerticalOptions="Start" HeightRequest="100">
@@ -37,15 +37,21 @@
                 </BindableLayout.ItemTemplate>
             </StackLayout>
         </ScrollView>
+
         <Grid Grid.Row="2" BackgroundColor="White" Padding="30">
-            <Label FontSize="70" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text=""/>
-                        <Span Text="{Binding SelectedAmount, StringFormat='{0:N0}'}" TextColor="Black"/>
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
+            <Frame  VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="10" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Score_OnClicked"/>
+                </Frame.GestureRecognizers>
+                <Label FontSize="70" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text=""/>
+                            <Span Text="{Binding SelectedAmount, StringFormat='{0:N0}'}" TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
         </Grid>
     </Grid>
 </ContentPage>
