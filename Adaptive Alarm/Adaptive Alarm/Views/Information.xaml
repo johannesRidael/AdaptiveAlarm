@@ -1,19 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Adaptive_Alarm.Views.Information">
+             x:Class="Adaptive_Alarm.Views.Information"
+             Title="Information">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Adaptive Alarm is an alarm designed to wake you at a time that is most optimal. When you set an alarm Adaptive Alarm will try to wake you when you will feel the most refreshed close to the time you set."
+            <Label Text="No more groggy mornings! Adaptive Alarm is an alarm designed to wake you at a time that is most optimal. When you set an alarm Adaptive Alarm will try to wake you when you will feel the most refreshed close to the time you set. Wake up ready to take on the world!"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand"
                    FontSize="Medium"
-                   Margin="15, 20, 15, 0"/>
-            <Label Text="You can set your latest wake up times for the week or change each one individualy"
-                   VerticalOptions="Start"
-                   HorizontalOptions="CenterAndExpand"
-                   FontSize="Medium"
-                   Margin="15, 10, 15, 0"/>
+                   TextColor="Black"
+                   Margin="15, 20, 15, 20"/>
+            <Label Margin="15, 0, 15, 0" FontSize="Medium" TextColor="Black" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Adaptive Alarm is fairly simple to use, however for a detailed explanation of how to use the app and interact with its features, "/>
+                        <Span Text="click here."
+                            TextColor="Blue"
+                            TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://sites.google.com/gcloud.utah.edu/adaptivealarm/user-guide?authuser=0" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+                
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
