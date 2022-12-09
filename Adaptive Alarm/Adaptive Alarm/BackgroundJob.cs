@@ -16,16 +16,20 @@ namespace Adaptive_Alarm
     {
         public async Task Run(JobInfo jobInfo, CancellationToken cancelToken)
         {
-            DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
-            //await Task.Run(() => Console.WriteLine($"BACKGROUNDJOB - {dm.GetType().Name}")); //for debugging purposes
+            //DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
+            ////await Task.Run(() => Console.WriteLine($"BACKGROUNDJOB - {dm.GetType().Name}")); //for debugging purposes
 
-            // These allow data collection
-            await Task.Run(() => dm.CollectDataPoint(), cancelToken);
-            await Task.Run(() => dm.SaveState(), cancelToken);
+            //// These allow data collection
+            //await Task.Run(() => dm.CollectDataPoint(), cancelToken);
+            //await Task.Run(() => dm.SaveState(), cancelToken);
 
             // Updates the alarm time for tomorrow according to the DataMonitor's new state.
             await Task.Run(() =>
             {
+                DataMonitor dm = (DataMonitor)App.Current.Properties["dataMonitor"];
+                dm.CollectDataPoint();
+                dm.SaveState();
+
                 INotificationManager notificationManager = DependencyService.Get<INotificationManager>();
                 int alarmId = AppData.Load().wakeAlarmID;
                 DateTime wakeTime = dm.EstimateWakeupTime();

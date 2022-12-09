@@ -161,8 +161,6 @@
     <PackageReference Include="DevExpress.XamarinForms.Scheduler">
       <Version>22.1.6</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Shiny">
       <Version>2.6.3</Version>
     </PackageReference>
