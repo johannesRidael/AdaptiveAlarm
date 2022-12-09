@@ -1,18 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Utility;
 using Xamarin.Forms;
 
 namespace Adaptive_Alarm.Views
 {
-    
+
     public partial class ScorePage : ContentPage
     {
         public ScorePage()
@@ -34,7 +27,16 @@ namespace Adaptive_Alarm.Views
             }
         }
 
-        
+        private string name;
+        public string SelectedName
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                OnPropertyChanged();
+            }
+        }
 
         private float amount;
         public float SelectedAmount
@@ -52,11 +54,10 @@ namespace Adaptive_Alarm.Views
             return new ObservableCollection<Selection>
             {
                 // Puts score in this amount
-                new Selection { Name = "Quality", Amount = 100, Color = Color.Blue, Image = "sleep.png" },
-                // TODO: For future algorithm displaying... 
-                new Selection { Name = "Time", Amount = 100, Color = Color.SlateBlue, Image = "time.png" },
-                new Selection { Name = "Average", Amount = 75, Color = Color.Purple, Image = "pulse.png" },
-                new Selection { Name = "Other", Amount = 95, Color = Color.LightPink, Image = "heart.png" },
+                new Selection { Name = "Quality", Amount = 72, Color = Color.Blue, Image = "sleep.png" },
+                new Selection { Name = "Time", Amount = 95, Color = Color.SlateBlue, Image = "time.png" },
+                new Selection { Name = "Pulse", Amount = 75, Color = Color.Pink, Image = "pulse.png" }
+
             };
         }
 
@@ -66,6 +67,8 @@ namespace Adaptive_Alarm.Views
             var grid = sender as Grid;
             var selectedItem = grid.BindingContext as Selection;
             var parent = grid.Parent as StackLayout;
+
+            name = selectedItem.Name;
 
             ((parent.Parent) as ScrollView).ScrollToAsync(grid, ScrollToPosition.MakeVisible, true);
 
@@ -108,6 +111,27 @@ namespace Adaptive_Alarm.Views
 
                 return true;
             });
+        }
+
+        private async void Score_OnClicked(object sender, EventArgs e)
+        {
+
+            switch (SelectedName)
+            {
+                case "Time":
+                    await Navigation.PushAsync(new TimeScorePage());
+                    break;
+                case "Pulse":
+                    await Navigation.PushAsync(new PulseScorePage());
+                    break;
+                case "Quality":
+                    await Navigation.PushAsync(new QualityScorePage());
+                    break;
+                default:
+                    break;
+
+            }
+
         }
     }
 
