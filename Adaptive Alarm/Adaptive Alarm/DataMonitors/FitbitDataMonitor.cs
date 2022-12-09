@@ -16,6 +16,7 @@ using Adaptive_Alarm;
 using System.Collections;
 using System.Linq;
 using Utility;
+using Fitbit.Api.Portable.Models;
 
 namespace DataMonitorLib
 {
@@ -28,13 +29,13 @@ namespace DataMonitorLib
         private const string CLIENTSECRET = "078679b0a1f8ad4b5d4aebba989571a7";
 
         // Data related to state
-        private ArrayList remCycles = new ArrayList(); //2d arraylists first index is the day in question, the second
-        private ArrayList deepCycles = new ArrayList(); //              is the number of cycle of that type on that day
-        private ArrayList lightCycles = new ArrayList();  //            the value is the duration in seconds of that 
-        private ArrayList wakeCycles = new ArrayList();  //             number of cycle of that type on that day.
-        private DateTime startOfLastCollectedSession;
         private DateTime datetimeLastCollected; // used to know whether or not to add a new index to the above arraylists
-        private string lastKnownCycleState;     // the current cycle at last collection
+        private TimeSpan timeInCurrentState;    // represents the time between the start of the last recorded state and the time last recorded
+        private int currentIndex;
+
+        // new state vars
+        private ArrayList avgs; // an array list of user states (wakeable / unwakeable) where odd indices are wakeable and even ones are unwakeable
+        private ArrayList counts; // gives how many samples we have for each index in the above averages
 
         public FitbitDataMonitor()
         {
@@ -44,6 +45,8 @@ namespace DataMonitorLib
                 ClientSecret = CLIENTSECRET
             };
             this.authHelper = new Fitbit.Api.Portable.OAuth2.OAuth2Helper(credentials, "http://localhost:4306/aa/data-collection");
+            avgs = new ArrayList();
+            counts = new ArrayList();
         }
 
         public override async void CollectDataPoint()
@@ -69,197 +72,90 @@ namespace DataMonitorLib
                 return; // if there is no primary sleep session in the day or it has already been colllected then return with no update to internal data.
             }
 
-            if (startOfLastCollectedSession.Date < sleepSession.StartTime.Date) // add a new index for the new day's data
+            // start rewrite here
+            ArrayList sessionCycles = new ArrayList();
+            if (new HashSet<string>() {"light", "wake" }.Contains(sleepSession.Levels.Data[0].Level))
             {
-                remCycles.Add(new ArrayList(10));
-                deepCycles.Add(new ArrayList(10));
-                lightCycles.Add(new ArrayList(10));
-                wakeCycles.Add(new ArrayList(10));
+                sessionCycles.Add(0.0); // add an unwakeable value at index 0
             }
-            else if (startOfLastCollectedSession.Date == sleepSession.StartTime.Date) // set the last observed state if the user may be asleep
-            {
-                lastKnownCycleState = (sleepSession.Levels.Data.Last()).Level;
-            }
-
-            // add all of the current day's sleep data
-            int index = (sleepSession.StartTime.Date - ((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).Date).Days;
-
-            int r = 0, d = 0, l = 0, a = 0;
+            // get the current session's cycle's as an array list of wakeable/unwakeable times in minutes
+            var prevCycle = sleepSession.Levels.Data[0];
             foreach (var cycle in sleepSession.Levels.Data)
-            {
-                switch (cycle.Level)
+            { 
+                switch(cycle.Level)
                 {
                     case "rem":
-                        {
-                            if (a < ((ArrayList)remCycles[index]).Count)
-                            {
-                                ((ArrayList)remCycles[index])[a] = cycle.Seconds;
-                            }
-                            else
-                            {
-                                ((ArrayList)remCycles[index]).Add(cycle.Seconds);
-                            }
-                            r++;
-                            break;
-                        }
                     case "deep":
+                        if (prevCycle.Level.Equals("light") || prevCycle.Level.Equals("wake"))
                         {
-                            if (a < ((ArrayList)deepCycles[index]).Count)
-                            {
-                                ((ArrayList)deepCycles[index])[a] = cycle.Seconds;
-                            }
-                            else
-                            {
-                                ((ArrayList)deepCycles[index]).Add(cycle.Seconds);
-                            }
-                            d++;
-                            break;
+                            sessionCycles.Add(cycle.Seconds / 60.0);
                         }
+                        else
+                        {
+                            sessionCycles[sessionCycles.Count - 1] = ((double)sessionCycles[sessionCycles.Count - 1]) + cycle.Seconds / 60.0;
+                        }
+                        prevCycle = cycle;
+                        break;
                     case "light":
-                        {
-                            if (a < ((ArrayList)lightCycles[index]).Count)
-                            {
-                                ((ArrayList)lightCycles[index])[a] = cycle.Seconds;
-                            }
-                            else
-                            {
-                                ((ArrayList)lightCycles[index]).Add(cycle.Seconds);
-                            }
-                            l++;
-                            break;
-                        }
                     case "wake":
+                        if (prevCycle.Level.Equals("rem") || prevCycle.Level.Equals("deep"))
                         {
-                            if (a < ((ArrayList)wakeCycles[index]).Count)
-                            {
-                                ((ArrayList)wakeCycles[index])[a] = cycle.Seconds;
-                            }
-                            else
-                            {
-                                ((ArrayList)wakeCycles[index]).Add(cycle.Seconds);
-                            }
-                            a++;
-                            break;
+                            sessionCycles.Add(cycle.Seconds / 60.0);
                         }
-
+                        else
+                        {
+                            sessionCycles[sessionCycles.Count - 1] = ((double)sessionCycles[sessionCycles.Count - 1]) + cycle.Seconds / 60.0;
+                        }
+                        prevCycle = cycle;
+                        break;
                 }
             }
 
-            startOfLastCollectedSession = sleepSession.StartTime;
+            // ensure that counts and avgs are big enough
+            if (avgs == null || counts == null)
+                avgs = new ArrayList(); counts= new ArrayList();
+            if (avgs.Count < sessionCycles.Count || counts.Count < sessionCycles.Count)
+            {
+                avgs.Capacity = sessionCycles.Count;
+                counts.Capacity = sessionCycles.Count;
+                for (int i = 0; i < sessionCycles.Count; i++)
+                {
+                    if (i >= avgs.Count)
+                        avgs.Add(0.0);
+                    if (i >= counts.Count)
+                        counts.Add(0);
+                }
+            }
+
+            int samples = (sleepSession.StartTime.Date - ((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).Date).Days + 1;
+
+            // adjust averages and counts as appropriate
+            for (int i = 0; i < sessionCycles.Count; i++)
+            {
+                if (i == sessionCycles.Count - 1) // don't add the last cycle value as it may still be happening.
+                    continue;
+                if ((int)counts[i] < samples)
+                {
+                    avgs[i] = (((double)avgs[i] * (samples - 1)) + (double)sessionCycles[i]) / samples;
+                    counts[i] = (int)counts[i] + 1;
+                }
+            }
+
+
             datetimeLastCollected = DateTime.Now;
+            timeInCurrentState = DateTime.Now - sleepSession.Levels.Data.Last<LevelsData>().DateTime;
+            currentIndex = sessionCycles.Count - 1;
         }
 
         public override DateTime EstimateWakeupTime()
         {
             DateTime wakeBy = AppData.Load().currDateTime();
-
-            if (remCycles.Count == 0 || deepCycles.Count == 0 || lightCycles.Count == 0 || wakeCycles.Count == 0) // If we have no data simply return the max alarm time.
-            {
+            
+            // if we don't have any data, or the user is likely awake (next alarm day is different from the last day collected), just wake up at set time
+            if (avgs == null || counts == null || avgs.Count == 0 || counts.Count == 0 || datetimeLastCollected.Day < wakeBy.Day)
                 return wakeBy;
-            }
 
-            TimeSpan timeToSleep = wakeBy - DateTime.Now;
-            double minutesToSleep = timeToSleep.TotalMinutes;
-
-            int maxCycleCount = 10; //TODO: change so this isn't hard coded
-
-            int[] avgRemDuration = new int[maxCycleCount];
-            int[] avgDeepDuration = new int[maxCycleCount];
-            int[] avgLightDuration = new int[maxCycleCount];
-            int[] avgWakeDuration = new int[maxCycleCount];
-
-            for ( int i = 0; i < maxCycleCount; i++) // total the duration for that position
-            {
-
-                foreach (var day in remCycles)
-                {
-                    if (i < ((ArrayList)day).Count)
-                        avgRemDuration[i] += (int)((ArrayList)day)[i];
-                }
-                foreach (var day in deepCycles)
-                {
-                    if (i < ((ArrayList)day).Count)
-                        avgDeepDuration[i] += (int)((ArrayList)day)[i];
-                }
-                foreach (var day in lightCycles)
-                {
-                    if (i < ((ArrayList)day).Count)
-                        avgLightDuration[i] += (int)((ArrayList)day)[i];
-                }
-                foreach (var day in wakeCycles)
-                {
-                    if (i < ((ArrayList)day).Count)
-                        avgWakeDuration[i] += (int)((ArrayList)day)[i];
-                }
-                // calculate that position's average duration
-                avgRemDuration[i] = (int)avgRemDuration[i] / remCycles.Count;
-                avgDeepDuration[i] = (int)avgDeepDuration[i] / deepCycles.Count;
-                avgLightDuration[i] = (int)avgLightDuration[i] / lightCycles.Count;
-                avgWakeDuration[i] = (int)avgWakeDuration[i] / wakeCycles.Count;
-            }
-
-            DateTime start = startOfLastCollectedSession; // we will assume they went/will go to sleep at the last time we saw them go to sleep
-
-            int currentDaysIndex = (startOfLastCollectedSession.Date - ((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).Date).Days;
-            int rIndex = ((ArrayList)remCycles[currentDaysIndex]).Count;
-            int dIndex = ((ArrayList)deepCycles[currentDaysIndex]).Count;
-            int lIndex = ((ArrayList)lightCycles[currentDaysIndex]).Count;
-            int wIndex = ((ArrayList)wakeCycles[currentDaysIndex]).Count;
-
-            List<string> options = new List<string>() { "rem", "deep", "light", "wake" };
-            var random = new Random();
-            string lastType = lastKnownCycleState;
-            bool foundResult = false;
-
-            DateTime result = startOfLastCollectedSession; // as it stands this reflects the last anticipated state transition before they must be up
-            while (result < wakeBy && !foundResult)
-            {
-                string s = options[random.Next(options.Count)]; // assume random state transitions (we don't track this at the moment)
-                if (s.Equals(lastType))
-                    continue;
-                switch (s)
-                {
-                    case "rem":
-                        if (result + TimeSpan.FromSeconds(avgRemDuration[rIndex]) < wakeBy)
-                        {
-                            result += TimeSpan.FromSeconds(avgRemDuration[rIndex]);
-                            rIndex++;
-                            break;
-                        }
-                        foundResult = true;
-                        break;
-                    case "light":
-                        if (result + TimeSpan.FromSeconds(avgLightDuration[lIndex]) < wakeBy)
-                        {
-                            result += TimeSpan.FromSeconds(avgLightDuration[lIndex]);
-                            lIndex++;
-                            break;
-                        }
-                        foundResult = true;
-                        break;
-                    case "deep":
-                        if (result + TimeSpan.FromSeconds(avgDeepDuration[dIndex]) < wakeBy)
-                        {
-                            result += TimeSpan.FromSeconds(avgDeepDuration[dIndex]);
-                            dIndex++;
-                            break;
-                        }
-                        foundResult = true;
-                        break;
-                    case "wake":
-                        if (result + TimeSpan.FromSeconds(avgWakeDuration[wIndex]) < wakeBy)
-                        {
-                            result += TimeSpan.FromSeconds(avgWakeDuration[wIndex]);
-                            wIndex++;
-                            break;
-                        }
-                        foundResult = true;
-                        break;
-                }
-            }
-
-
-            return result;
+            return (datetimeLastCollected - timeInCurrentState).AddMinutes(DataBasedModel.findAlarmTime(wakeBy, avgs.Cast<double>().ToArray(), currentIndex, timeInCurrentState.TotalMinutes));
         }
 
         public override async void LoadState()
@@ -291,38 +187,24 @@ namespace DataMonitorLib
             using (StreamReader streamReader = File.OpenText(valsPath))
                 valsString = await streamReader.ReadToEndAsync();
 
-            Tuple<DateTime, DateTime, string> vals = JsonConvert.DeserializeObject<Tuple<DateTime, DateTime, string>>(valsString);
-            this.startOfLastCollectedSession = vals.Item1;
-            this.datetimeLastCollected = vals.Item2;
-            this.lastKnownCycleState = vals.Item3;
+            Tuple<DateTime, TimeSpan, int> vals = JsonConvert.DeserializeObject<Tuple<DateTime, TimeSpan, int>>(valsString);
+            this.datetimeLastCollected = vals.Item1;
+            this.timeInCurrentState = vals.Item2;
+            this.currentIndex = vals.Item3;
 
-            // load in rem cycles
-            string remCyclesString = "";
-            var remCyclesPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitRemCycles.json");
-            using (StreamReader streamReader = File.OpenText(remCyclesPath))
-                remCyclesString = await streamReader.ReadToEndAsync();
-            this.remCycles = JsonConvert.DeserializeObject<ArrayList>(remCyclesString);
+            // load in averages
+            string avgsString = "";
+            var avgsPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitAvgs.json");
+            using (StreamReader streamReader = File.OpenText(avgsPath))
+                avgsString = await streamReader.ReadToEndAsync();
+            this.avgs = JsonConvert.DeserializeObject<ArrayList>(avgsString);
 
-            // load in deep cycles
-            string deepCyclesString = "";
-            var deepCyclesPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitDeepCycles.json");
-            using (StreamReader streamReader = File.OpenText(deepCyclesPath))
-                deepCyclesString = await streamReader.ReadToEndAsync();
-            this.deepCycles = JsonConvert.DeserializeObject<ArrayList>(deepCyclesString);
-
-            // load in light cycles
-            string lightCyclesString = "";
-            var lightCyclesPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitLightCycles.json");
-            using (StreamReader streamReader = File.OpenText(lightCyclesPath))
-                lightCyclesString = await streamReader.ReadToEndAsync();
-            this.lightCycles = JsonConvert.DeserializeObject<ArrayList>(lightCyclesString);
-
-            // load in wake cycles
-            string wakeCyclesString = "";
-            var wakeCyclesPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitWakeCycles.json");
-            using (StreamReader streamReader = File.OpenText(wakeCyclesPath))
-                wakeCyclesString = await streamReader.ReadToEndAsync();
-            this.wakeCycles = JsonConvert.DeserializeObject<ArrayList>(wakeCyclesString);
+            // load in counts
+            string countsString = "";
+            var countsPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitCounts.json");
+            using (StreamReader streamReader = File.OpenText(countsPath))
+                countsString = await streamReader.ReadToEndAsync();
+            this.avgs = JsonConvert.DeserializeObject<ArrayList>(countsString);
 
             //TODO: Add code to load other state information as it is added
         }
@@ -341,34 +223,22 @@ namespace DataMonitorLib
             await SecureStorage.SetAsync("fitbit_tok", tok_s);
 
             // Save current loose values
-            string valsString = JsonConvert.SerializeObject(new Tuple<DateTime, DateTime, string>(this.startOfLastCollectedSession, this.datetimeLastCollected, this.lastKnownCycleState));
+            string valsString = JsonConvert.SerializeObject(new Tuple<DateTime, TimeSpan, int>(this.datetimeLastCollected, this.timeInCurrentState, this.currentIndex));
             var valsPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitVals.json");
             using (StreamWriter streamWriter = File.CreateText(valsPath))
                 await streamWriter.WriteAsync(valsString);
 
-            // save rem cycles
-            string remCyclesString = JsonConvert.SerializeObject(this.remCycles);
-            var remCyclesPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitRemCycles.json");
-            using (StreamWriter streamWriter = File.CreateText(remCyclesPath))
-                await streamWriter.WriteAsync(remCyclesString);
+            // save averages
+            string avgsString = JsonConvert.SerializeObject(this.avgs);
+            var avgsPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitAvgs.json");
+            using (StreamWriter streamWriter = File.CreateText(avgsPath))
+                await streamWriter.WriteAsync(avgsString);
 
-            // save deep cycles
-            string deepCyclesString = JsonConvert.SerializeObject(this.deepCycles);
-            var deepCyclesPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitDeepCycles.json");
-            using (StreamWriter streamWriter = File.CreateText(deepCyclesPath))
-                await streamWriter.WriteAsync(deepCyclesString);
-
-            // save light cycles
-            string lightCyclesString = JsonConvert.SerializeObject(this.lightCycles);
-            var lightCyclesPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitLightCycles.json");
-            using (StreamWriter streamWriter = File.CreateText(lightCyclesPath))
-                await streamWriter.WriteAsync(lightCyclesString);
-
-            // save wake cycles
-            string wakeCyclesString = JsonConvert.SerializeObject(this.wakeCycles);
-            var wakeCyclesPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitWakeCycles.json");
-            using (StreamWriter streamWriter = File.CreateText(wakeCyclesPath))
-                await streamWriter.WriteAsync(wakeCyclesString);
+            // save counts
+            string countsString = JsonConvert.SerializeObject(this.avgs);
+            var countsPath = Path.Combine(FileSystem.AppDataDirectory, "FitbitCounts.json");
+            using (StreamWriter streamWriter = File.CreateText(countsPath))
+                await streamWriter.WriteAsync(countsString);
 
             //TODO: add code to save other state as it is added.
         }
@@ -376,10 +246,8 @@ namespace DataMonitorLib
         {
             SecureStorage.SetAsync("fitbit_tok", null);
             File.Delete(Path.Combine(FileSystem.AppDataDirectory, "FitbitVals.json"));
-            File.Delete(Path.Combine(FileSystem.AppDataDirectory, "FitbitRemCycles.json"));
-            File.Delete(Path.Combine(FileSystem.AppDataDirectory, "FitbitDeepCycles.json"));
-            File.Delete(Path.Combine(FileSystem.AppDataDirectory, "FitbitLightCycles.json"));
-            File.Delete(Path.Combine(FileSystem.AppDataDirectory, "FitbitWakeCycles.json"));
+            File.Delete(Path.Combine(FileSystem.AppDataDirectory, "FitbitAvgs.json"));
+            File.Delete(Path.Combine(FileSystem.AppDataDirectory, "FitbitCounts.json"));
         }
 
         /// <summary>

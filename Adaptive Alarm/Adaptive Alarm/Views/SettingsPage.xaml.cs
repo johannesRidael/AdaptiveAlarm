@@ -103,5 +103,17 @@ namespace Adaptive_Alarm.Views
             typePicker.SelectedItem = Application.Current.Properties["CurrentDeviceType"];
             datasetStartLabel.Text = $"Current working dataset began: {((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).ToString("d")}";
         }
+
+        private void ClearButtonClicked(object sender, EventArgs e)
+        {
+            DataMonitor dm = (DataMonitor)Application.Current.Properties["dataMonitor"];
+            dm.ClearState();
+
+            Application.Current.Properties["CurrentDataSetStartDate"] = DateTime.Now;
+            datasetStartLabel.Text = $"Current working dataset began: {((DateTime)Application.Current.Properties["CurrentDataSetStartDate"]).ToString("d")}";
+
+            // create a new DataMonitor of the currently selected type
+            ChangeDeviceButtonClicked(sender, e);
+        }
     }
 }
